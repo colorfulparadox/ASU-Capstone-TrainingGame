@@ -1,6 +1,11 @@
 ###
 # Unity folders and files
 ###
+
+Game/Logs/*
+Game/.vscode/*
+*.swp
+
 [Aa]ssets/AssetStoreTools*
 [Bb]uild/
 [Ll]ibrary/

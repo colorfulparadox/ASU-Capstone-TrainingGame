@@ -270,11 +270,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _textMeshPro: {fileID: 239651012}
   stringArray:
-  - test
-  - asdfasdf
-  - aaaaaaaaaaaaah
-  timeBtwnChars: 0.05
-  timeBtwnWords: 0.5
+  - "I\u2019m having the filet mignon. Do you have a wine you\u2019d recommend to
+    go with it?"
+  - "Certainly, I\u2019d suggest our Cabernet Sauvignon; it pairs wonderfully with
+    the filet."
+  - Sounds perfect. And for the dessert later, maybe something lighter?
+  - Absolutely. Our late-harvest Riesling would be a great choice to balance out
+    a sweet dessert.
+  timeBtwnChars: 0.03
+  timeBtwnWords: 0.2
 --- !u!1 &461570557
 GameObject:
   m_ObjectHideFlags: 0
@@ -506,7 +510,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -681.42, y: -322}
+  m_AnchoredPosition: {x: -437, y: -177}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1146416327

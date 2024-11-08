@@ -1,10 +1,7 @@
 using UnityEngine;
 
-public class TableController : MonoBehaviour
+public class CustomerController : MonoBehaviour
 {
-
-    public GameObject Customer;
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {

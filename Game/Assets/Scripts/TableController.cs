@@ -8,6 +8,8 @@ public class TableController : MonoBehaviour
 
     Transform tableTransform;
 
+    int timer = 0;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -30,5 +32,21 @@ public class TableController : MonoBehaviour
             throw new System.Exception("Customer object does not have a customer controller!");
         }
         this.customer = cust;
+
+        Transform custTransfrom = customer.GetComponent<Transform>();
+        var tabPos = tableTransform.position;
+        custTransfrom.position = tabPos + new Vector3 (0, 45f, 0);
     }
+
+
+    public void ClearCustomer()
+    {
+
+    }
+
+    public void QueryCustomer()
+    {
+
+    }
+
 }

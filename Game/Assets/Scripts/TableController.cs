@@ -30,7 +30,7 @@ public class TableController : MonoBehaviour
         if (cust != null)
         {
             throw new System.Exception("Customer object does not have a customer controller!");
-        }
+        } 
         this.customer = cust;
 
         Transform custTransfrom = customer.GetComponent<Transform>();

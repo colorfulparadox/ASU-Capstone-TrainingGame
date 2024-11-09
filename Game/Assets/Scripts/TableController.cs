@@ -10,10 +10,26 @@ public class TableController : MonoBehaviour
 
     int timer = 0;
 
+
+
+    Camera RestaurantCamera;
+    Camera TableCamera;
+
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         tableTransform = this.GetComponent<Transform>();
+
+        RestaurantCamera = GameObject.Find("RestaurantCamera").GetComponent<Camera>();
+        TableCamera = GameObject.Find("TableCamera").GetComponent<Camera>();
+
+        if (RestaurantCamera == null || TableCamera == null)
+        {
+            throw new System.Exception("Restaurant or Table camera's not found!");
+        }
+
+
     }
 
     // Update is called once per frame
@@ -47,6 +63,14 @@ public class TableController : MonoBehaviour
     public void QueryCustomer()
     {
 
+    }
+
+    public void TableClick()
+    {
+        Debug.Log("Table clicked!");
+
+        RestaurantCamera.enabled = false;
+        TableCamera.enabled = true;
     }
 
 }

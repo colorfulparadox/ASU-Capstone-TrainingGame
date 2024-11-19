@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
@@ -12,7 +14,7 @@ public class AI_Handler : MonoBehaviour
     private static string url;
     private static string auth_token;
 
-    private string[] conversations;
+    public List<string> conversations = new List<string>();
     private int conversations_num = 0;
 
     private void Awake()
@@ -33,7 +35,7 @@ public class AI_Handler : MonoBehaviour
         return instance;
     }
 
-    public string ConversationRequest(string url, string json)
+    public Conversation_Response ConversationRequest(string url, string json)
     {
         UnityWebRequest request = new UnityWebRequest(url, "POST");
         byte[] bodyRaw = Encoding.UTF8.GetBytes(json);
@@ -45,16 +47,17 @@ public class AI_Handler : MonoBehaviour
         {
             Conversation_Response conversation_response = JsonUtility.FromJson<Conversation_Response>(request.downloadHandler.text);
 
-            return conversation_response.message;
+            return conversation_response;
         }
         else
         {
             Debug.LogError("Error: " + request.error);
 
-            return "";
+            return null;
         }
     }
-
+    
+    // TODO: check that the conversation is properly created before adding it to the list
     public string StartConversation(string conversation_id, string message)
     {
         Conversation_Request conversation_request = new Conversation_Request();
@@ -62,7 +65,8 @@ public class AI_Handler : MonoBehaviour
         conversation_request.conversation_id = conversation_id;
         conversation_request.message = message;
 
-        // return ConversationRequest(url + "/start_conversation", JsonUtility.ToJson(conversation_request));
+        // return ConversationRequest(url + "/start_conversation", JsonUtility.ToJson(conversation_request)).message;
+        conversations.Add(conversation_id);
         return "Start Response";
     }
 
@@ -73,7 +77,7 @@ public class AI_Handler : MonoBehaviour
         conversation_request.conversation_id = conversation_id;
         conversation_request.message = message;
 
-        // return ConversationRequest(url + "/continue_conversation", JsonUtility.ToJson(conversation_request));
+        // return ConversationRequest(url + "/continue_conversation", JsonUtility.ToJson(conversation_request)).message;
         return "Continue Response";
     }
 
@@ -83,7 +87,13 @@ public class AI_Handler : MonoBehaviour
         conversation_request.auth_token = auth_token;
         conversation_request.conversation_id = conversation_id;
 
-        // return ConversationRequest(url + "/delete_conversation", JsonUtility.ToJson(conversation_request));
+        if (ConversationRequest(url + "/delete_conversation", JsonUtility.ToJson(conversation_request)) == null)
+        {
+            Debug.LogError("Conversation does not exist or was not deleted correctly");
+        } else
+        {
+            conversations.Remove(conversation_id);
+        }
         Debug.Log("End Response");
     }
 
@@ -104,6 +114,13 @@ public class AI_Handler : MonoBehaviour
         Conversation_Request conversation_request = new Conversation_Request();
         conversation_request.auth_token = auth_token;
 
-        ConversationRequest(url + "/delete_all_conversations", JsonUtility.ToJson(conversation_request));
+        if (conversations.Count > 0)
+        {
+            Debug.LogWarning("Not all conversations were ended properly, this will try to be handled by a garbage collector but there is no guarantee of proper cleanup of everything");
+        }
+
+        //ConversationRequest(url + "/delete_all_conversations", JsonUtility.ToJson(conversation_request));
+
+        
     }
 }

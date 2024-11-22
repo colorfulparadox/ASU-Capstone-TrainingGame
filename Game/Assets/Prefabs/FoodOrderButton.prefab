@@ -284,6 +284,7 @@ GameObject:
   - component: {fileID: 3365665935736450100}
   - component: {fileID: 6857616728211895286}
   - component: {fileID: 4976595737438632558}
+  - component: {fileID: 8722126520639403164}
   m_Layer: 5
   m_Name: FoodOrderButton
   m_TagString: Untagged
@@ -395,6 +396,24 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &8722126520639403164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5440990997702169897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a89dd97a4eac5a6499b544d810ca0541, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  titleText: {fileID: 381311701282796288}
+  costText: {fileID: 6062531057153751028}
+  timeText: {fileID: 5070279005066589146}
+  name: 
+  price: 0
+  timeToMake: 0
 --- !u!1 &6062531057153751028
 GameObject:
   m_ObjectHideFlags: 0

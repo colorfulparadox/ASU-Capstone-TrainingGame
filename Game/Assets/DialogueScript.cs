@@ -35,6 +35,7 @@ public class DialogueScript : MonoBehaviour
         AI_Handler aiHandler = AI_Handler.GetInstance();
         aiHandler.StartConversation("conversation_id_1", response);
         dialogueText.text = aiHandler.conversations[0];
+        aiHandler.EndConversation("conversation_id_1", response);
     }
 
 

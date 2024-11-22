@@ -30,6 +30,6 @@ public class OrderButtonController : MonoBehaviour
     {
         GameObject order = Instantiate(orderText);
         order.GetComponent<TextMeshProUGUI>().SetText(name);
-        order.transform.SetParent(orderList.transform, false);
+        order.transform.SetParent(PlaceOrderManager.OrderList.transform, false);
     }
 }

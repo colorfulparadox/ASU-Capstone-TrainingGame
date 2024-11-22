@@ -12,7 +12,8 @@ public class OrderButtonController : MonoBehaviour
     public float timeToMake;
 
 
-    public GameObject orderList;
+    public GameObject orderText;
+
 
     public void setContent(string title, float cost, float timeToMake)
     {
@@ -27,6 +28,8 @@ public class OrderButtonController : MonoBehaviour
 
     public void onClick()
     {
-
+        GameObject order = Instantiate(orderText);
+        order.GetComponent<TextMeshProUGUI>().SetText(name);
+        order.transform.SetParent(orderList.transform, false);
     }
 }

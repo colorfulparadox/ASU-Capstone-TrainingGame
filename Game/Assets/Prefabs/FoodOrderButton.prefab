@@ -427,6 +427,7 @@ MonoBehaviour:
   price: 0
   timeToMake: 0
   orderList: {fileID: 0}
+  orderText: {fileID: 6886564139856638306, guid: b49d5e75cb969034f8539f3c8e01bb23, type: 3}
 --- !u!1 &6062531057153751028
 GameObject:
   m_ObjectHideFlags: 0

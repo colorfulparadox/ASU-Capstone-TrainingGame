@@ -2,10 +2,10 @@ using UnityEngine;
 using TMPro;
 public class DialogueScript : MonoBehaviour
 {
-    public TMP_Text dialogueText;         // Reference to the dialogue text
-    public TMP_InputField playerInput;   // Reference to the input field
-    public GameObject submitButton;      // Reference to the submit button
-
+    public TMP_Text dialogueText; 
+    public TMP_InputField playerInput;  
+    public GameObject submitButton;      
+    public GameObject leaveButton; 
     private string currentDialogue; 
 
 
@@ -30,12 +30,21 @@ public class DialogueScript : MonoBehaviour
         ProcessResponse(playerResponse);
     }
 
-        private void ProcessResponse(string response)
+    private void ProcessResponse(string response)
     {
         AI_Handler aiHandler = AI_Handler.GetInstance();
-        aiHandler.StartConversation("conversation_id_1", response);
-        dialogueText.text = aiHandler.conversations[0];
-        aiHandler.EndConversation("conversation_id_1", response);
+        string conversationId = "conversation_id_1";
+
+        if (aiHandler.conversations.Contains(conversationId))
+        {
+            dialogueText.text = aiHandler.ContinueConversation(conversationId, response);
+        } else if (response == "end") {
+            aiHandler.EndConversation("conversation_id_1", response);
+        }
+        else
+        {
+            dialogueText.text = aiHandler.StartConversation(conversationId, response);
+        }
     }
 
 

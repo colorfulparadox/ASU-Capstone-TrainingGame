@@ -17,6 +17,7 @@ public class API_Manager : MonoBehaviour
     [Header("Handlers")]
     public GameObject ai_handler;
     public GameObject user_handler;
+    public GameObject data_handler;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -25,6 +26,7 @@ public class API_Manager : MonoBehaviour
         {
             ai_handler.SetActive(true);
             user_handler.SetActive(true);
+            data_handler.SetActive(true);
         }
     }
 

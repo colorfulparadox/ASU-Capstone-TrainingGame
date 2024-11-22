@@ -35,7 +35,7 @@ public class AI_Handler : MonoBehaviour
         return instance;
     }
 
-    public Conversation_Response ConversationRequest(string url, string json)
+    private Conversation_Response ConversationRequest(string url, string json)
     {
         UnityWebRequest request = new UnityWebRequest(url, "POST");
         byte[] bodyRaw = Encoding.UTF8.GetBytes(json);
@@ -95,18 +95,6 @@ public class AI_Handler : MonoBehaviour
             conversations.Remove(conversation_id);
         }
         Debug.Log("End Response");
-    }
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OnApplicationQuit()

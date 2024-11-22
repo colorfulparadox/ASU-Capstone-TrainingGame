@@ -12,6 +12,8 @@ public class OrderButtonController : MonoBehaviour
     public float timeToMake;
 
 
+    public GameObject orderList;
+
     public void setContent(string title, float cost, float timeToMake)
     {
         name = title;
@@ -23,4 +25,8 @@ public class OrderButtonController : MonoBehaviour
         this.timeText.GetComponent<TextMeshProUGUI>().SetText(string.Format($"Time: {timeToMake}"));
     }
 
+    public void onClick()
+    {
+
+    }
 }

@@ -1,6 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddkpy08cnq2ct"]
+[gd_scene load_steps=3 format=3 uid="uid://bdawfge7iygiv"]
 
-[ext_resource type="Texture2D" uid="uid://or5wbmpfnah1" path="res://icon.svg" id="1_oacdo"]
+[ext_resource type="Texture2D" uid="uid://buqb6w7gin2nj" path="res://assets/Steak.png" id="1_cljaq"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_shklf"]
 font_size = 6
@@ -20,7 +20,7 @@ offset_left = 1.0
 offset_top = 1.0
 offset_right = 13.0
 offset_bottom = 12.0
-texture = ExtResource("1_oacdo")
+texture = ExtResource("1_cljaq")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="Button/TextureRect"]
@@ -28,6 +28,6 @@ layout_mode = 2
 offset_left = 14.0
 offset_right = 89.0
 offset_bottom = 12.0
-text = "ITEM_ELEMENT"
+text = "Steak"
 label_settings = SubResource("LabelSettings_shklf")
 uppercase = true

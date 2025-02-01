@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://dib3lc5a1m1by"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jqsru"]
+bg_color = Color(0.230881, 0.211313, 0.316629, 1)
+
+[sub_resource type="Theme" id="Theme_acsyf"]
+Button/styles/normal = SubResource("StyleBoxFlat_jqsru")
+
+[node name="KitchenUI" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_acsyf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = -337.0
+offset_top = -248.0
+offset_right = 360.0
+offset_bottom = 267.0
+color = Color(0, 0, 0, 0.568627)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = -321.0
+offset_top = -225.0
+offset_right = -17.0
+offset_bottom = 251.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 133.0
+offset_top = 166.0
+offset_right = 331.0
+offset_bottom = 240.0
+text = "Order"

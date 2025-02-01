@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cs2em0fglnxy1"]
 
-[ext_resource type="Script" path="res://assets/orderMenuController.gd" id="1_nwpj3"]
+[ext_resource type="Script" path="res://scripts/order_controller.gd" id="1_n3obe"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jqsru"]
 bg_color = Color(0.230881, 0.211313, 0.316629, 1)
@@ -24,7 +24,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_acsyf")
-script = ExtResource("1_nwpj3")
+script = ExtResource("1_n3obe")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0

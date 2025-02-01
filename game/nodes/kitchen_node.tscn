@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cs2em0fglnxy1"]
 
-[ext_resource type="PackedScene" uid="uid://bdawfge7iygiv" path="res://nodes/item_element.tscn" id="1_vjgwi"]
+[ext_resource type="Script" path="res://assets/orderMenuController.gd" id="1_nwpj3"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jqsru"]
 bg_color = Color(0.230881, 0.211313, 0.316629, 1)
@@ -24,6 +24,7 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_acsyf")
+script = ExtResource("1_nwpj3")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
@@ -67,9 +68,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_7bipw")
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/OrderList/ScrollContainer"]
 layout_mode = 2
 
-[node name="item_element" parent="ColorRect/OrderList/ScrollContainer/VBoxContainer" instance=ExtResource("1_vjgwi")]
-layout_mode = 2
-
 [node name="Menu" type="ColorRect" parent="ColorRect"]
 layout_mode = 0
 offset_left = 19.0
@@ -88,7 +86,4 @@ offset_bottom = 72.1518
 theme_override_styles/panel = SubResource("StyleBoxFlat_gw2ie")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/Menu/ScrollContainer"]
-layout_mode = 2
-
-[node name="item_element" parent="ColorRect/Menu/ScrollContainer/VBoxContainer" instance=ExtResource("1_vjgwi")]
 layout_mode = 2

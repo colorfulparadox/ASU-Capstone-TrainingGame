@@ -1,12 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://dib3lc5a1m1by"]
+[gd_scene load_steps=6 format=3 uid="uid://cs2em0fglnxy1"]
 
-[ext_resource type="PackedScene" uid="uid://ddkpy08cnq2ct" path="res://nodes/item_element.tscn" id="1_vjgwi"]
+[ext_resource type="PackedScene" uid="uid://bdawfge7iygiv" path="res://nodes/item_element.tscn" id="1_vjgwi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jqsru"]
 bg_color = Color(0.230881, 0.211313, 0.316629, 1)
 
 [sub_resource type="Theme" id="Theme_acsyf"]
 Button/styles/normal = SubResource("StyleBoxFlat_jqsru")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7bipw"]
+bg_color = Color(0.808067, 0.742166, 0.676653, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gw2ie"]
+bg_color = Color(0.807843, 0.741176, 0.678431, 1)
 
 [node name="kitchen_node" type="Control"]
 layout_mode = 3
@@ -48,14 +54,15 @@ layout_mode = 0
 offset_left = 531.0
 offset_top = 22.0
 offset_right = 622.0
-offset_bottom = 95.0
+offset_bottom = 94.0
 scale = Vector2(5.42851, 6.586)
 color = Color(0, 0, 0, 0.466667)
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/OrderList"]
 layout_mode = 0
-offset_right = 96.0
-offset_bottom = 73.0
+offset_right = 91.0
+offset_bottom = 72.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_7bipw")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/OrderList/ScrollContainer"]
 layout_mode = 2
@@ -64,17 +71,21 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="Menu" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
 offset_left = 19.0
 offset_top = 21.0
 offset_right = 110.0
-offset_bottom = 94.0
+offset_bottom = 93.0
 scale = Vector2(5.42851, 6.586)
 color = Color(0, 0, 0, 0.466667)
 
 [node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/Menu"]
 layout_mode = 0
-offset_right = 96.0
-offset_bottom = 73.0
+offset_left = -1.28949
+offset_top = 0.151837
+offset_right = 90.7105
+offset_bottom = 72.1518
+theme_override_styles/panel = SubResource("StyleBoxFlat_gw2ie")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/Menu/ScrollContainer"]
 layout_mode = 2

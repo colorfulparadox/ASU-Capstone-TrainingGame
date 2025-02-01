@@ -21,51 +21,63 @@ theme = SubResource("Theme_acsyf")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = -428.0
-offset_top = -298.0
-offset_right = 408.0
-offset_bottom = 290.0
+offset_left = -495.0
+offset_top = -275.0
+offset_right = 552.0
+offset_bottom = 313.0
 color = Color(0, 0, 0, 0.568627)
 
-[node name="Button" type="Button" parent="ColorRect"]
+[node name="OrderButton" type="Button" parent="ColorRect"]
 layout_mode = 0
-offset_left = 625.0
-offset_top = 522.0
-offset_right = 814.0
-offset_bottom = 571.0
+offset_left = 834.0
+offset_top = 514.0
+offset_right = 1023.0
+offset_bottom = 563.0
 text = "Order"
 
-[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+[node name="ExitButton" type="Button" parent="ColorRect"]
 layout_mode = 0
-offset_left = 452.0
+offset_left = 909.0
+offset_top = -35.0
+offset_right = 1045.0
+offset_bottom = -9.0
+text = "Exit"
+
+[node name="OrderList" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 531.0
 offset_top = 22.0
-offset_right = 519.0
+offset_right = 622.0
 offset_bottom = 95.0
 scale = Vector2(5.42851, 6.586)
 color = Color(0, 0, 0, 0.466667)
 
-[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/ColorRect"]
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/OrderList"]
 layout_mode = 0
-offset_right = 69.0
+offset_right = 96.0
 offset_bottom = 73.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/ColorRect/ScrollContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/OrderList/ScrollContainer"]
 layout_mode = 2
 
-[node name="item_element" parent="ColorRect/ColorRect/ScrollContainer/VBoxContainer" instance=ExtResource("1_vjgwi")]
+[node name="item_element" parent="ColorRect/OrderList/ScrollContainer/VBoxContainer" instance=ExtResource("1_vjgwi")]
 layout_mode = 2
 
-[node name="item_element2" parent="ColorRect/ColorRect/ScrollContainer/VBoxContainer" instance=ExtResource("1_vjgwi")]
+[node name="Menu" type="ColorRect" parent="ColorRect"]
+offset_left = 19.0
+offset_top = 21.0
+offset_right = 110.0
+offset_bottom = 94.0
+scale = Vector2(5.42851, 6.586)
+color = Color(0, 0, 0, 0.466667)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/Menu"]
+layout_mode = 0
+offset_right = 96.0
+offset_bottom = 73.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/Menu/ScrollContainer"]
 layout_mode = 2
 
-[node name="item_element3" parent="ColorRect/ColorRect/ScrollContainer/VBoxContainer" instance=ExtResource("1_vjgwi")]
-layout_mode = 2
-
-[node name="item_element4" parent="ColorRect/ColorRect/ScrollContainer/VBoxContainer" instance=ExtResource("1_vjgwi")]
-layout_mode = 2
-
-[node name="item_element5" parent="ColorRect/ColorRect/ScrollContainer/VBoxContainer" instance=ExtResource("1_vjgwi")]
-layout_mode = 2
-
-[node name="item_element6" parent="ColorRect/ColorRect/ScrollContainer/VBoxContainer" instance=ExtResource("1_vjgwi")]
+[node name="item_element" parent="ColorRect/Menu/ScrollContainer/VBoxContainer" instance=ExtResource("1_vjgwi")]
 layout_mode = 2

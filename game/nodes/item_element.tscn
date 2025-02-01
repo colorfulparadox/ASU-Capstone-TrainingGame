@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddkpy08cnq2ct"]
+
+[ext_resource type="Texture2D" uid="uid://or5wbmpfnah1" path="res://icon.svg" id="1_oacdo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_shklf"]
+font_size = 6
+
+[node name="item_element" type="MarginContainer"]
+offset_right = 124.0
+offset_bottom = 24.0
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Button"]
+layout_mode = 2
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 13.0
+offset_bottom = 12.0
+texture = ExtResource("1_oacdo")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Button/TextureRect"]
+layout_mode = 2
+offset_left = 14.0
+offset_right = 89.0
+offset_bottom = 12.0
+text = "ITEM_ELEMENT"
+label_settings = SubResource("LabelSettings_shklf")
+uppercase = true

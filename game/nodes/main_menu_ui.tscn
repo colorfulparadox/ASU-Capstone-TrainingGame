@@ -1,7 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://bj5fa3knywh8w"]
+[gd_scene load_steps=14 format=3 uid="uid://b26mojnp1l1k5"]
 
 [ext_resource type="Texture2D" uid="uid://w53vngn33f88" path="res://assets/Bourbon Steak.jpg" id="1_3xinh"]
-[ext_resource type="Script" path="res://nodes/main_menu_ui.gd" id="1_7qa0s"]
+[ext_resource type="Script" path="res://scripts/main_menu_ui.gd" id="1_7qa0s"]
 [ext_resource type="FontFile" uid="uid://cmd74ttnngj2g" path="res://assets/CHICKEN Pie.ttf" id="2_saa0l"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yfywe"]

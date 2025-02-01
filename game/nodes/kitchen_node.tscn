@@ -1,4 +1,6 @@
-[gd_scene load_steps=3 format=3 uid="uid://cs2em0fglnxy1"]
+[gd_scene load_steps=4 format=3 uid="uid://dib3lc5a1m1by"]
+
+[ext_resource type="PackedScene" uid="uid://ddkpy08cnq2ct" path="res://nodes/item_element.tscn" id="1_vjgwi"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jqsru"]
 bg_color = Color(0.230881, 0.211313, 0.316629, 1)
@@ -6,7 +8,7 @@ bg_color = Color(0.230881, 0.211313, 0.316629, 1)
 [sub_resource type="Theme" id="Theme_acsyf"]
 Button/styles/normal = SubResource("StyleBoxFlat_jqsru")
 
-[node name="KitchenUI" type="Control"]
+[node name="kitchen_node" type="Control"]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -19,28 +21,51 @@ theme = SubResource("Theme_acsyf")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 0
-offset_left = -337.0
-offset_top = -248.0
-offset_right = 360.0
-offset_bottom = 267.0
+offset_left = -428.0
+offset_top = -298.0
+offset_right = 408.0
+offset_bottom = 290.0
 color = Color(0, 0, 0, 0.568627)
 
-[node name="ScrollContainer" type="ScrollContainer" parent="."]
+[node name="Button" type="Button" parent="ColorRect"]
 layout_mode = 0
-offset_left = -321.0
-offset_top = -225.0
-offset_right = -17.0
-offset_bottom = 251.0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_left = 133.0
-offset_top = 166.0
-offset_right = 331.0
-offset_bottom = 240.0
+offset_left = 625.0
+offset_top = 522.0
+offset_right = 814.0
+offset_bottom = 571.0
 text = "Order"
+
+[node name="ColorRect" type="ColorRect" parent="ColorRect"]
+layout_mode = 0
+offset_left = 452.0
+offset_top = 22.0
+offset_right = 519.0
+offset_bottom = 95.0
+scale = Vector2(5.42851, 6.586)
+color = Color(0, 0, 0, 0.466667)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="ColorRect/ColorRect"]
+layout_mode = 0
+offset_right = 69.0
+offset_bottom = 73.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect/ColorRect/ScrollContainer"]
+layout_mode = 2
+
+[node name="item_element" parent="ColorRect/ColorRect/ScrollContainer/VBoxContainer" instance=ExtResource("1_vjgwi")]
+layout_mode = 2
+
+[node name="item_element2" parent="ColorRect/ColorRect/ScrollContainer/VBoxContainer" instance=ExtResource("1_vjgwi")]
+layout_mode = 2
+
+[node name="item_element3" parent="ColorRect/ColorRect/ScrollContainer/VBoxContainer" instance=ExtResource("1_vjgwi")]
+layout_mode = 2
+
+[node name="item_element4" parent="ColorRect/ColorRect/ScrollContainer/VBoxContainer" instance=ExtResource("1_vjgwi")]
+layout_mode = 2
+
+[node name="item_element5" parent="ColorRect/ColorRect/ScrollContainer/VBoxContainer" instance=ExtResource("1_vjgwi")]
+layout_mode = 2
+
+[node name="item_element6" parent="ColorRect/ColorRect/ScrollContainer/VBoxContainer" instance=ExtResource("1_vjgwi")]
+layout_mode = 2

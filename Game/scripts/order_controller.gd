@@ -6,9 +6,9 @@ var itemElement = preload('res://nodes/item_element.tscn')
 signal placeOrderSignal(list)
 
 @onready
-var orderList = $ColorRect/OrderList/ScrollContainer
+var orderList = $ColorRect/OrderList/ScrollContainer/VBoxContainer
 @onready
-var menuList = $ColorRect/Menu/ScrollContainer
+var menuList = $ColorRect/Menu/ScrollContainer/VBoxContainer
 
 # {"name": "value", "price": 0, "time": 0}
 # time is in seconds 

@@ -1,8 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://ddkpy08cnq2ct"]
+[gd_scene load_steps=5 format=3 uid="uid://ddkpy08cnq2ct"]
 
 [ext_resource type="Texture2D" uid="uid://buqb6w7gin2nj" path="res://assets/Steak.png" id="1_cljaq"]
-[ext_resource type="FontFile" uid="uid://cmd74ttnngj2g" path="res://assets/CHICKEN Pie.ttf" id="2_x4gb8"]
 [ext_resource type="Script" path="res://scripts/item_order.gd" id="1_rdfhd"]
+[ext_resource type="FontFile" uid="uid://cmd74ttnngj2g" path="res://assets/CHICKEN Pie.ttf" id="2_x4gb8"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_shklf"]
 font = ExtResource("2_x4gb8")

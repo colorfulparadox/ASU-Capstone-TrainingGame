@@ -11,8 +11,26 @@ config_version=5
 [application]
 
 config/name="Game"
+run/main_scene="res://nodes/restaurant_scene.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[global_group]
+
+customer=""
+customers=""
+door=""
+unoccupied_table=""
+
+[layer_names]
+
+2d_physics/layer_1="unoccupied_table"
+2d_physics/layer_2="occupied_table"
+2d_physics/layer_3="customer"
+2d_physics/layer_4="door"
+avoidance/layer_1="occupied_table"
+avoidance/layer_2="unoccupied_table"
+avoidance/layer_3="customer"
 
 [rendering]
 

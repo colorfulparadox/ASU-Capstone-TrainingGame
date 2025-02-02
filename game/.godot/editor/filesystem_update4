@@ -1,0 +1,5 @@
+res://game.tscn
+res://assets/tileset/restaurant_tileset.tres
+res://nodes/restaurant_scene.tscn
+res://nodes/customer.tscn
+res://nodes/table.tscn

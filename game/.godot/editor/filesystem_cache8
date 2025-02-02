@@ -1,0 +1,30 @@
+ea4bc82a6ad023ab7ee23ee620429895
+::res://::1738524042
+game.tscn::PackedScene::3987652515145417762::1738524015::0::1::::<><>::
+icon.svg::CompressedTexture2D::1019599101750098592::1738438624::1738438683::1::::<><>::
+::res://assets/::1738523973
+Bourbon Steak.jpg::CompressedTexture2D::1607824162829533271::1738523814::1738523973::1::::<><>::
+CHICKEN Pie.ttf::FontFile::5623296383999755552::1738523814::1738523973::1::::<><>::
+customer.png::CompressedTexture2D::2406523906870592601::1738441139::1738450862::1::::<><>::
+occupied_table.png::CompressedTexture2D::363338330192769299::1738441113::1738450862::1::::<><>::
+Steak.png::CompressedTexture2D::3823344882353813719::1738523814::1738523973::1::::<><>::
+unoccupied_table.png::CompressedTexture2D::8441829286111442011::1738441126::1738450862::1::::<><>::
+::res://assets/tileset/::1738523456
+interior free.png::CompressedTexture2D::3673531615870644148::1639078786::1738445331::1::::<><>::
+restaurant_tileset.tres::TileSet::8746774605572362870::1738454683::0::1::::<><>::uid://8ytb5vrdci3::::res://assets/tileset/32x32/Room_Builder_free_32x32.png
+::res://assets/tileset/32x32/::1738445692
+Interiors_free_32x32.png::CompressedTexture2D::6964989574088262818::1618788730::1738445692::1::::<><>::
+Room_Builder_free_32x32.png::CompressedTexture2D::69615703639025532::1618789144::1738445692::1::::<><>::
+::res://nodes/::1738524015
+customer.tscn::PackedScene::5558167608540023291::1738524015::0::1::::<><>::res://scripts/customer.gd<>uid://baj0dkklgsoj6::::res://assets/customer.png
+door.tscn::PackedScene::1221112954001039365::1738523373::0::1::::<><>::res://scripts/door.gd
+item_element.tscn::PackedScene::-1::1738523814::0::1::::<><>::
+kitchen_node.tscn::PackedScene::-1::1738523814::0::1::::<><>::
+main_menu_ui.tscn::PackedScene::-1::1738523814::0::1::::<><>::
+restaurant_scene.tscn::PackedScene::5041711942608815604::1738524015::0::1::::<><>::uid://dwvadnn410ls5::::res://assets/tileset/restaurant_tileset.tres<>uid://clgohc8c4el4f::::res://nodes/customer.tscn<>uid://ofjrpsuiri5w::::res://nodes/table.tscn<>uid://rnrs1bwyvhu0::::res://nodes/door.tscn
+table.tscn::PackedScene::993543327710842938::1738524015::0::1::::<><>::res://scripts/table.gd<>uid://dsjjxvnk4j5j0::::res://assets/unoccupied_table.png
+::res://nodes/restaurant_nodes/::1738440895
+::res://scripts/::1738490463
+customer.gd::GDScript::-1::1738490463::0::1::::<>CharacterBody2D<>::
+door.gd::GDScript::-1::1738455972::0::1::::<>Area2D<>::
+table.gd::GDScript::-1::1738456945::0::1::::<>Area2D<>::

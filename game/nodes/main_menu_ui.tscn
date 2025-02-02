@@ -1,0 +1,131 @@
+[gd_scene load_steps=14 format=3 uid="uid://b26mojnp1l1k5"]
+
+[ext_resource type="Texture2D" uid="uid://w53vngn33f88" path="res://assets/Bourbon Steak.jpg" id="1_3xinh"]
+[ext_resource type="Script" path="res://scripts/main_menu_ui.gd" id="1_7qa0s"]
+[ext_resource type="FontFile" uid="uid://cmd74ttnngj2g" path="res://assets/CHICKEN Pie.ttf" id="2_saa0l"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_yfywe"]
+texture = ExtResource("1_3xinh")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wopgm"]
+bg_color = Color(0.386805, 0.242696, 4.81308e-08, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85vf2"]
+bg_color = Color(0.26438, 0.160203, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lepon"]
+bg_color = Color(0.49688, 0.317879, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_elm4j"]
+bg_color = Color(0.388235, 0.243137, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rn64h"]
+bg_color = Color(0.262745, 0.160784, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c70cd"]
+bg_color = Color(0.498039, 0.317647, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_13q7i"]
+bg_color = Color(0.388235, 0.243137, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nh1ik"]
+bg_color = Color(0.262745, 0.160784, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bugh"]
+bg_color = Color(0.498039, 0.317647, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[node name="MainMenuUi" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7qa0s")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_yfywe")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -62.5
+offset_right = 105.0
+offset_bottom = 62.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_saa0l")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_wopgm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_85vf2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lepon")
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_saa0l")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_elm4j")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rn64h")
+theme_override_styles/normal = SubResource("StyleBoxFlat_c70cd")
+text = "Options"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_saa0l")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_13q7i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nh1ik")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1bugh")
+text = "Quit"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -210.0
+offset_right = 210.0
+offset_bottom = 63.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("2_saa0l")
+theme_override_font_sizes/font_size = 50
+text = "Project Persona"
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

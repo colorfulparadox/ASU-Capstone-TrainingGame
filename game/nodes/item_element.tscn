@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddkpy08cnq2ct"]
+
+[ext_resource type="Texture2D" uid="uid://buqb6w7gin2nj" path="res://assets/Steak.png" id="1_cljaq"]
+[ext_resource type="Script" path="res://scripts/item_order.gd" id="1_rdfhd"]
+[ext_resource type="FontFile" uid="uid://cmd74ttnngj2g" path="res://assets/CHICKEN Pie.ttf" id="2_x4gb8"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_shklf"]
+font = ExtResource("2_x4gb8")
+font_size = 8
+
+[node name="item_element" type="MarginContainer"]
+offset_right = 124.0
+offset_bottom = 24.0
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+script = ExtResource("1_rdfhd")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Button"]
+layout_mode = 2
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 13.0
+offset_bottom = 12.0
+texture = ExtResource("1_cljaq")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="Button/TextureRect"]
+layout_mode = 2
+offset_left = 14.0
+offset_right = 89.0
+offset_bottom = 12.0
+theme_override_font_sizes/font_size = 6
+text = "Steak"
+label_settings = SubResource("LabelSettings_shklf")
+uppercase = true
+
+[connection signal="buttonClicked" from="." to="." method="_on_button_clicked"]
+[connection signal="button_down" from="Button" to="." method="_on_button_button_down"]

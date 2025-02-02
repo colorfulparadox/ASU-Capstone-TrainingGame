@@ -1,0 +1,45 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Game"
+run/main_scene="res://nodes/main_menu_ui.tscn"
+config/features=PackedStringArray("4.3", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1440
+window/size/initial_position_type=3
+window/stretch/mode="viewport"
+
+[global_group]
+
+customer=""
+customers=""
+door=""
+unoccupied_table=""
+
+[layer_names]
+
+2d_physics/layer_1="unoccupied_table"
+2d_physics/layer_2="occupied_table"
+2d_physics/layer_3="customer"
+2d_physics/layer_4="door"
+avoidance/layer_1="occupied_table"
+avoidance/layer_2="unoccupied_table"
+avoidance/layer_3="customer"
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"

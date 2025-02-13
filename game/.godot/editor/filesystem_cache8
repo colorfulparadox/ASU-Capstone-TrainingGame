@@ -1,30 +1,44 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1738524042
-game.tscn::PackedScene::3987652515145417762::1738524015::0::1::::<><>::
-icon.svg::CompressedTexture2D::1019599101750098592::1738438624::1738438683::1::::<><>::
-::res://assets/::1738523973
-Bourbon Steak.jpg::CompressedTexture2D::1607824162829533271::1738523814::1738523973::1::::<><>::
-CHICKEN Pie.ttf::FontFile::5623296383999755552::1738523814::1738523973::1::::<><>::
-customer.png::CompressedTexture2D::2406523906870592601::1738441139::1738450862::1::::<><>::
-occupied_table.png::CompressedTexture2D::363338330192769299::1738441113::1738450862::1::::<><>::
-Steak.png::CompressedTexture2D::3823344882353813719::1738523814::1738523973::1::::<><>::
-unoccupied_table.png::CompressedTexture2D::8441829286111442011::1738441126::1738450862::1::::<><>::
-::res://assets/tileset/::1738523456
-interior free.png::CompressedTexture2D::3673531615870644148::1639078786::1738445331::1::::<><>::
-restaurant_tileset.tres::TileSet::8746774605572362870::1738454683::0::1::::<><>::uid://8ytb5vrdci3::::res://assets/tileset/32x32/Room_Builder_free_32x32.png
-::res://assets/tileset/32x32/::1738445692
-Interiors_free_32x32.png::CompressedTexture2D::6964989574088262818::1618788730::1738445692::1::::<><>::
-Room_Builder_free_32x32.png::CompressedTexture2D::69615703639025532::1618789144::1738445692::1::::<><>::
-::res://nodes/::1738524015
-customer.tscn::PackedScene::5558167608540023291::1738524015::0::1::::<><>::res://scripts/customer.gd<>uid://baj0dkklgsoj6::::res://assets/customer.png
-door.tscn::PackedScene::1221112954001039365::1738523373::0::1::::<><>::res://scripts/door.gd
-item_element.tscn::PackedScene::-1::1738523814::0::1::::<><>::
-kitchen_node.tscn::PackedScene::-1::1738523814::0::1::::<><>::
-main_menu_ui.tscn::PackedScene::-1::1738523814::0::1::::<><>::
-restaurant_scene.tscn::PackedScene::5041711942608815604::1738524015::0::1::::<><>::uid://dwvadnn410ls5::::res://assets/tileset/restaurant_tileset.tres<>uid://clgohc8c4el4f::::res://nodes/customer.tscn<>uid://ofjrpsuiri5w::::res://nodes/table.tscn<>uid://rnrs1bwyvhu0::::res://nodes/door.tscn
-table.tscn::PackedScene::993543327710842938::1738524015::0::1::::<><>::res://scripts/table.gd<>uid://dsjjxvnk4j5j0::::res://assets/unoccupied_table.png
-::res://nodes/restaurant_nodes/::1738440895
-::res://scripts/::1738490463
-customer.gd::GDScript::-1::1738490463::0::1::::<>CharacterBody2D<>::
-door.gd::GDScript::-1::1738455972::0::1::::<>Area2D<>::
-table.gd::GDScript::-1::1738456945::0::1::::<>Area2D<>::
+::res://::1739463260
+game.tscn::PackedScene::3987652515145417762::1739382956::0::1::::<><>::
+icon.svg::CompressedTexture2D::1019599101750098592::1738526636::1739382092::1::::<><>::
+::res://assets/::1739382092
+Bourbon Steak.jpg::CompressedTexture2D::1607824162829533271::1738526636::1739382092::1::::<><>::
+CHICKEN Pie.ttf::FontFile::5623296383999755552::1738526636::1739382092::1::::<><>::
+customer.png::CompressedTexture2D::2406523906870592601::1738526636::1739382092::1::::<><>::
+occupied_table.png::CompressedTexture2D::363338330192769299::1738526636::1739382092::1::::<><>::
+Steak.png::CompressedTexture2D::3823344882353813719::1738526636::1739382092::1::::<><>::
+unoccupied_table.png::CompressedTexture2D::8441829286111442011::1738526636::1739382092::1::::<><>::
+::res://assets/Scripts/::1738526636
+::res://assets/Scripts/API Scripts/::1738526636
+::res://assets/Scripts/API Scripts/API_Objects/::1738526636
+::res://assets/tileset/::1739409719
+interior free.png::CompressedTexture2D::3673531615870644148::1738526636::1739382092::1::::<><>::
+restaurant_tileset.tres::TileSet::8746774605572362870::1739409719::0::1::::<><>::uid://8ytb5vrdci3::::res://assets/tileset/32x32/Room_Builder_free_32x32.png
+::res://assets/tileset/32x32/::1739382092
+Interiors_free_32x32.png::CompressedTexture2D::6964989574088262818::1738526636::1739382092::1::::<><>::
+Room_Builder_free_32x32.png::CompressedTexture2D::69615703639025532::1738526636::1739382092::1::::<><>::
+::res://nodes/::1739417061
+customer.tscn::PackedScene::5558167608540023291::1739415090::0::1::::<><>::res://scripts/customer.gd<>uid://baj0dkklgsoj6::::res://assets/customer.png
+door.tscn::PackedScene::1221112954001039365::1738526636::0::1::::<><>::res://scripts/door.gd
+item_element.tscn::PackedScene::7391427337650415251::1739397779::0::1::::<><>::uid://buqb6w7gin2nj::::res://assets/Steak.png<>res://scripts/item_order.gd<>uid://cmd74ttnngj2g::::res://assets/CHICKEN Pie.ttf
+kitchen_node.tscn::PackedScene::6092244370823949886::1739394938::0::1::::<><>::res://scripts/order_controller.gd
+main_menu_ui.tscn::PackedScene::4346269270833042162::1738527623::0::1::::<><>::uid://w53vngn33f88::::res://assets/Bourbon Steak.jpg<>res://scripts/main_menu_ui.gd<>uid://cmd74ttnngj2g::::res://assets/CHICKEN Pie.ttf
+options_scene.tscn::PackedScene::5086949345985313620::1739417061::0::1::::<><>::res://scripts/options_scene.gd<>uid://baj0dkklgsoj6::::res://assets/customer.png<>res://nodes/painitem.gd<>uid://bwl5tnsgoevh5::::res://nodes/draggable_food/draggable_food.tscn<>res://nodes/painslot.gd<>uid://cw3ow4vdfnq1v::::res://nodes/draggable_food/food_slot.tscn<>uid://fgaenmvfph5t::::res://assets/occupied_table.png
+painitem.gd::GDScript::-1::1739414976::0::1::::<>TextureRect<>::
+painslot.gd::GDScript::-1::1739414967::0::1::::<>TextureRect<>::
+restaurant_scene.tscn::PackedScene::5041711942608815604::1739416982::0::1::::<><>::uid://dwvadnn410ls5::::res://assets/tileset/restaurant_tileset.tres<>uid://clgohc8c4el4f::::res://nodes/customer.tscn<>uid://ofjrpsuiri5w::::res://nodes/table.tscn<>uid://rnrs1bwyvhu0::::res://nodes/door.tscn
+table.tscn::PackedScene::993543327710842938::1739382956::0::1::::<><>::res://scripts/table.gd<>uid://dsjjxvnk4j5j0::::res://assets/unoccupied_table.png
+::res://nodes/draggable_food/::1739416982
+draggable_food.gd::GDScript::-1::1739416981::0::1::::<>Control<>::
+draggable_food.tscn::PackedScene::3955139549793192352::1739416982::0::1::::<><>::res://nodes/draggable_food/draggable_food.gd<>uid://buqb6w7gin2nj::::res://assets/Steak.png
+food_slot.gd::GDScript::-1::1739416814::0::1::::<>Control<>::
+food_slot.tscn::PackedScene::6375689385662791713::1739416982::0::1::::<><>::res://nodes/draggable_food/food_slot.gd
+::res://scripts/::1739413985
+customer.gd::GDScript::-1::1738526636::0::1::::<>CharacterBody2D<>::
+door.gd::GDScript::-1::1738526636::0::1::::<>Area2D<>::
+item_order.gd::GDScript::-1::1738526636::0::1::::<>Node<>::
+main_menu_ui.gd::GDScript::-1::1738526636::0::1::::<>Control<>::
+options_scene.gd::GDScript::-1::1738526636::0::1::::<>Node<>::
+order_controller.gd::GDScript::-1::1738526636::0::1::::<>Node<>::
+table.gd::GDScript::-1::1738526636::0::1::::<>Area2D<>::

@@ -1,4 +1,6 @@
-res://nodes/options_scene.tscn
-res://assets/tileset/restaurant_tileset.tres
-res://nodes/drag_and_drop_demonstration.tscn
 res://nodes/restaurant_scene.tscn
+res://assets/tileset/restaurant_tileset.tres
+res://nodes/options_scene.tscn
+res://nodes/drag_and_drop_demonstration.tscn
+res://nodes/draggable_food/draggable_food.tscn
+res://nodes/draggable_food/food_slot.gd

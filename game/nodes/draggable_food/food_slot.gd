@@ -23,6 +23,16 @@ func _drop_data(at_position: Vector2, data: Variant) -> void:
 	
 	data.position = (-0.5 * data.size) + (0.25 * data.size)
 	
+	data.anchor_left = 0.5
+	data.anchor_right = 0.5
+	data.anchor_top = 0.5
+	data.anchor_bottom = 0.5
+	var texture_size = data.get_node("TextureRect").texture.get_size()
+	data.offset_left = -texture_size.x / 2
+	data.offset_right = texture_size.x / 2
+	data.offset_top = -texture_size.y / 2
+	data.offset_bottom = texture_size.y / 2
+	
 	# slot inherits the dropped item
 	add_child(data)
 	

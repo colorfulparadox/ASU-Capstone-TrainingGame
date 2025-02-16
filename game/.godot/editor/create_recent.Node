@@ -1,7 +1,8 @@
+Button
+Control
 TextureRect
 ColorRect
 ColorPickerButton
-Control
 Sprite2D
 Timer
 CollisionShape2D

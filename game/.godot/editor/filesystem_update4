@@ -3,4 +3,6 @@ res://assets/tileset/restaurant_tileset.tres
 res://nodes/options_scene.tscn
 res://nodes/drag_and_drop_demonstration.tscn
 res://nodes/draggable_food/draggable_food.tscn
-res://nodes/draggable_food/food_slot.gd
+res://game.tscn
+res://nodes/main_menu_ui.tscn
+res://scripts/main_menu_ui.gd

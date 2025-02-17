@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=4 uid="uid://cd3ii2rlhfb61"]
+[gd_scene load_steps=6 format=4 uid="uid://cd3ii2rlhfb61"]
 
 [ext_resource type="TileSet" uid="uid://dwvadnn410ls5" path="res://assets/tileset/restaurant_tileset.tres" id="2_c5dxy"]
 [ext_resource type="PackedScene" uid="uid://clgohc8c4el4f" path="res://nodes/customer.tscn" id="2_h86kc"]
 [ext_resource type="PackedScene" uid="uid://ofjrpsuiri5w" path="res://nodes/table.tscn" id="2_xwpqe"]
 [ext_resource type="PackedScene" uid="uid://rnrs1bwyvhu0" path="res://nodes/door.tscn" id="4_km55j"]
+[ext_resource type="Script" path="res://scripts/api_handler.gd" id="5_m0143"]
 
 [node name="RestaurantScene" type="Node2D"]
 
@@ -28,3 +29,6 @@ collision_mask = 9
 position = Vector2(-21, -14)
 
 [node name="door" parent="." instance=ExtResource("4_km55j")]
+
+[node name="API_Node" type="Node" parent="."]
+script = ExtResource("5_m0143")

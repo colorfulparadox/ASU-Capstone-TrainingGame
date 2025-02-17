@@ -1,6 +1,11 @@
+Button
+Control
+TextureRect
+ColorRect
+ColorPickerButton
+Sprite2D
 Timer
 CollisionShape2D
-Sprite2D
 Area2D
 Node
 TileMapLayer
@@ -8,4 +13,3 @@ NavigationAgent2D
 NavigationObstacle2D
 NavigationRegion2D
 CharacterBody2D
-Camera2D

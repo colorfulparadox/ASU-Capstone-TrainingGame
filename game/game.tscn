@@ -1,3 +1,25 @@
-[gd_scene format=3 uid="uid://bw2wb32bjgbpa"]
+[gd_scene load_steps=3 format=3 uid="uid://bw2wb32bjgbpa"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="PackedScene" uid="uid://cd3ii2rlhfb61" path="res://nodes/restaurant_scene.tscn" id="1_s81dk"]
+[ext_resource type="Script" path="res://scripts/order_system_bttn.gd" id="2_xkie2"]
+
+[node name="game" type="Node2D"]
+
+[node name="RestaurantScene" parent="." instance=ExtResource("1_s81dk")]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = -936.0
+offset_top = -699.0
+offset_right = -771.0
+offset_bottom = -641.0
+text = "Order System"
+script = ExtResource("2_xkie2")
+
+[connection signal="button_down" from="Control/Button" to="Control/Button" method="_on_button_down"]

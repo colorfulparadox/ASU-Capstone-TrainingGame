@@ -6,3 +6,8 @@ res://nodes/draggable_food/draggable_food.tscn
 res://game.tscn
 res://nodes/main_menu_ui.tscn
 res://scripts/main_menu_ui.gd
+res://scripts/order_system_bttn.gd
+res://nodes/kitchen_node.tscn
+res://nodes/customer.tscn
+res://nodes/door.tscn
+res://nodes/item_element.tscn

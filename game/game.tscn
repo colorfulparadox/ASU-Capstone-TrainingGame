@@ -21,3 +21,5 @@ offset_right = -771.0
 offset_bottom = -641.0
 text = "Order System"
 script = ExtResource("2_xkie2")
+
+[connection signal="button_down" from="Control/Button" to="Control/Button" method="_on_button_down"]

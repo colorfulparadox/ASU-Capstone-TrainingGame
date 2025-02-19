@@ -1,12 +1,28 @@
-[gd_scene load_steps=6 format=4 uid="uid://cd3ii2rlhfb61"]
+[gd_scene load_steps=11 format=4 uid="uid://cd3ii2rlhfb61"]
 
+[ext_resource type="Script" path="res://scripts/restaurant_scene.gd" id="1_vhw8m"]
 [ext_resource type="TileSet" uid="uid://dwvadnn410ls5" path="res://assets/tileset/restaurant_tileset.tres" id="2_c5dxy"]
 [ext_resource type="PackedScene" uid="uid://clgohc8c4el4f" path="res://nodes/customer.tscn" id="2_h86kc"]
 [ext_resource type="PackedScene" uid="uid://ofjrpsuiri5w" path="res://nodes/table.tscn" id="2_xwpqe"]
 [ext_resource type="PackedScene" uid="uid://rnrs1bwyvhu0" path="res://nodes/door.tscn" id="4_km55j"]
 [ext_resource type="Script" path="res://scripts/api_handler.gd" id="5_m0143"]
+[ext_resource type="FontFile" uid="uid://cmd74ttnngj2g" path="res://assets/CHICKEN Pie.ttf" id="7_nfoj4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fqbe"]
+bg_color = Color(0.386805, 0.242696, 4.81308e-08, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a25nf"]
+bg_color = Color(0.26438, 0.160203, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxy8f"]
+bg_color = Color(0.49688, 0.317879, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="RestaurantScene" type="Node2D"]
+script = ExtResource("1_vhw8m")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
@@ -32,3 +48,19 @@ position = Vector2(-21, -14)
 
 [node name="API_Node" type="Node" parent="."]
 script = ExtResource("5_m0143")
+
+[node name="StartButton" type="Button" parent="."]
+offset_left = 361.0
+offset_top = -351.0
+offset_right = 556.0
+offset_bottom = -284.0
+size_flags_vertical = 3
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("7_nfoj4")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_2fqbe")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_a25nf")
+theme_override_styles/normal = SubResource("StyleBoxFlat_nxy8f")
+text = "GO TO MENU"
+
+[connection signal="pressed" from="StartButton" to="." method="_on_return_button_pressed"]

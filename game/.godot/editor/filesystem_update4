@@ -4,3 +4,5 @@ res://nodes/main_menu_ui.tscn
 res://nodes/restaurant_scene.tscn
 res://assets/tileset/restaurant_tileset.tres
 res://scripts/restaurant_scene.gd
+res://nodes/order_page.tscn
+res://assets/button_size_override_theme.tres

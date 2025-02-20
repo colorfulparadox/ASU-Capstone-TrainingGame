@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d0sx40446iowp"]
+[gd_scene load_steps=8 format=3 uid="uid://d0sx40446iowp"]
 
 [ext_resource type="Theme" uid="uid://c5wta1oqlc53x" path="res://assets/button_size_override_theme.tres" id="1_63hpv"]
 [ext_resource type="Texture2D" uid="uid://buqb6w7gin2nj" path="res://assets/Steak.png" id="2_vedy5"]
@@ -9,6 +9,10 @@ font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_uj5tr"]
 font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_la0kf"]
+font_size = 25
 font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_o0e1r"]
@@ -64,6 +68,14 @@ label_settings = SubResource("LabelSettings_uj5tr")
 layout_mode = 2
 text = "- Dessert"
 label_settings = SubResource("LabelSettings_uj5tr")
+
+[node name="QuizPromptLabel" type="Label" parent="."]
+offset_left = 65.0
+offset_top = 297.0
+offset_right = 1083.0
+offset_bottom = 332.0
+text = "What beverage does a <food category> entree pair well with..."
+label_settings = SubResource("LabelSettings_la0kf")
 
 [node name="QuizItemBox" type="VBoxContainer" parent="."]
 offset_left = 65.0
@@ -128,7 +140,7 @@ offset_bottom = 1334.0
 theme = ExtResource("1_63hpv")
 text = "SEND"
 
-[node name="Label" type="Label" parent="."]
+[node name="QuizProgressLabel" type="Label" parent="."]
 offset_left = 1184.0
 offset_top = 218.0
 offset_right = 1840.0

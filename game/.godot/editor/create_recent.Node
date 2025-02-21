@@ -1,7 +1,10 @@
+Label
 Button
-Control
 TextureRect
 ColorRect
+VBoxContainer
+TextEdit
+Control
 ColorPickerButton
 Sprite2D
 Timer
@@ -9,7 +12,3 @@ CollisionShape2D
 Area2D
 Node
 TileMapLayer
-NavigationAgent2D
-NavigationObstacle2D
-NavigationRegion2D
-CharacterBody2D

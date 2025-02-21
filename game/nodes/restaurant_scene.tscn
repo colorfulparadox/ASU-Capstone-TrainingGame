@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://clgohc8c4el4f" path="res://nodes/customer.tscn" id="2_h86kc"]
 [ext_resource type="PackedScene" uid="uid://ofjrpsuiri5w" path="res://nodes/table.tscn" id="2_xwpqe"]
 [ext_resource type="PackedScene" uid="uid://rnrs1bwyvhu0" path="res://nodes/door.tscn" id="4_km55j"]
-[ext_resource type="Script" path="res://scripts/api_handler.gd" id="5_m0143"]
+[ext_resource type="PackedScene" uid="uid://bsjcexhybugbt" path="res://nodes/api_node.tscn" id="5_s14uf"]
 
 [node name="RestaurantScene" type="Node2D"]
 
@@ -30,5 +30,4 @@ position = Vector2(-21, -14)
 
 [node name="door" parent="." instance=ExtResource("4_km55j")]
 
-[node name="API_Node" type="Node" parent="."]
-script = ExtResource("5_m0143")
+[node name="API_Node" parent="." instance=ExtResource("5_s14uf")]

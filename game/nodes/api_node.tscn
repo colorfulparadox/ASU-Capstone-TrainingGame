@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bsjcexhybugbt"]
+
+[ext_resource type="Script" path="res://scripts/api_handler.gd" id="1_pn4g7"]
+
+[node name="API_Node" type="Node" groups=["api_node"]]
+script = ExtResource("1_pn4g7")

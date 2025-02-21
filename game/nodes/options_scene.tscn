@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ceqfkvjec36xk"]
+[gd_scene load_steps=5 format=3 uid="uid://ceqfkvjec36xk"]
 
 [ext_resource type="Script" path="res://scripts/options_scene.gd" id="1_6l1yf"]
+[ext_resource type="PackedScene" uid="uid://bsjcexhybugbt" path="res://nodes/api_node.tscn" id="2_j5fgl"]
+[ext_resource type="Script" path="res://nodes/login.gd" id="2_o2euv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1mc6i"]
 font_size = 80
@@ -28,4 +30,69 @@ offset_right = 238.0
 offset_bottom = 108.0
 text = "Back to Main Menu"
 
+[node name="Label2" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 36.0
+offset_top = 151.0
+offset_right = 435.0
+offset_bottom = 261.0
+grow_horizontal = 2
+scale = Vector2(0.52, 0.52)
+size_flags_horizontal = 4
+text = "Username"
+label_settings = SubResource("LabelSettings_1mc6i")
+
+[node name="TextEdit" type="TextEdit" parent="." groups=["username"]]
+offset_left = 256.0
+offset_top = 159.0
+offset_right = 740.0
+offset_bottom = 210.0
+
+[node name="Label4" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 261.0
+offset_top = 353.0
+offset_right = 633.0
+offset_bottom = 463.0
+grow_horizontal = 2
+scale = Vector2(0.559999, 0.559999)
+size_flags_horizontal = 4
+text = "API Key: "
+label_settings = SubResource("LabelSettings_1mc6i")
+
+[node name="Label3" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 33.0
+offset_top = 248.0
+offset_right = 405.0
+offset_bottom = 358.0
+grow_horizontal = 2
+scale = Vector2(0.559999, 0.559999)
+size_flags_horizontal = 4
+text = "Password"
+label_settings = SubResource("LabelSettings_1mc6i")
+
+[node name="TextEdit2" type="TextEdit" parent="." groups=["password"]]
+offset_left = 255.0
+offset_top = 268.0
+offset_right = 739.0
+offset_bottom = 319.0
+
+[node name="Button2" type="Button" parent="."]
+offset_left = 816.0
+offset_top = 151.0
+offset_right = 1029.0
+offset_bottom = 227.0
+text = "Login"
+script = ExtResource("2_o2euv")
+
+[node name="API_Node" parent="." instance=ExtResource("2_j5fgl")]
+
 [connection signal="pressed" from="Button" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="Button2" to="Button2" method="_on_pressed"]

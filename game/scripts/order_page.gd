@@ -1,6 +1,6 @@
 extends Node2D
 
-
+const json_handling = preload("res://scripts/json_handling.gd")
 
 var foods = ["STEAK", "CHICKEN", "FISH"]
 
@@ -64,10 +64,14 @@ func _on_send_message() -> void:
 	$MessageEntry.clear()
 
 func _on_submit_order() -> void: 
+	
+	var test = json_handling.load_json("res://assets/test_json.json")
+	print(test)
+	
 	if finished:
 		print("going back to restaurant, submitting order...")
 	elif not finished:
-		print("you need to finish the quiz")
+		print("you need to finish the quiz before submitting this order")
 
 
 func _on_send_message_button_pressed() -> void:

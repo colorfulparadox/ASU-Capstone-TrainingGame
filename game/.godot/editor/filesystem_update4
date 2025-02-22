@@ -1,8 +1,11 @@
+res://nodes/order_page.tscn
+res://assets/tileset/restaurant_tileset.tres
+res://assets/button_size_override_theme.tres
+res://scripts/order_page.gd
 res://game.tscn
-res://scripts/main_menu_ui.gd
 res://nodes/main_menu_ui.tscn
 res://nodes/restaurant_scene.tscn
-res://assets/tileset/restaurant_tileset.tres
+res://nodes/quiz_item.tscn
+res://assets/quiz_button_theme.tres
 res://scripts/restaurant_scene.gd
-res://nodes/order_page.tscn
-res://assets/button_size_override_theme.tres
+res://scripts/main_menu_ui.gd

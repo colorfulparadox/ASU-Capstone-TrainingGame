@@ -3,7 +3,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -16,8 +16,20 @@ func _on_return_button_pressed() -> void:
 func _on_show_order_page() -> void:
 	
 #	This will spawn an order scene that's shown at the top zindex
+	var instance = spawn_order_page(4)
+	add_child(instance)
+
+
+func spawn_order_page(test_value: int) -> Node2D:
+	# load packed scene
+	# set properties I guess
 	var orderpagescene: PackedScene = load("res://nodes/order_page.tscn")
 	var instance = orderpagescene.instantiate()
+	
+	# center it
 	instance.position = get_viewport().size * -0.5
 	instance.set_z_index(100)
-	add_child(instance)
+	
+	instance.test_property = test_value
+	
+	return instance

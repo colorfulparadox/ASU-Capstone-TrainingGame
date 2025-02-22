@@ -1,5 +1,6 @@
-Label
+LineEdit
 Button
+Label
 TextureRect
 ColorRect
 VBoxContainer

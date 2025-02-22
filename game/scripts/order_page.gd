@@ -2,26 +2,37 @@ extends Node2D
 
 const json_handling = preload("res://scripts/json_handling.gd")
 
-var foods = ["STEAK", "CHICKEN", "FISH"]
-
-@export var test_property: int
+# values to be initialized when order page is summoned
 @onready var guest_name: String = "Default"
 @onready var food_category: String = "Steak"
+@export var total_quiz_questions: int
+@export var image_index: int # we want a dynamic meal image based on the category type
+
+@export var test_property: int
+
 @onready var total_quiz_score: int = 0
 @onready var current_quiz_question: int = 1
-
-@export var total_quiz_questions: int
-@export var image_path: String # we want a dynamic meal image based on the category type
-
 @onready var finished = false
+
+# category selection
+var foods = ["STEAK", "CHICKEN", "FISH"]
+var choice = foods.pick_random()
+
+# dessert chance
+var rng = RandomNumberGenerator.new()
+var add_dessert: bool = rng.randf() < 0.4
+
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print(test_property)
 	
-	# quiz logic: determined here or passed in?
-	
-	total_quiz_questions = 2 # 1 or 2 typically, 40% chance to get a dessert, etc
+	# 1 or 2 typically, 40% chance to get a dessert, etc
+	if add_dessert:
+		total_quiz_questions = 2
+	else:
+		total_quiz_questions = 1
 	
 	# update guest prompt message
 	$GuestPromptMessage.text = "Guest " + guest_name + " is ordering:"

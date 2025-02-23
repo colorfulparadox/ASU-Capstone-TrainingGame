@@ -1,3 +1,4 @@
+Control
 LineEdit
 Button
 Label
@@ -5,11 +6,9 @@ TextureRect
 ColorRect
 VBoxContainer
 TextEdit
-Control
 ColorPickerButton
 Sprite2D
 Timer
 CollisionShape2D
 Area2D
 Node
-TileMapLayer

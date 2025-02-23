@@ -23,7 +23,6 @@ var rng = RandomNumberGenerator.new()
 var add_dessert: bool = rng.randf() < 0.4
 
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	print(test_property)
@@ -40,8 +39,12 @@ func _ready() -> void:
 	# update quiz prompt label initially
 	$QuizPromptLabel.text = "What beverage does a " + food_category + " entree pair well with..."
 	
+	spawn_questions()
+	
 	# update pairing question progress initially
 	update_quiz_progress()
+
+	# decide on the entree name of their chosen category
 	
 	# populate list of their selected menu items
 	
@@ -84,6 +87,13 @@ func _on_submit_order() -> void:
 	elif not finished:
 		print("you need to finish the quiz before submitting this order")
 
-
-func _on_send_message_button_pressed() -> void:
-	pass # Replace with function body.
+func spawn_questions() -> void:
+	var t = load("res://nodes/quiz_item_box.tscn")
+	var tinstance = t.instantiate()
+	
+	
+	#tinstance.add_question()
+	#tinstance.add_question()
+	#tinstance.add_question()
+	
+	$QuizItemBoxHolder.add_child(tinstance)

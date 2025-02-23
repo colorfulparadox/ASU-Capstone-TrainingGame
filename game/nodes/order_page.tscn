@@ -1,9 +1,8 @@
-[gd_scene load_steps=10 format=3 uid="uid://d0sx40446iowp"]
+[gd_scene load_steps=9 format=3 uid="uid://d0sx40446iowp"]
 
 [ext_resource type="Script" path="res://scripts/order_page.gd" id="1_3a8g4"]
 [ext_resource type="Theme" uid="uid://c5wta1oqlc53x" path="res://assets/button_size_override_theme.tres" id="1_63hpv"]
 [ext_resource type="Texture2D" uid="uid://buqb6w7gin2nj" path="res://assets/Steak.png" id="2_vedy5"]
-[ext_resource type="PackedScene" uid="uid://wk57dp4jugca" path="res://nodes/quiz_item.tscn" id="3_y165g"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yrtmq"]
 font_size = 40
@@ -81,21 +80,13 @@ offset_bottom = 332.0
 text = "What beverage does a <food category> entree pair well with..."
 label_settings = SubResource("LabelSettings_la0kf")
 
-[node name="QuizItemBox" type="VBoxContainer" parent="."]
+[node name="QuizItemBoxHolder" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
 offset_left = 65.0
-offset_top = 353.0
+offset_top = 773.0
 offset_right = 1083.0
-offset_bottom = 731.0
-theme_override_constants/separation = 140
-
-[node name="QuizItem" parent="QuizItemBox" instance=ExtResource("3_y165g")]
-layout_mode = 2
-
-[node name="QuizItem2" parent="QuizItemBox" instance=ExtResource("3_y165g")]
-layout_mode = 2
-
-[node name="QuizItem3" parent="QuizItemBox" instance=ExtResource("3_y165g")]
-layout_mode = 2
+offset_bottom = 773.0
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_left = 1233.0

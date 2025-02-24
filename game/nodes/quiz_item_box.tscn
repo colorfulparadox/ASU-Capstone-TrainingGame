@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8ecaki21537f"]
+
+[ext_resource type="PackedScene" uid="uid://wk57dp4jugca" path="res://nodes/quiz_item.tscn" id="1_5hmop"]
+
+[node name="QuizItemBox" type="VBoxContainer"]
+offset_top = -420.0
+offset_right = 1018.0
+offset_bottom = -42.0
+theme_override_constants/separation = 140
+
+[node name="QuizItem" parent="." instance=ExtResource("1_5hmop")]
+layout_mode = 2
+
+[node name="QuizItem2" parent="." instance=ExtResource("1_5hmop")]
+layout_mode = 2
+
+[node name="QuizItem3" parent="." instance=ExtResource("1_5hmop")]
+layout_mode = 2

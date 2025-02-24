@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://wk57dp4jugca"]
+
+[ext_resource type="Theme" uid="uid://7xwjc5swii5r" path="res://assets/quiz_button_theme.tres" id="1_cy3nd"]
+
+[node name="QuizItem" type="Control"]
+layout_mode = 3
+anchor_right = 0.601
+anchor_bottom = 0.08
+offset_right = 5.07996
+offset_bottom = 1.8
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 1158.0
+offset_bottom = 115.0
+theme = ExtResource("1_cy3nd")
+text = "Default Text"

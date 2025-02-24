@@ -1,8 +1,9 @@
-res://game.tscn
-res://scripts/main_menu_ui.gd
-res://nodes/main_menu_ui.tscn
 res://nodes/restaurant_scene.tscn
 res://assets/tileset/restaurant_tileset.tres
-res://scripts/restaurant_scene.gd
+res://scripts/api_handler.gd
+res://game.tscn
+res://nodes/main_menu_ui.tscn
 res://nodes/order_page.tscn
-res://assets/button_size_override_theme.tres
+res://nodes/options_scene.tscn
+res://nodes/login.gd
+res://scripts/server_variables.gd

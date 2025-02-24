@@ -50,20 +50,6 @@ offset_top = 159.0
 offset_right = 740.0
 offset_bottom = 210.0
 
-[node name="Label4" type="Label" parent="."]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = 261.0
-offset_top = 353.0
-offset_right = 633.0
-offset_bottom = 463.0
-grow_horizontal = 2
-scale = Vector2(0.559999, 0.559999)
-size_flags_horizontal = 4
-text = "API Key: "
-label_settings = SubResource("LabelSettings_1mc6i")
-
 [node name="Label3" type="Label" parent="."]
 anchors_preset = 5
 anchor_left = 0.5
@@ -83,6 +69,20 @@ offset_left = 255.0
 offset_top = 268.0
 offset_right = 739.0
 offset_bottom = 319.0
+
+[node name="Label4" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 261.0
+offset_top = 353.0
+offset_right = 633.0
+offset_bottom = 463.0
+grow_horizontal = 2
+scale = Vector2(0.559999, 0.559999)
+size_flags_horizontal = 4
+text = "API Key: "
+label_settings = SubResource("LabelSettings_1mc6i")
 
 [node name="Button2" type="Button" parent="."]
 offset_left = 816.0

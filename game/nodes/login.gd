@@ -19,4 +19,9 @@ func _on_pressed() -> void:
 	var api_node = get_tree().get_nodes_in_group("api_node")[0]
 	
 	# api_node.ping()
-	api_node.sign_in(username_input.get_line(0), password_input.get_line(0))
+	var success = await api_node.sign_in(username_input.get_line(0), password_input.get_line(0))
+	
+	if success == true:
+		$"../Label4".text = ServerVariables.auth_id
+	else:
+		$"../Label4".text = "Invalid credentials"

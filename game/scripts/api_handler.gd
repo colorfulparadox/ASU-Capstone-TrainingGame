@@ -1,6 +1,8 @@
 extends Node
 
 const url := "https://backend.project-persona.com"
+
+
 	
 func start_conversation():
 	$HTTPRequest.request(url)
@@ -11,7 +13,7 @@ func continue_conversation():
 func end_converstion():
 	$HTTPRequest.request(url)
 	
-func sign_in(username:String, password:String) -> String:
+func sign_in(username:String, password:String) -> bool:
 	
 	# Some headers
 	var header = [
@@ -27,10 +29,40 @@ func sign_in(username:String, password:String) -> String:
 	var json_body = JSON.stringify(body)
 
 	var response = await post_request("/login", header, json_body)
-	return response
 	
-func final_score():
-	$HTTPRequest.request(url)
+	var json_response = JSON.parse_string(response)
+	
+	var auth_id = json_response["authID"]
+	
+	if response != "":
+		ServerVariables.auth_id = auth_id
+		return true
+		
+	return false
+	
+func final_score(sentiment_score:int, knowledge_score:int, sales_score:int) -> bool:
+		
+	# Some headers
+	var header = [
+		"User-Agent: Pirulo/1.0 (Godot)",
+		"Accept: */*"
+	]
+	
+	var body = {
+		"authID" : ServerVariables.auth_id,
+		"sentiment_points" : sentiment_score,
+		"sales_points" : sales_score,
+		"knowledge_points" : knowledge_score
+	}
+	
+	var json_body = JSON.stringify(body)
+
+	var response = await post_request("/modify_points", header, json_body)
+	
+	if response != "":
+		return true
+		
+	return false
 	
 func ping():
 	var header = []
@@ -141,6 +173,8 @@ func post_request(extension:String, header:PackedStringArray, body:String) -> St
 
 		var new_header = http.get_response_headers_as_dictionary() # Get response headers.
 		print("code: ", http.get_response_code()) # Show response code.
+		if http.get_response_code() != 200:
+			return ""
 		print("**headers:\\n", new_header) # Show headers.
 
 		# Getting the HTTP Body

@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://cdxf2porgafue"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_uj5tr"]
-font_size = 40
-font_color = Color(0, 0, 0, 1)
-
-[node name="FoodItemLabel" type="Label"]
-text = "- Filet Mignon with Asparagus"
-label_settings = SubResource("LabelSettings_uj5tr")

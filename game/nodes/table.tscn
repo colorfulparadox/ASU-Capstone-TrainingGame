@@ -26,5 +26,12 @@ texture = ExtResource("2_vqvcb")
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 
+[node name="tableButton" type="Button" parent="."]
+offset_left = -121.0
+offset_top = -102.0
+offset_right = 114.0
+offset_bottom = 55.0
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="tableButton" to="." method="_on_table_button_pressed"]

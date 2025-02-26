@@ -87,7 +87,7 @@ offset_top = 773.0
 offset_right = 1083.0
 offset_bottom = 773.0
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="FoodCategoryImage" type="TextureRect" parent="."]
 offset_left = 1233.0
 offset_top = 305.0
 offset_right = 2359.0

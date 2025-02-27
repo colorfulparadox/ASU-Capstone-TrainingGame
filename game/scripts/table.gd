@@ -59,20 +59,7 @@ func _on_timer_timeout() -> void:
 func _on_table_button_pressed() -> void:
 	print("Button was clicked!")
 	$Timer.paused = true
-	var instance = spawn_order_page(4)
-	add_child(instance)
-	pass # Replace with function body.
-
-func spawn_order_page(test_value: int) -> Node2D:
-	# load packed scene
-	# set properties I guess
-	var orderpagescene: PackedScene = load("res://nodes/order_page.tscn")
-	var instance = orderpagescene.instantiate()
 	
-	# center it
-	instance.position = get_viewport().size * -0.5
-	instance.set_z_index(100)
-	
-	instance.test_property = test_value
-	
-	return instance
+	# This will break if the restaurant -> tables -> table structure changes
+	var instance = get_parent().get_parent().spawn_order_page(4)
+	get_parent().get_parent().add_child(instance)

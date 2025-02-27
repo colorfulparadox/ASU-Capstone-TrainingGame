@@ -1,0 +1,36 @@
+{
+    "beef": [
+        "Cabernet",
+        "Sauvignon",
+        "Super Tuscan",
+        "Malbec",
+        "Pale Ale",
+        "Amber Ale",
+        "Pinot Noir",
+        "Italian Chianti"
+    ],
+    "chicken": [
+        "Riesling",
+        "Chardonnay"
+    ],
+    "pork": [
+        "Pinot Noir", 
+        "Riesling", 
+        "Chenin Blanc", 
+        "Stout", 
+        "Beer", 
+        "Wheat Beer"
+    ],
+    "seafood": [
+        "Chardonnay",
+        "Champagne"
+    ],
+    "dessert": [
+        "Champagne",
+        "Sparkling Wine",
+        "Shiraz",
+        "Moscato",
+        "Port",
+        "Zinfandel"
+    ]
+}

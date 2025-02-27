@@ -12,7 +12,7 @@ const json_handling = preload("res://scripts/json_handling.gd")
 
 @onready var total_quiz_score: int = 0
 @onready var current_quiz_question: int = 1
-@onready var finished = false
+@onready var finished = true #false
 
 # category selection
 var foods = ["STEAK", "CHICKEN", "FISH"]
@@ -84,6 +84,9 @@ func _on_submit_order() -> void:
 	
 	if finished:
 		print("going back to restaurant, submitting order...")
+		
+		# destroy this order page instance
+		queue_free()
 	elif not finished:
 		print("you need to finish the quiz before submitting this order")
 

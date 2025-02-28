@@ -9,7 +9,6 @@ func _ready() -> void:
 	add_to_group("unoccupied_table")
 	button.visible = false
 	button.disabled = true
-	pass
 
 
 
@@ -35,7 +34,6 @@ func _on_body_entered(body: Node2D) -> void:
 		button.visible = true
 		button.modulate.a = 0
 		button.disabled = false
-	pass # Replace with function body.
 
 func table_occupied():
 	remove_from_group("unoccupied_table")
@@ -53,11 +51,9 @@ func table_unoccupied():
 
 func _on_timer_timeout() -> void:
 	customer_exit()
-	pass # Replace with function body.
 
 
 func _on_table_button_pressed() -> void:
-	print("Button was clicked!")
 	$Timer.paused = true
 	
 	# This will break if the restaurant -> tables -> table structure changes

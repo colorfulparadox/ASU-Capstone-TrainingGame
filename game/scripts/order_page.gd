@@ -4,7 +4,7 @@ const json_handling = preload("res://scripts/json_handling.gd")
 
 # values to be initialized when order page is summoned
 @onready var guest_name: String = "Default"
-@onready var food_category: String = "Steak"
+@onready var food_category: String = "beef"
 @export var total_quiz_questions: int
 @export var image_index: int # we want a dynamic meal image based on the category type
 
@@ -15,8 +15,7 @@ const json_handling = preload("res://scripts/json_handling.gd")
 @onready var finished = true #false
 
 # category selection
-var foods = ["STEAK", "CHICKEN", "FISH"]
-var choice = foods.pick_random()
+var foods = ["beef", "chicken", "fish"]
 
 # dessert chance
 var rng = RandomNumberGenerator.new()
@@ -25,7 +24,15 @@ var add_dessert: bool = rng.randf() < 0.4
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(test_property)
+	#print(test_property)
+	
+	food_category = foods.pick_random()
+	
+	print("order page information:")
+	print("- adding dessert? " + str(add_dessert))
+	print("- food category? " + food_category)
+	print("- customer's name?: " + guest_name)
+	
 	
 	# 1 or 2 typically, 40% chance to get a dessert, etc
 	if add_dessert:
@@ -93,10 +100,16 @@ func _on_submit_order() -> void:
 func spawn_questions() -> void:
 	var t = load("res://nodes/quiz_item_box.tscn")
 	var tinstance = t.instantiate()
+	# quiz items: pick one correct answer, then pick randomly twice from the beverage list
 	
+	var correct_answer = 1 # 1, 2, 3, etc
+	tinstance.correct_answer = 1
 	
-	#tinstance.add_question()
-	#tinstance.add_question()
-	#tinstance.add_question()
+	print("\nspawning questions")
+	print(food_category)
+	
+	for i in range(1, GameConstants.POSSIBLE_CHOICES_COUNT + 1):
+		tinstance.add_question("ASDFSDFDSFL:Df:" + str(i), i)
+	
 	
 	$QuizItemBoxHolder.add_child(tinstance)

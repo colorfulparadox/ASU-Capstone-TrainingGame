@@ -22,7 +22,7 @@ func _on_show_order_page() -> void:
 
 func spawn_order_page(test_value: int) -> Node2D:
 	# load packed scene
-	# set properties I guess
+
 	var orderpagescene: PackedScene = load("res://nodes/order_page.tscn")
 	var instance = orderpagescene.instantiate()
 	

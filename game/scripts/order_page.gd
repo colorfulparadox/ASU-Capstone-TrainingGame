@@ -111,5 +111,4 @@ func spawn_questions() -> void:
 	for i in range(1, GameConstants.POSSIBLE_CHOICES_COUNT + 1):
 		tinstance.add_question("question " + str(i), i)
 	
-	
 	$QuizItemBoxHolder.add_child(tinstance)

@@ -3,8 +3,13 @@ extends VBoxContainer
 var correct_answer: int
 var question_list = []
 
+signal correct_answer_selected
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	
+	correct_answer_selected.connect(get_parent().get_parent()._on_correct_answer_selected)
+	
 	pass # Replace with function body.
 
 
@@ -59,7 +64,9 @@ func _on_answer_selected(question_id: int):
 		# should we emit a signal...
 		# how should we highlight the correct / in correct answer, 
 		
-		# also do we wait for a confirmation press to move to next quesiton,
+		correct_answer_selected.emit()
+		
+		# also do we wait for a confirmation press to move to next question,
 		# or just move on to next one after a second?   
 	else:
 		print("incorrect answer chosen")

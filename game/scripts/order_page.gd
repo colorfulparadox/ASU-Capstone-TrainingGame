@@ -98,6 +98,37 @@ func _on_submit_order() -> void:
 	elif not finished:
 		print("you need to finish the quiz before submitting this order")
 
+# when signal is received that correct answer was selected
+func _on_correct_answer_selected() -> void:
+	print("order page received correct answer signal!")
+
+
+	# increment score?
+
+
+	if add_dessert:
+
+		# destroy current quiz box
+		$QuizItemBoxHolder.get_child(0).queue_free()
+
+
+		# increment question counter
+		current_quiz_question += 1
+		update_quiz_progress()
+
+		$QuizPromptLabel.text = "What beverage does a dessert pair well with..."
+
+		food_category = "dessert"
+
+			# spawn new quiz box
+		spawn_questions()
+
+
+	if current_quiz_question == total_quiz_questions:
+		finished = true
+	
+	pass
+
 func spawn_questions() -> void:
 	var t = load("res://nodes/quiz_item_box.tscn")
 	var tinstance = t.instantiate()

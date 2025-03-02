@@ -52,8 +52,18 @@ func _ready() -> void:
 	update_quiz_progress()
 
 	# decide on the entree name of their chosen category
+	var t = ["country fried steak", "medium rare porterhouse"]
+	var entree_choice = t.pick_random()
 	
 	# populate list of their selected menu items
+	var fooditemlabel = load("res://nodes/food_item_label.tscn").instantiate()
+	fooditemlabel.text = "- " + entree_choice
+	$FoodVBox.add_child(fooditemlabel)
+	
+	if add_dessert:
+		var dessertlabel = load("res://nodes/food_item_label.tscn").instantiate()
+		dessertlabel.text = "- Dessert"
+		$FoodVBox.add_child(dessertlabel)
 	
 	# assign quiz items
 	
@@ -109,7 +119,7 @@ func spawn_questions() -> void:
 	print(food_category)
 	
 	for i in range(1, GameConstants.POSSIBLE_CHOICES_COUNT + 1):
-		tinstance.add_question("ASDFSDFDSFL:Df:" + str(i), i)
+		tinstance.add_question("question " + str(i), i)
 	
 	
 	$QuizItemBoxHolder.add_child(tinstance)

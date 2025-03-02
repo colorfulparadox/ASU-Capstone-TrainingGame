@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bo0enjmwcfb7t"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_uj5tr"]
+font_size = 40
+font_color = Color(0, 0, 0, 1)
+
+[node name="FoodItemLabel2" type="Label"]
+text = "- Dessert"
+label_settings = SubResource("LabelSettings_uj5tr")

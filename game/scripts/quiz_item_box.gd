@@ -38,3 +38,6 @@ func _on_answer_selected(question_id: int):
 		print("incorrect answer chosen")
 	
 	pass
+
+func destroy_quizbox():
+	queue_free()

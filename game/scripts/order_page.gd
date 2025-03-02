@@ -20,6 +20,10 @@ var add_dessert: bool = rng.randf() < 0.4
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# hacky sorta way to set corner radius on all buttons with this theme
+	$SubmitButton.get_theme_stylebox("normal").set_corner_radius_all(15)
+	$SubmitButton.get_theme_stylebox("hover").set_corner_radius_all(15)
+	$SubmitButton.get_theme_stylebox("pressed").set_corner_radius_all(15)
 	
 	# category selection
 	food_category = GameConstants.categories.pick_random()

@@ -24,8 +24,6 @@ func set_correct_answer(b: bool) -> void:
 	is_correct_answer = b
 
 func _on_button_pressed() -> void:
-	print('sanity check')
-	print("asdfdsf: " + str(is_correct_answer))
 	if is_correct_answer:
 		# hightlight yellow
 		set_stylebox_color("normal", Color.YELLOW_GREEN)
@@ -37,7 +35,9 @@ func set_stylebox_color(style_box_type: String, color: Color):
 	var stylebox_theme: StyleBoxFlat = get_child(0).get_theme_stylebox(style_box_type).duplicate()
 	stylebox_theme.bg_color = color
 	stylebox_theme.border_color = color
+	#stylebox_theme.set_corner_radius_all(5)
 	
 
 	get_child(0).add_theme_stylebox_override("normal", stylebox_theme)
+	get_child(0).add_theme_stylebox_override("hover", stylebox_theme)
 	#get_child(0).modulate = Color.BLUE

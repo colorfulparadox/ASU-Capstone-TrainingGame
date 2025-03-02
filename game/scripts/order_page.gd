@@ -12,6 +12,7 @@ extends Node2D
 @onready var current_quiz_question: int = 1
 @onready var finished = true #false
 
+
 # dessert chance
 var rng = RandomNumberGenerator.new()
 var add_dessert: bool = rng.randf() < 0.4
@@ -102,13 +103,18 @@ func spawn_questions() -> void:
 	var tinstance = t.instantiate()
 	# quiz items: pick one correct answer, then pick randomly twice from the beverage list
 	
-	var correct_answer = 1 # 1, 2, 3, etc
-	tinstance.correct_answer = 1
+	var correct_answer = range(1, GameConstants.POSSIBLE_CHOICES_COUNT + 1).pick_random()
+
+	tinstance.correct_answer = correct_answer
+	var correct_answer_text = GameConstants.food_beverage_pairings[food_category].pick_random()
 	
 	print("\nspawning questions")
 	print(food_category)
 	
 	for i in range(1, GameConstants.POSSIBLE_CHOICES_COUNT + 1):
-		tinstance.add_question("question " + str(i), i)
+		if i == correct_answer:
+			tinstance.add_question(correct_answer_text, i)
+		else:
+			tinstance.add_secondary_question(i, correct_answer_text, food_category)
 	
 	$QuizItemBoxHolder.add_child(tinstance)

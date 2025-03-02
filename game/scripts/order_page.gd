@@ -10,7 +10,7 @@ extends Node2D
 
 @onready var total_quiz_score: int = 0
 @onready var current_quiz_question: int = 1
-@onready var finished = true #false
+@onready var finished = false
 
 
 # dessert chance
@@ -105,7 +105,12 @@ func _on_correct_answer_selected() -> void:
 
 	# increment score?
 
-
+	# currently no "go to next question" functionality
+	if finished:
+		print('finished, not going further')
+		# we should go to a third "quiz complete" page
+		return
+	
 	if add_dessert:
 
 		# destroy current quiz box
@@ -117,10 +122,9 @@ func _on_correct_answer_selected() -> void:
 		update_quiz_progress()
 
 		$QuizPromptLabel.text = "What beverage does a dessert pair well with..."
-
 		food_category = "dessert"
 
-			# spawn new quiz box
+		# spawn new quiz box
 		spawn_questions()
 
 

@@ -19,3 +19,5 @@ offset_right = 1158.0
 offset_bottom = 115.0
 theme = ExtResource("1_cy3nd")
 text = "Default Text"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

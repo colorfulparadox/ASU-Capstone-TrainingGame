@@ -17,9 +17,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func add_question(question_text: String, question_id: int = 0) -> void:
+func add_question(question_text: String, question_id: int) -> void:
 	var q = load("res://nodes/quiz_item.tscn").instantiate()
 	q.set_text(question_text)
+	q.set_id(question_id)
+	
+	if question_id == correct_answer:
+		q.set_correct_answer(true)
 	
 	question_list.append(question_text)
 	

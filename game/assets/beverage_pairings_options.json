@@ -1,24 +1,24 @@
 {
-    "beverages_list": [
-        "Cabernet",
-        "Sauvignon",
-        "Super Tuscan",
-        "Malbec",
-        "Pale Ale",
-        "Amber Ale",
-        "Pinot Noir",
-        "Italian Chianti",
-        "Riesling",
-        "Chardonnay",
-        "Chenin Blanc", 
-        "Stout", 
-        "Beer", 
-        "Wheat Beer",
-        "Champagne",
-        "Sparkling Wine",
-        "Shiraz",
-        "Moscato",
-        "Port",
-        "Zinfandel"
-    ]
+	"beverages_list": [
+		"Cabernet",
+		"Sauvignon",
+		"Super Tuscan",
+		"Malbec",
+		"Pale Ale",
+		"Amber Ale",
+		"Pinot Noir",
+		"Italian Chianti",
+		"Riesling",
+		"Chardonnay",
+		"Chenin Blanc", 
+		"Stout", 
+		"Beer", 
+		"Wheat Beer",
+		"Champagne",
+		"Sparkling Wine",
+		"Shiraz",
+		"Moscato",
+		"Port",
+		"Zinfandel"
+	]
 }

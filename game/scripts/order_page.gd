@@ -1,10 +1,8 @@
 extends Node2D
 
-const json_handling = preload("res://scripts/json_handling.gd")
-
-# values to be initialized when order page is summoned
+# values to be initialized when order page is spawned
 @onready var guest_name: String = "Default"
-@onready var food_category: String = "beef"
+@onready var food_category: String = "Default"
 @export var total_quiz_questions: int
 @export var image_index: int # we want a dynamic meal image based on the category type
 
@@ -14,9 +12,6 @@ const json_handling = preload("res://scripts/json_handling.gd")
 @onready var current_quiz_question: int = 1
 @onready var finished = true #false
 
-# category selection
-var foods = ["beef", "chicken", "fish"]
-
 # dessert chance
 var rng = RandomNumberGenerator.new()
 var add_dessert: bool = rng.randf() < 0.4
@@ -24,9 +19,9 @@ var add_dessert: bool = rng.randf() < 0.4
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	#print(test_property)
 	
-	food_category = foods.pick_random()
+	# category selection
+	food_category = GameConstants.categories.pick_random()
 	
 	print("order page information:")
 	print("- adding dessert? " + str(add_dessert))
@@ -52,8 +47,7 @@ func _ready() -> void:
 	update_quiz_progress()
 
 	# decide on the entree name of their chosen category
-	var t = ["country fried steak", "medium rare porterhouse"]
-	var entree_choice = t.pick_random()
+	var entree_choice = GameConstants.restaurant_menu_items["entrees"][food_category].pick_random()
 	
 	# populate list of their selected menu items
 	var fooditemlabel = load("res://nodes/food_item_label.tscn").instantiate()
@@ -95,10 +89,6 @@ func _on_send_message() -> void:
 	$MessageEntry.clear()
 
 func _on_submit_order() -> void: 
-	
-	var test = json_handling.load_json("res://assets/test_json.json")
-	print(test)
-	
 	if finished:
 		print("going back to restaurant, submitting order...")
 		

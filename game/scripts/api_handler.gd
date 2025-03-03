@@ -3,10 +3,21 @@ extends Node
 const url := "https://backend.project-persona.com"
 
 
-	
 func start_conversation():
-	$HTTPRequest.request(url)
+	var http_request = HTTPRequest.new()
+	add_child(http_request)
+	http_request.request_completed.connect(start_conversation_complete)
 	
+	var headers = ["Content-Type: application/json"]
+	var error = http_request.request(url+"/start_conversation", headers, HTTPClient.METHOD_GET)
+	
+	if error != OK:
+		print("Request failed: ", error)
+	
+
+func start_conversation_complete(result, response_code, headers, body):
+	pass
+
 func continue_conversation():
 	$HTTPRequest.request(url)
 	

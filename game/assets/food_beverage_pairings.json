@@ -21,9 +21,11 @@
 		"Beer", 
 		"Wheat Beer"
 	],
-	"seafood": [
+	"fish": [
 		"Chardonnay",
-		"Champagne"
+	],
+	"seafood": [
+		"Champagne",
 	],
 	"dessert": [
 		"Champagne",

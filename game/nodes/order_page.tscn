@@ -123,6 +123,14 @@ offset_bottom = 267.0
 text = "Food & Beverage Pairing Question 1 / 2"
 label_settings = SubResource("LabelSettings_vt111")
 
+[node name="NextButton" type="Button" parent="."]
+offset_left = 1065.0
+offset_top = 769.0
+offset_right = 1224.0
+offset_bottom = 834.0
+theme = ExtResource("1_63hpv")
+text = "Next"
+
 [connection signal="pressed" from="SubmitButton" to="." method="_on_submit_order"]
 [connection signal="text_submitted" from="MessageEntry" to="." method="_on_press_enter"]
 [connection signal="pressed" from="SendMessageButton" to="." method="_on_send_message"]

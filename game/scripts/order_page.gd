@@ -22,6 +22,8 @@ var add_dessert: bool = rng.randf() < 0.4
 func _ready() -> void:
 	set_corner_radius()
 	
+	$NextButton.disabled = true
+	
 	# category selection
 	food_category = GameConstants.categories.pick_random()
 	
@@ -107,32 +109,10 @@ func _on_submit_order() -> void:
 func _on_correct_answer_selected() -> void:
 	print("order page received correct answer signal!")
 
-
 	# increment score
 	update_score(5)
-
-	# currently no "go to next question" functionality
-	if finished:
-		print('finished, not going further')
-		# we should go to a third "quiz complete" page
-		return
 	
-	if add_dessert:
-
-		# destroy current quiz box
-		$QuizItemBoxHolder.get_child(0).queue_free()
-
-
-		# increment question counter
-		current_quiz_question += 1
-		update_quiz_progress()
-
-		$QuizPromptLabel.text = "What beverage does a dessert pair well with..."
-		food_category = "dessert"
-
-		# spawn new quiz box
-		spawn_questions()
-
+	$NextButton.disabled = false
 
 	if current_quiz_question == total_quiz_questions:
 		finished = true
@@ -169,4 +149,36 @@ func set_corner_radius() -> void:
 	$MessageEntry.get_theme_stylebox("normal").set_corner_radius_all(radius)
 
 func _on_next_button_pressed() -> void:
-	pass
+	
+	if finished:
+		print("finished. let's go to the exit card")
+		# we should go to a third "quiz complete" page
+		spawn_exit_card()
+		return
+	
+	if add_dessert:
+		# destroy current quiz box
+		$QuizItemBoxHolder.get_child(0).queue_free()
+		
+		# increment question counter
+		current_quiz_question += 1
+		update_quiz_progress()
+
+		$QuizPromptLabel.text = "What beverage does a dessert pair well with..."
+		food_category = "dessert"
+
+		# spawn new quiz box
+		spawn_questions()
+
+func spawn_exit_card():
+	var t = load("res://nodes/quiz_item_box.tscn")
+	var tinstance = t.instantiate()
+	
+	var message = load("res://nodes/exit_card_label.tscn").instantiate()
+	message.text = "Finished! Time to submit this order and move on to the next customer"
+	tinstance.add_child(message)
+	
+	$QuizItemBoxHolder.get_child(0).queue_free()
+	$QuizItemBoxHolder.add_child(tinstance)
+	
+	$NextButton.disabled = true

@@ -3,26 +3,50 @@ extends Node
 const url := "https://backend.project-persona.com"
 
 
-func start_conversation():
-	var http_request = HTTPRequest.new()
-	add_child(http_request)
-	http_request.request_completed.connect(start_conversation_complete)
+func start_conversation(authID:String, message:String, converID:String) -> bool:
+	var header = [
+		"User-Agent: Pirulo/1.0 (Godot)",
+		"Accept: */*"
+	]
 	
-	var headers = ["Content-Type: application/json"]
-	var error = http_request.request(url+"/start_conversation", headers, HTTPClient.METHOD_GET)
+	var body = {
+		"authID": authID,
+		"message": message,
+		"conversationID": converID
+	}
 	
-	if error != OK:
-		print("Request failed: ", error)
+	var json_body = JSON.stringify(body)
+	var response = await post_request("/start_conversation", header, json_body)
+	var json_response = JSON.parse_string(response)
 	
+	if response != "":
+		return true
+		
+	return false
 
-func start_conversation_complete(result, response_code, headers, body):
-	pass
+	
 
 func continue_conversation():
 	$HTTPRequest.request(url)
 	
-func end_converstion():
-	$HTTPRequest.request(url)
+func end_converstion(authID:String) -> bool:
+	var header = [
+		"User-Agent: Pirulo/1.0 (Godot)",
+		"Accept: */*"
+	]
+	
+	var body = {
+		"authID": authID
+	}
+	
+	var json_body = JSON.stringify(body)
+	var response = await post_request("/end_conversation", header, json_body)
+	var json_response = JSON.parse_string(response)
+	
+	if response != "":
+		return true
+		
+	return false
 	
 func sign_in(username:String, password:String) -> bool:
 	

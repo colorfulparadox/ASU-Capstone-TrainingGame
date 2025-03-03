@@ -20,10 +20,7 @@ var add_dessert: bool = rng.randf() < 0.4
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# hacky sorta way to set corner radius on all buttons with this theme
-	$SubmitButton.get_theme_stylebox("normal").set_corner_radius_all(15)
-	$SubmitButton.get_theme_stylebox("hover").set_corner_radius_all(15)
-	$SubmitButton.get_theme_stylebox("pressed").set_corner_radius_all(15)
+	set_corner_radius()
 	
 	# category selection
 	food_category = GameConstants.categories.pick_random()
@@ -46,6 +43,7 @@ func _ready() -> void:
 	# update quiz prompt label initially
 	$QuizPromptLabel.text = "What beverage does a " + food_category + " entree pair well with..."
 	
+	# assign quiz questions
 	spawn_questions()
 	
 	# update pairing question progress initially
@@ -53,6 +51,7 @@ func _ready() -> void:
 
 	# decide on the entree name of their chosen category
 	var entree_choice = GameConstants.restaurant_menu_items["entrees"][food_category].pick_random()
+	var dessert_choice = GameConstants.restaurant_menu_items["desserts"].pick_random()
 	
 	# populate list of their selected menu items
 	var fooditemlabel = load("res://nodes/food_item_label.tscn").instantiate()
@@ -61,19 +60,21 @@ func _ready() -> void:
 	
 	if add_dessert:
 		var dessertlabel = load("res://nodes/food_item_label.tscn").instantiate()
-		dessertlabel.text = "- Dessert"
+		dessertlabel.text = "- " + dessert_choice
 		$FoodVBox.add_child(dessertlabel)
 	
-	# assign quiz items
-	
 	# update initial score to 0
-	$ScoreLabel.text = "Score: " + str(total_quiz_score)
+	update_score(0)
 	
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+
+func update_score(add: int) -> void:
+	total_quiz_score += add
+	$ScoreLabel.text = "Score: " + str(total_quiz_score)
 
 func update_quiz_progress() -> void:
 	$QuizProgressLabel.text = "Food & Beverage Pairing Question " + \
@@ -107,7 +108,8 @@ func _on_correct_answer_selected() -> void:
 	print("order page received correct answer signal!")
 
 
-	# increment score?
+	# increment score
+	update_score(5)
 
 	# currently no "go to next question" functionality
 	if finished:
@@ -134,8 +136,7 @@ func _on_correct_answer_selected() -> void:
 
 	if current_quiz_question == total_quiz_questions:
 		finished = true
-	
-	pass
+
 
 func spawn_questions() -> void:
 	var t = load("res://nodes/quiz_item_box.tscn")
@@ -157,3 +158,15 @@ func spawn_questions() -> void:
 			tinstance.add_secondary_question(i, correct_answer_text, food_category)
 	
 	$QuizItemBoxHolder.add_child(tinstance)
+
+func set_corner_radius() -> void:
+	# hacky sorta way to set corner radius on all buttons or whatever with a given theme
+	const radius = 15
+	$SubmitButton.get_theme_stylebox("normal").set_corner_radius_all(radius)
+	$SubmitButton.get_theme_stylebox("hover").set_corner_radius_all(radius)
+	$SubmitButton.get_theme_stylebox("pressed").set_corner_radius_all(radius)
+	$ChatHistoryTextArea.get_theme_stylebox("normal").set_corner_radius_all(radius)
+	$MessageEntry.get_theme_stylebox("normal").set_corner_radius_all(radius)
+
+func _on_next_button_pressed() -> void:
+	pass

@@ -134,3 +134,4 @@ text = "Next"
 [connection signal="pressed" from="SubmitButton" to="." method="_on_submit_order"]
 [connection signal="text_submitted" from="MessageEntry" to="." method="_on_press_enter"]
 [connection signal="pressed" from="SendMessageButton" to="." method="_on_send_message"]
+[connection signal="pressed" from="NextButton" to="." method="_on_next_button_pressed"]

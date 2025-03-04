@@ -8,11 +8,8 @@ signal incorrect_answer_selected
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	
 	correct_answer_selected.connect(get_parent().get_parent()._on_correct_answer_selected)
 	incorrect_answer_selected.connect(get_parent().get_parent()._on_incorrect_answer_selected)
-	
-	pass # Replace with function body.
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -66,19 +63,12 @@ func _on_answer_selected(question_id: int):
 	
 	if question_id == correct_answer:
 		print("you chose the correct answer!")
-		
-		# should we emit a signal...
-		# how should we highlight the correct / in correct answer, 
-		
 		correct_answer_selected.emit()
-		
-		# also do we wait for a confirmation press to move to next question,
-		# or just move on to next one after a second?   
+
 	else:
 		print("incorrect answer chosen, subtracting point penalty")
 		incorrect_answer_selected.emit()
-	
-	pass
+
 
 func destroy_quizbox():
 	queue_free()

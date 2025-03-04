@@ -128,17 +128,17 @@ func _on_incorrect_answer_selected() -> void:
 	apply_max_score_penalty()
 
 func reset_max_score() -> void:
-	maximum_score = 5
+	maximum_score = GameConstants.MAX_SCORE_PER_QUESTION
 
 func apply_max_score_penalty() -> void:
-	maximum_score -= 2
+	maximum_score -= GameConstants.INCORRECT_ANSWER_PENALTY
 
 
 func spawn_questions() -> void:
 	var t = load("res://nodes/quiz_item_box.tscn")
 	var tinstance = t.instantiate()
-	# quiz items: pick one correct answer, then pick randomly twice from the beverage list
 	
+	# quiz items: pick one correct answer, then pick randomly twice from the beverage list
 	var correct_answer = range(1, GameConstants.POSSIBLE_CHOICES_COUNT + 1).pick_random()
 
 	tinstance.correct_answer = correct_answer

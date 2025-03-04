@@ -14,3 +14,4 @@ func _ready() -> void:
 
 const POSSIBLE_CHOICES_COUNT = 3
 const MAX_SCORE_PER_QUESTION = 5
+const INCORRECT_ANSWER_PENALTY = 2

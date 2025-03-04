@@ -13,3 +13,4 @@ func _ready() -> void:
 	pass
 
 const POSSIBLE_CHOICES_COUNT = 3
+const MAX_SCORE_PER_QUESTION = 5

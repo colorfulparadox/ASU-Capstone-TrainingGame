@@ -11,6 +11,7 @@ extends Node2D
 @onready var total_quiz_score: int = 0
 @onready var current_quiz_question: int = 1
 @onready var finished = false
+var maximum_score: int = GameConstants.MAX_SCORE_PER_QUESTION
 
 
 # dessert chance
@@ -112,12 +113,25 @@ func _on_correct_answer_selected() -> void:
 	print("order page received correct answer signal!")
 
 	# increment score
-	update_score(5)
+	update_score(maximum_score)
+	
+	reset_max_score()
 	
 	$NextButton.disabled = false
 
 	if current_quiz_question == total_quiz_questions:
 		finished = true
+
+func _on_incorrect_answer_selected() -> void:
+	print("order page received incorrect answer signal!")
+	
+	apply_max_score_penalty()
+
+func reset_max_score() -> void:
+	maximum_score = 5
+
+func apply_max_score_penalty() -> void:
+	maximum_score -= 2
 
 
 func spawn_questions() -> void:

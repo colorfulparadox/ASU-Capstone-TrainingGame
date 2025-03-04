@@ -95,6 +95,8 @@ func _on_send_message() -> void:
 	print()
 	
 	$MessageEntry.clear()
+	
+	$ChatHistoryTextArea.text += "Server: " + test
 
 func _on_submit_order() -> void: 
 	if finished:
@@ -147,6 +149,10 @@ func set_corner_radius() -> void:
 	$SubmitButton.get_theme_stylebox("pressed").set_corner_radius_all(radius)
 	$ChatHistoryTextArea.get_theme_stylebox("normal").set_corner_radius_all(radius)
 	$MessageEntry.get_theme_stylebox("normal").set_corner_radius_all(radius)
+	$NextButton.get_theme_stylebox("normal").set_corner_radius_all(radius)
+	$NextButton.get_theme_stylebox("hover").set_corner_radius_all(radius)
+	$NextButton.get_theme_stylebox("pressed").set_corner_radius_all(radius)
+	$NextButton.get_theme_stylebox("disabled").set_corner_radius_all(radius)
 
 func _on_next_button_pressed() -> void:
 	

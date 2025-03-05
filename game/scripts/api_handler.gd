@@ -3,7 +3,33 @@ extends Node
 const url := "https://backend.project-persona.com"
 
 
-func start_conversation(authID:String, message:String, converID:String) -> bool:
+func start_conversation(authID:String, message:String, instruction:String, converID:String):
+	var header = [
+		"User-Agent: Pirulo/1.0 (Godot)",
+		"Accept: */*"
+	]
+	
+	var body = {
+		"authID": authID,
+		"message": message,
+		"instruction": instruction,
+		"conversationID": converID
+	}
+	
+	return ["conversationID", "response"]
+	
+	var json_body = JSON.stringify(body)
+	var response = await post_request("/start_conversation", header, json_body)
+	var json_response = JSON.parse_string(response)
+	
+	if response != "":
+		return [json_response["conversationID"], json_response["message"]]
+		
+	return ["", "Server Error"]
+
+	
+
+func continue_conversation(authID:String, message:String, converID:String):
 	var header = [
 		"User-Agent: Pirulo/1.0 (Godot)",
 		"Accept: */*"
@@ -15,19 +41,16 @@ func start_conversation(authID:String, message:String, converID:String) -> bool:
 		"conversationID": converID
 	}
 	
+	return "response"
+	
 	var json_body = JSON.stringify(body)
-	var response = await post_request("/start_conversation", header, json_body)
+	var response = await post_request("/continue_conversation", header, json_body)
 	var json_response = JSON.parse_string(response)
 	
 	if response != "":
-		return true
+		return json_response["message"]
 		
-	return false
-
-	
-
-func continue_conversation():
-	$HTTPRequest.request(url)
+	return "Server Error"
 	
 func end_converstion(authID:String) -> bool:
 	var header = [
@@ -38,6 +61,8 @@ func end_converstion(authID:String) -> bool:
 	var body = {
 		"authID": authID
 	}
+	
+	return true
 	
 	var json_body = JSON.stringify(body)
 	var response = await post_request("/end_conversation", header, json_body)

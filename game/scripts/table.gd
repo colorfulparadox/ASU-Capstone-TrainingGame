@@ -58,4 +58,8 @@ func _on_table_button_pressed() -> void:
 	
 	# This will break if the restaurant -> tables -> table structure changes
 	var instance = get_parent().get_parent().spawn_order_page(4)
+	instance.timerImport = $Timer
+	instance.buttonImport = $tableButton
 	get_parent().get_parent().add_child(instance)
+	
+	

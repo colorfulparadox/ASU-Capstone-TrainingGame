@@ -18,10 +18,22 @@ var maximum_score: int = GameConstants.MAX_SCORE_PER_QUESTION
 var rng = RandomNumberGenerator.new()
 var add_dessert: bool = rng.randf() < 0.4
 
+var timerImport: Timer
+var buttonImport: Button
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_corner_radius()
+	
+	if timerImport:
+		print("Received Timer:", timerImport)
+	else:
+		print("No Timer")
+	
+	if buttonImport:
+		print("Received Button:", buttonImport)
+	else:
+		print("No Timer")
 	
 	$NextButton.disabled = true
 	
@@ -115,6 +127,13 @@ func _on_submit_order() -> void:
 		print("going back to restaurant, submitting order...")
 		
 		# destroy this order page instance
+		# Commented out timer function is for just a normal 
+		# unpause vs an instant leave
+		#timerImport.paused = false
+		timerImport.emit_signal("timeout")
+		buttonImport.disabled = true
+		
+		
 		queue_free()
 	elif not finished:
 		print("you need to finish the quiz before submitting this order")

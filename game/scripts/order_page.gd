@@ -97,8 +97,19 @@ func _on_send_message() -> void:
 	
 	$MessageEntry.clear()
 	
-	$ChatHistoryTextArea.text += "Server: " + test
+	$ChatHistoryTextArea.text += "Server: %s\n" % test
+	
+	# always scroll to the bottom of chat history
+	# I could probably just attach this to a signal and have it within the textedit node itself.
+	get_tree().create_timer(.01).timeout.connect(
+		# why can't things be simple
+		func () -> void:
+			$ChatHistoryTextArea.scroll_vertical = $ChatHistoryTextArea.get_v_scroll_bar().max_value - 6
+			print($ChatHistoryTextArea.scroll_vertical)
+	)
+	
 
+	
 func _on_submit_order() -> void: 
 	if finished:
 		print("going back to restaurant, submitting order...")

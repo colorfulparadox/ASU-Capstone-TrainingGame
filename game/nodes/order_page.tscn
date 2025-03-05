@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0sx40446iowp"]
+[gd_scene load_steps=9 format=3 uid="uid://d0sx40446iowp"]
 
 [ext_resource type="Script" path="res://scripts/order_page.gd" id="1_3a8g4"]
 [ext_resource type="Theme" uid="uid://c5wta1oqlc53x" path="res://assets/button_size_override_theme.tres" id="1_63hpv"]
 [ext_resource type="Texture2D" uid="uid://buqb6w7gin2nj" path="res://assets/Steak.png" id="2_vedy5"]
+[ext_resource type="Script" path="res://scripts/chat_history_text_area.gd" id="4_vw0ay"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yrtmq"]
 font_size = 40
@@ -104,8 +105,9 @@ offset_top = 974.0
 offset_right = 1867.0
 offset_bottom = 1241.0
 theme = ExtResource("1_63hpv")
-placeholder_text = " chat history with the Persona/Guest"
+placeholder_text = "Guest conversation will appear here."
 editable = false
+script = ExtResource("4_vw0ay")
 
 [node name="SendMessageButton" type="Button" parent="."]
 offset_left = 1609.0

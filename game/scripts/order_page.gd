@@ -130,8 +130,10 @@ func _on_submit_order() -> void:
 		# Commented out timer function is for just a normal 
 		# unpause vs an instant leave
 		#timerImport.paused = false
-		timerImport.emit_signal("timeout")
-		buttonImport.disabled = true
+		if timerImport != null:
+			timerImport.emit_signal("timeout")
+		if buttonImport != null:
+			buttonImport.disabled = true
 		
 		
 		queue_free()

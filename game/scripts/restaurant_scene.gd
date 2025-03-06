@@ -26,9 +26,10 @@ func spawn_order_page(test_value: int) -> Node2D:
 	var orderpagescene: PackedScene = load("res://nodes/order_page.tscn")
 	var instance = orderpagescene.instantiate()
 	
-	# center it
-	instance.position = get_viewport().size * -0.5
+	# center it, now resistant to fullscreen viewport size wierdness
+	instance.position = GameConstants.GAMESIZE * -0.5 
 	instance.set_z_index(100)
+	
 	
 	instance.test_property = test_value
 	

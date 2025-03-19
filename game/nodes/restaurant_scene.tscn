@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=4 uid="uid://cd3ii2rlhfb61"]
+[gd_scene load_steps=12 format=4 uid="uid://cd3ii2rlhfb61"]
 
 [ext_resource type="Script" path="res://scripts/restaurant_scene.gd" id="1_vhw8m"]
 [ext_resource type="TileSet" uid="uid://dwvadnn410ls5" path="res://assets/tileset/restaurant_tileset.tres" id="2_c5dxy"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://rnrs1bwyvhu0" path="res://nodes/door.tscn" id="4_km55j"]
 [ext_resource type="PackedScene" uid="uid://bsjcexhybugbt" path="res://nodes/api_node.tscn" id="5_s14uf"]
 [ext_resource type="FontFile" uid="uid://cmd74ttnngj2g" path="res://assets/CHICKEN Pie.ttf" id="7_nfoj4"]
+[ext_resource type="Texture2D" uid="uid://c073h2epen0fn" path="res://assets/Character Model.png" id="8_mjibf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fqbe"]
 bg_color = Color(0.386805, 0.242696, 4.81308e-08, 1)
@@ -83,6 +84,10 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_2fqbe")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_a25nf")
 theme_override_styles/normal = SubResource("StyleBoxFlat_nxy8f")
 text = "SPAWN ORDER PAGE (TEST)"
+
+[node name="CharacterModel" type="Sprite2D" parent="."]
+position = Vector2(-931, 0)
+texture = ExtResource("8_mjibf")
 
 [connection signal="pressed" from="GoToMenuButton" to="." method="_on_return_button_pressed"]
 [connection signal="pressed" from="Test Order Button" to="." method="_on_show_order_page"]

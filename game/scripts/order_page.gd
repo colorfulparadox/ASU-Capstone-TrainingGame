@@ -12,7 +12,8 @@ extends Node2D
 @onready var current_quiz_question: int = 1
 @onready var finished = false
 var maximum_score: int = GameConstants.MAX_SCORE_PER_QUESTION
-
+var conversation_started:bool = false
+var conversation_id: String
 
 # dessert chance
 var rng = RandomNumberGenerator.new()
@@ -24,6 +25,10 @@ var buttonImport: Button
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_corner_radius()
+	
+	guest_name = GameConstants.names[GameConstants.gender.pick_random()].pick_random()
+	conversation_id = guest_name + Time.get_datetime_string_from_system()
+	print("conversation id %s" % conversation_id)
 	
 	if timerImport:
 		print("Received Timer:", timerImport)
@@ -110,8 +115,32 @@ func _on_send_message() -> void:
 	$MessageEntry.clear()
 	
 	$ChatHistoryTextArea.text += "Server: %s\n" % test
+
+	# wait a moment before response
+	get_tree().create_timer(0.25).timeout.connect(
+		func () -> void:
+			if conversation_started == false:
+				# start api conversation
+				conversation_started = true
+				# formatted string with dynamic details
+				var instruction = """
+				your name is %s. You are a restaurant patron at a fancy hotel called the Fairmont Scottsdale Princess.
+				You are getting a nice meal at the Bourbon Steak restaurant and your entree category is %s. 
+				Your server will be asking you questions and your job is to briefly and kindly reply to them in return.
+				""" % [guest_name, food_category]
+				var response = $API_Node.start_conversation(ServerVariables.auth_id, test, instruction, conversation_id)
+				var response_text = response[1]
+				$ChatHistoryTextArea.text += "%s: %s\n" % [guest_name, response_text]
+				
+			else:
+				var response = $API_Node.continue_conversation(ServerVariables.auth_id, test, conversation_id)
+				var response_text = response[1]
+				$ChatHistoryTextArea.text += "%s: %s\n" % [guest_name, response_text]
+	)
 	
-	# always scroll to the bottom of chat history
+		
+	
+		# always scroll to the bottom of chat history
 	# I could probably just attach this to a signal and have it within the textedit node itself.
 	get_tree().create_timer(.01).timeout.connect(
 		# why can't things be simple
@@ -135,6 +164,9 @@ func _on_submit_order() -> void:
 		if buttonImport != null:
 			buttonImport.disabled = true
 		
+		if conversation_started:
+			# close conversation with API
+			$API_Node.end_conversation(ServerVariables.auth_id)
 		
 		queue_free()
 	elif not finished:
@@ -234,3 +266,9 @@ func spawn_exit_card():
 	$QuizItemBoxHolder.add_child(tinstance)
 	
 	$NextButton.disabled = true
+
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		# close all conversations
+		$API_Node.end_conversation(ServerVariables.auth_id)
+		get_tree().quit() # default behavior

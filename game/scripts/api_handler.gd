@@ -52,7 +52,7 @@ func continue_conversation(authID:String, message:String, converID:String):
 		
 	return "Server Error"
 	
-func end_converstion(authID:String) -> bool:
+func end_conversation(authID:String) -> bool:
 	var header = [
 		"User-Agent: Pirulo/1.0 (Godot)",
 		"Accept: */*"

@@ -15,7 +15,6 @@ func _process(delta: float) -> void:
 
 func set_text(new_text: String) -> void:
 	$Button.text = new_text
-	pass
 
 func set_id(id: int) -> void:
 	question_id = id
@@ -25,7 +24,7 @@ func set_correct_answer(b: bool) -> void:
 
 func _on_button_pressed() -> void:
 	if is_correct_answer:
-		# hightlight yellow
+		# highlight yellow
 		set_stylebox_color("normal", Color.YELLOW_GREEN)
 	else:
 		# highlight red

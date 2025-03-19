@@ -34,3 +34,9 @@ func spawn_order_page(test_value: int) -> Node2D:
 	instance.test_property = test_value
 	
 	return instance
+
+func _notification(what):
+	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		# close all conversations
+		$API_Node.end_conversation(ServerVariables.auth_id)
+		get_tree().quit() # default behavior

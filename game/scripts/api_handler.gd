@@ -12,7 +12,7 @@ func start_conversation(authID:String, message:String, instruction:String, conve
 	var body = {
 		"authID": authID,
 		"message": message,
-		"instruction": instruction,
+		"instructions": instruction,
 		"conversationID": converID
 	}
 	

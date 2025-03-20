@@ -37,9 +37,9 @@ func spawn_order_page(test_value: int) -> Node2D:
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
-		# close all conversations
-		var out = $API_Node.end_conversation(ServerVariables.auth_id)
-		print("out status: ", out)
-		if out == true:
-			print('conversation closed succesfully')
+		## close all conversations
+		#var out = await $API_Node.end_conversation(ServerVariables.auth_id)
+		#print("out status: ", out)
+		#if out == true:
+			#print('conversation closed succesfully')
 		get_tree().quit() # default behavior

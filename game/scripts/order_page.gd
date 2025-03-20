@@ -116,29 +116,25 @@ func _on_send_message() -> void:
 	
 	$ChatHistoryTextArea.text += "Server: %s\n" % test
 
-	# wait a moment before response
-	get_tree().create_timer(0.25).timeout.connect(
-		func () -> void:
-			if conversation_started == false:
-				# start api conversation
-				conversation_started = true
-				# formatted string with dynamic details
-				var instruction = """
-				your name is %s. You are a restaurant patron at a fancy hotel called the Fairmont Scottsdale Princess.
-				You are getting a nice meal at the Bourbon Steak restaurant and your entree category is %s. 
-				Your server will be asking you questions and your job is to briefly and kindly reply to them in return.
-				""" % [guest_name, food_category]
-				var response = await $API_Node.start_conversation(ServerVariables.auth_id, test, instruction, conversation_id)
-				var response_text = response[1]
-				$ChatHistoryTextArea.text += "%s: %s\n" % [guest_name, response_text]
-				
-			else:
-				var response = await $API_Node.continue_conversation(ServerVariables.auth_id, test, conversation_id)
-				var response_text = response
-				$ChatHistoryTextArea.text += "%s: %s\n" % [guest_name, response_text]
-	)
-	
+	if conversation_started == false:
+		# start api conversation
+		conversation_started = true
+		# formatted string with dynamic details
+		var instruction = """
+		your name is %s. You are a restaurant patron at a fancy hotel called the Fairmont Scottsdale Princess.
+		You are ordering a meal at the Bourbon Steak restaurant and your entree category is %s. 
+		Your server will be asking you questions and your job is to briefly and kindly reply to them in return.
+		""" % [guest_name, food_category]
+		var response = await $API_Node.start_conversation(ServerVariables.auth_id, test, instruction, conversation_id)
+		var response_text = response[1]
+		$ChatHistoryTextArea.text += "%s: %s\n" % [guest_name, response_text]
 		
+	else:
+		var response = await $API_Node.continue_conversation(ServerVariables.auth_id, test, conversation_id)
+		var response_text = response
+		$ChatHistoryTextArea.text += "%s: %s\n" % [guest_name, response_text]
+	
+	await get_tree().process_frame
 	
 		# always scroll to the bottom of chat history
 	# I could probably just attach this to a signal and have it within the textedit node itself.
@@ -166,7 +162,7 @@ func _on_submit_order() -> void:
 		
 		if conversation_started:
 			# close conversation with API
-			var out = $API_Node.end_conversation(ServerVariables.auth_id)
+			var out = await $API_Node.end_conversation(ServerVariables.auth_id)
 			print("out status: ", out)
 			if out == true:
 				print('conversation closed succesfully')

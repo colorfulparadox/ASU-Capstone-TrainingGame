@@ -118,6 +118,7 @@ offset_bottom = 1241.0
 theme = ExtResource("1_63hpv")
 placeholder_text = "Guest conversation will appear here."
 editable = false
+wrap_mode = 1
 script = ExtResource("4_vw0ay")
 
 [node name="SendMessageButton" type="Button" parent="."]

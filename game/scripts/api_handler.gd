@@ -16,7 +16,7 @@ func start_conversation(authID:String, message:String, instruction:String, conve
 		"conversationID": converID
 	}
 	
-	return ["conversationID", "response"]
+	#return ["conversationID", "response"]
 	
 	var json_body = JSON.stringify(body)
 	var response = await post_request("/start_conversation", header, json_body)
@@ -41,7 +41,7 @@ func continue_conversation(authID:String, message:String, converID:String):
 		"conversationID": converID
 	}
 	
-	return "response"
+	#return "response"
 	
 	var json_body = JSON.stringify(body)
 	var response = await post_request("/continue_conversation", header, json_body)
@@ -62,7 +62,7 @@ func end_conversation(authID:String) -> bool:
 		"authID": authID
 	}
 	
-	return true
+	#return true
 	
 	var json_body = JSON.stringify(body)
 	var response = await post_request("/end_conversation", header, json_body)

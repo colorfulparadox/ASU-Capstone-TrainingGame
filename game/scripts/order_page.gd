@@ -128,12 +128,12 @@ func _on_send_message() -> void:
 				You are getting a nice meal at the Bourbon Steak restaurant and your entree category is %s. 
 				Your server will be asking you questions and your job is to briefly and kindly reply to them in return.
 				""" % [guest_name, food_category]
-				var response = $API_Node.start_conversation(ServerVariables.auth_id, test, instruction, conversation_id)
+				var response = await $API_Node.start_conversation(ServerVariables.auth_id, test, instruction, conversation_id)
 				var response_text = response[1]
 				$ChatHistoryTextArea.text += "%s: %s\n" % [guest_name, response_text]
 				
 			else:
-				var response = $API_Node.continue_conversation(ServerVariables.auth_id, test, conversation_id)
+				var response = await $API_Node.continue_conversation(ServerVariables.auth_id, test, conversation_id)
 				var response_text = response
 				$ChatHistoryTextArea.text += "%s: %s\n" % [guest_name, response_text]
 	)

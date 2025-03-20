@@ -134,7 +134,7 @@ func _on_send_message() -> void:
 				
 			else:
 				var response = $API_Node.continue_conversation(ServerVariables.auth_id, test, conversation_id)
-				var response_text = response[1]
+				var response_text = response
 				$ChatHistoryTextArea.text += "%s: %s\n" % [guest_name, response_text]
 	)
 	
@@ -166,7 +166,10 @@ func _on_submit_order() -> void:
 		
 		if conversation_started:
 			# close conversation with API
-			$API_Node.end_conversation(ServerVariables.auth_id)
+			var out = $API_Node.end_conversation(ServerVariables.auth_id)
+			print("out status: ", out)
+			if out == true:
+				print('conversation closed succesfully')
 		
 		queue_free()
 	elif not finished:
@@ -270,5 +273,8 @@ func spawn_exit_card():
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		# close all conversations
-		$API_Node.end_conversation(ServerVariables.auth_id)
+		var out = $API_Node.end_conversation(ServerVariables.auth_id)
+		print("out status: ", out)
+		if out == true:
+			print('conversation closed succesfully')
 		get_tree().quit() # default behavior

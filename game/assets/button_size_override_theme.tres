@@ -1,4 +1,40 @@
-[gd_resource type="Theme" format=3 uid="uid://c5wta1oqlc53x"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://c5wta1oqlc53x"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j0ct0"]
+bg_color = Color(9.62615e-08, 0.568017, 0.552368, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a7bpf"]
+bg_color = Color(0, 0.687677, 0.679251, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_da6m5"]
+bg_color = Color(0.515685, 0.631314, 0.584086, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gouwy"]
+bg_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [resource]
 default_font_size = 35
+Button/styles/normal = SubResource("StyleBoxFlat_j0ct0")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_a7bpf")
+TextEdit/styles/normal = SubResource("StyleBoxFlat_da6m5")
+TextEdit/styles/read_only = SubResource("StyleBoxFlat_gouwy")

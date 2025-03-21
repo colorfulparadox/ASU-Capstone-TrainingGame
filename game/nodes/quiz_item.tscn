@@ -1,7 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://wk57dp4jugca"]
+[gd_scene load_steps=5 format=3 uid="uid://wk57dp4jugca"]
 
 [ext_resource type="Theme" uid="uid://7xwjc5swii5r" path="res://assets/quiz_button_theme.tres" id="1_cy3nd"]
 [ext_resource type="Script" path="res://scripts/quiz_item.gd" id="1_mm8va"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqit0"]
+bg_color = Color(0.33, 0.33, 0.33, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
+[sub_resource type="Theme" id="Theme_auv0v"]
+Button/styles/normal = SubResource("StyleBoxFlat_fqit0")
 
 [node name="QuizItem" type="Control"]
 layout_mode = 3
@@ -11,6 +21,7 @@ offset_right = 5.07996
 offset_bottom = 1.8
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_auv0v")
 script = ExtResource("1_mm8va")
 
 [node name="Button" type="Button" parent="."]

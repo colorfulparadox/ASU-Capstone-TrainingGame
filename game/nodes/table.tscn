@@ -18,7 +18,6 @@ affect_navigation_mesh = true
 shape = SubResource("RectangleShape2D_jsjba")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 scale = Vector2(0.135484, 0.135484)
 texture = ExtResource("2_vqvcb")
 

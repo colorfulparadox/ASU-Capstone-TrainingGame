@@ -17,7 +17,6 @@ radius = 80.0
 shape = SubResource("RectangleShape2D_2k7jd")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 scale = Vector2(0.135484, 0.135484)
 texture = ExtResource("2_t7bqy")
 

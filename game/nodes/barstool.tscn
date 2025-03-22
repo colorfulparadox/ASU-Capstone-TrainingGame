@@ -19,7 +19,6 @@ affect_navigation_mesh = true
 shape = SubResource("CircleShape2D_yoila")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
 scale = Vector2(0.135484, 0.135484)
 texture = ExtResource("2_efi86")
 
@@ -27,11 +26,11 @@ texture = ExtResource("2_efi86")
 one_shot = true
 
 [node name="tableButton" type="Button" parent="."]
-offset_left = -80.0
-offset_top = -79.0
-offset_right = 155.0
-offset_bottom = 78.0
-scale = Vector2(0.68, 1)
+offset_left = -52.0
+offset_top = -47.0
+offset_right = 183.0
+offset_bottom = 110.0
+scale = Vector2(0.44062, 0.593598)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

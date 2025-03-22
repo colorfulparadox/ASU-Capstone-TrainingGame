@@ -3,20 +3,19 @@
 [ext_resource type="Script" uid="uid://cxnd3uauoj6ym" path="res://scripts/table.gd" id="1_1vhrk"]
 [ext_resource type="Texture2D" uid="uid://dsjjxvnk4j5j0" path="res://assets/unoccupied_table.png" id="2_vqvcb"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_yoila"]
-custom_solver_bias = 1.0
-radius = 110.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jsjba"]
+size = Vector2(250, 150)
 
 [node name="table" type="Area2D" groups=["unoccupied_table"]]
 collision_mask = 4
 script = ExtResource("1_1vhrk")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
-radius = 80.0
+vertices = PackedVector2Array(-125, -75, 125, -75, 125, 75, -125, 75)
 affect_navigation_mesh = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_yoila")
+shape = SubResource("RectangleShape2D_jsjba")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
@@ -27,10 +26,11 @@ texture = ExtResource("2_vqvcb")
 one_shot = true
 
 [node name="tableButton" type="Button" parent="."]
-offset_left = -121.0
-offset_top = -102.0
-offset_right = 114.0
-offset_bottom = 55.0
+offset_left = -118.0
+offset_top = -69.0
+offset_right = 117.0
+offset_bottom = 88.0
+scale = Vector2(1, 0.88)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://d4c1f58abdox3"]
+
+[ext_resource type="Script" uid="uid://cxnd3uauoj6ym" path="res://scripts/table.gd" id="1_2k7jd"]
+[ext_resource type="Texture2D" uid="uid://dsjjxvnk4j5j0" path="res://assets/unoccupied_table.png" id="2_t7bqy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2k7jd"]
+size = Vector2(250, 250)
+
+[node name="booth" type="Area2D" groups=["unoccupied_table"]]
+collision_mask = 4
+script = ExtResource("1_2k7jd")
+
+[node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
+radius = 80.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_2k7jd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+scale = Vector2(0.135484, 0.135484)
+texture = ExtResource("2_t7bqy")
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="tableButton" type="Button" parent="."]
+offset_left = -118.0
+offset_top = -120.0
+offset_right = 117.0
+offset_bottom = 37.0
+scale = Vector2(1, 1.52)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="tableButton" to="." method="_on_table_button_pressed"]

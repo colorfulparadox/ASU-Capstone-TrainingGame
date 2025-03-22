@@ -28,26 +28,23 @@ func customer_exit():
 	table_unoccupied()
 
 func _on_body_entered(body: Node2D) -> void:
+	print("Table Contact")
 	if body.is_in_group("customer") && is_in_group("unoccupied_table"):
-		table_occupied()
-		body.queue_free()
-		button.visible = true
-		button.modulate.a = 0
-		button.disabled = false
+		body.occupy_table(self)
 
 func table_occupied():
 	remove_from_group("unoccupied_table")
 	var new_texture = preload("res://assets/occupied_table.png")
 	$Sprite2D.set_texture(new_texture)
-	$NavigationObstacle2D.avoidance_layers = 1
-	print($NavigationObstacle2D.avoidance_layers)
+	button.visible = true
+	button.modulate.a = 0
+	button.disabled = false
 	temp_leaving()
 
 func table_unoccupied():
 	add_to_group("unoccupied_table")
 	var new_texture = preload("res://assets/unoccupied_table.png")
 	$Sprite2D.set_texture(new_texture)
-	$NavigationObstacle2D.avoidance_layers = 2
 
 func _on_timer_timeout() -> void:
 	customer_exit()
@@ -57,7 +54,8 @@ func _on_table_button_pressed() -> void:
 	$Timer.paused = true
 	
 	# This will break if the restaurant -> tables -> table structure changes
-	var instance = get_parent().get_parent().spawn_order_page(4)
+	var instance = get_node("/root/RestaurantScene").spawn_order_page(4)
+	print(instance)
 	instance.timerImport = $Timer
 	instance.buttonImport = $tableButton
 	get_parent().get_parent().add_child(instance)

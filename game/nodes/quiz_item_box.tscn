@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://b8ecaki21537f"]
 
-[ext_resource type="Script" path="res://scripts/quiz_item_box.gd" id="1_pu8ao"]
+[ext_resource type="Script" uid="uid://bcru2lxb1yook" path="res://scripts/quiz_item_box.gd" id="1_pu8ao"]
 
 [node name="QuizItemBox" type="VBoxContainer"]
 offset_top = -420.0

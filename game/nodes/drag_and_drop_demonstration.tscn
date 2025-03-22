@@ -1,47 +1,65 @@
-[gd_scene load_steps=3 format=3 uid="uid://xji40ogbxyd2"]
+[gd_scene load_steps=8 format=3 uid="uid://xji40ogbxyd2"]
 
-[ext_resource type="PackedScene" uid="uid://cw3ow4vdfnq1v" path="res://nodes/draggable_food/food_slot.tscn" id="1_5y7mv"]
-[ext_resource type="PackedScene" uid="uid://bwl5tnsgoevh5" path="res://nodes/draggable_food/draggable_food.tscn" id="2_n7p62"]
+[sub_resource type="Resource" id="Resource_6ptaf"]
+metadata/__load_path__ = "res://nodes/draggable_food/food_slot.tscn"
+
+[sub_resource type="Resource" id="Resource_l6f0u"]
+metadata/__load_path__ = "res://nodes/draggable_food/food_slot.tscn"
+
+[sub_resource type="Resource" id="Resource_d4xf5"]
+metadata/__load_path__ = "res://nodes/draggable_food/food_slot.tscn"
+
+[sub_resource type="Resource" id="Resource_43qj2"]
+metadata/__load_path__ = "res://nodes/draggable_food/food_slot.tscn"
+
+[sub_resource type="Resource" id="Resource_w0vcf"]
+metadata/__load_path__ = "res://nodes/draggable_food/food_slot.tscn"
+
+[sub_resource type="Resource" id="Resource_fjns7"]
+metadata/__load_path__ = "res://nodes/draggable_food/food_slot.tscn"
+
+[sub_resource type="Resource" id="Resource_vp8o6"]
+metadata/__load_path__ = "res://nodes/draggable_food/draggable_food.tscn"
 
 [node name="DragAndDropDemonstration" type="Node2D"]
 
-[node name="FoodSlot6" parent="." instance=ExtResource("1_5y7mv")]
+[node name="FoodSlot6" parent="."]
 offset_left = 1286.0
 offset_top = 196.0
 offset_right = 1286.0
 offset_bottom = 196.0
 
-[node name="FoodSlot5" parent="." instance=ExtResource("1_5y7mv")]
+[node name="FoodSlot5" parent="."]
 offset_left = 1009.0
 offset_top = 200.0
 offset_right = 1009.0
 offset_bottom = 200.0
 
-[node name="FoodSlot" parent="." instance=ExtResource("1_5y7mv")]
+[node name="FoodSlot" parent="."]
 offset_left = 203.0
 offset_top = 445.0
 offset_right = 203.0
 offset_bottom = 445.0
 
-[node name="FoodSlot4" parent="." instance=ExtResource("1_5y7mv")]
+[node name="FoodSlot4" parent="."]
 offset_left = 741.0
 offset_top = 200.0
 offset_right = 741.0
 offset_bottom = 200.0
 
-[node name="FoodSlot3" parent="." instance=ExtResource("1_5y7mv")]
+[node name="FoodSlot3" parent="."]
 offset_left = 472.0
 offset_top = 200.0
 offset_right = 472.0
 offset_bottom = 200.0
 
-[node name="FoodSlot2" parent="." instance=ExtResource("1_5y7mv")]
+[node name="FoodSlot2" parent="."]
 offset_left = 207.0
 offset_top = 199.0
 offset_right = 207.0
 offset_bottom = 199.0
 
-[node name="draggable_food" parent="." instance=ExtResource("2_n7p62")]
+[node name="draggable_food" parent="."]
 offset_left = 447.0
 offset_top = 631.0
 offset_right = 747.0

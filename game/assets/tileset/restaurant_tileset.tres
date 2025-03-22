@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=60 format=3 uid="uid://dwvadnn410ls5"]
+[gd_resource type="TileSet" load_steps=63 format=3 uid="uid://dwvadnn410ls5"]
 
 [ext_resource type="Texture2D" uid="uid://bqgy0atfnusxf" path="res://assets/modern-int/32px+VXACE/!doors.png" id="2_jh0bg"]
 [ext_resource type="Texture2D" uid="uid://s0okaxf8cvxh" path="res://assets/modern-int/32px+VXACE/non-rm-a2-square.png" id="2_rprg5"]
@@ -3742,11 +3742,13 @@ texture_region_size = Vector2i(32, 32)
 14:15/0 = 0
 15:15/0 = 0
 
-[sub_resource type="NavigationPolygon" id="NavigationPolygon_ndgr3"]
-vertices = PackedVector2Array(16, 16, -16, 16, -16, -16, 16, -16)
-polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
-outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)])
-agent_radius = 0.0
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_bla4d"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_cupbn"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_laeed"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_wupen"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a5myw"]
 texture = ExtResource("5_7y1sf")
@@ -3843,8 +3845,10 @@ texture_region_size = Vector2i(32, 32)
 14:5/0 = 0
 15:5/0 = 0
 0:6/0 = 0
+0:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.9315, -21.6669, 16.5688, -21.6669, 16, 16, -16, 16)
 1:6/0 = 0
 2:6/0 = 0
+2:6/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.9315, -21.6669, 16.5688, -21.6669, 16, 16, -16, 16)
 3:6/0 = 0
 4:6/0 = 0
 5:6/0 = 0
@@ -3859,11 +3863,17 @@ texture_region_size = Vector2i(32, 32)
 14:6/0 = 0
 15:6/0 = 0
 0:7/0 = 0
+0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:7/0 = 0
 2:7/0 = 0
+2:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 3:7/0 = 0
+3:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 4:7/0 = 0
+4:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+4:7/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_bla4d")
 5:7/0 = 0
+5:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 6:7/0 = 0
 7:7/0 = 0
 8:7/0 = 0
@@ -3944,11 +3954,11 @@ texture_region_size = Vector2i(32, 32)
 3:12/0 = 0
 4:12/0 = 0
 5:12/0 = 0
-5:12/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ndgr3")
+5:12/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_cupbn")
 6:12/0 = 0
-6:12/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ndgr3")
+6:12/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_laeed")
 7:12/0 = 0
-7:12/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_ndgr3")
+7:12/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_wupen")
 8:12/0 = 0
 9:12/0 = 0
 10:12/0 = 0
@@ -4869,6 +4879,8 @@ texture_region_size = Vector2i(32, 32)
 
 [resource]
 tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 2
+physics_layer_0/collision_mask = 4
 navigation_layer_0/layers = 1
 sources/1 = SubResource("TileSetAtlasSource_oye6b")
 sources/2 = SubResource("TileSetAtlasSource_kdqkg")

@@ -1,9 +1,9 @@
 [gd_scene load_steps=3 format=3 uid="uid://rnrs1bwyvhu0"]
 
-[ext_resource type="Script" path="res://scripts/door.gd" id="1_ojo5v"]
+[ext_resource type="Script" uid="uid://fnd65r5l3mxq" path="res://scripts/door.gd" id="1_ojo5v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ul2t5"]
-size = Vector2(112, 42)
+size = Vector2(175, 42)
 
 [node name="door" type="Area2D"]
 position = Vector2(-382, -372)

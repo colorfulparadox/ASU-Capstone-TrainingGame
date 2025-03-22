@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://wk57dp4jugca"]
 
 [ext_resource type="Theme" uid="uid://7xwjc5swii5r" path="res://assets/quiz_button_theme.tres" id="1_cy3nd"]
-[ext_resource type="Script" path="res://scripts/quiz_item.gd" id="1_mm8va"]
+[ext_resource type="Script" uid="uid://bbj8xseqjib5m" path="res://scripts/quiz_item.gd" id="1_mm8va"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqit0"]
 bg_color = Color(0.33, 0.33, 0.33, 1)

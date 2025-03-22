@@ -1,25 +1,25 @@
 [gd_scene load_steps=4 format=3 uid="uid://ofjrpsuiri5w"]
 
-[ext_resource type="Script" path="res://scripts/table.gd" id="1_1vhrk"]
+[ext_resource type="Script" uid="uid://cxnd3uauoj6ym" path="res://scripts/table.gd" id="1_1vhrk"]
 [ext_resource type="Texture2D" uid="uid://dsjjxvnk4j5j0" path="res://assets/unoccupied_table.png" id="2_vqvcb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yoila"]
-radius = 80.0
+custom_solver_bias = 1.0
+radius = 110.0
 
 [node name="table" type="Area2D" groups=["unoccupied_table"]]
-position = Vector2(352, 200)
 collision_mask = 4
 script = ExtResource("1_1vhrk")
 
 [node name="NavigationObstacle2D" type="NavigationObstacle2D" parent="."]
-scale = Vector2(0.0941532, 0.0941532)
-radius = 100.0
-avoidance_layers = 2
+radius = 80.0
+affect_navigation_mesh = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_yoila")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.135484, 0.135484)
 texture = ExtResource("2_vqvcb")
 

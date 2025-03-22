@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Area2D
 
 var movement_speed = 150
 var rng = RandomNumberGenerator.new()
@@ -18,6 +18,7 @@ func _ready():
 func leaving():
 	remove_from_group("customer")
 	add_to_group("customer_exit")
+	$NavigationAgent2D.avoidance_mask = 7
 
 func seeker_setup():
 	await get_tree().physics_frame
@@ -34,12 +35,12 @@ func acquire_target():
 		target = new_target
 	else:
 		leaving()
-		
-	navigation_agent_2d.target_position = target.global_position
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	if !is_instance_valid(target) || !(target.is_in_group("unoccupied_table") || target.is_in_group("door")):
+	if is_instance_valid(target) && (target.is_in_group("unoccupied_table") || target.is_in_group("door")):
+		navigation_agent_2d.target_position = target.global_position
+	else:
 		acquire_target()
 	if navigation_agent_2d.is_navigation_finished():
 		return
@@ -53,15 +54,16 @@ func _physics_process(delta):
 	else:
 		_on_navigation_agent_2d_velocity_computed(new_velocity)
 	
-	move_and_slide()
-	pass
+	# move_and_slide()
 
-func occupy_table(body):
-	if body == target:
-		print("Reached Desired Table")
-		body.table_occupied()
-		queue_free()
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 	velocity = safe_velocity
-	pass # Replace with function body.
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print(body)
+	print(current_table)
+	if body == current_table:
+		print("Reached Desired Table")
+		body.table_occupied()
+		queue_free()

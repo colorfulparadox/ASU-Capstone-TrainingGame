@@ -22,6 +22,6 @@ func _on_pressed() -> void:
 	var success = await api_node.sign_in(username_input.get_line(0), password_input.get_line(0))
 	
 	if success == true:
-		$"../Label4".text = ServerVariables.auth_id
+		get_tree().change_scene_to_file("res://nodes/restaurant_scene.tscn")
 	else:
 		$"../Label4".text = "Invalid credentials"

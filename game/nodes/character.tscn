@@ -29,10 +29,6 @@ region = Rect2(512, 0, 32, 32)
 atlas = ExtResource("1_q26ey")
 region = Rect2(544, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_bl6dl"]
-atlas = ExtResource("1_q26ey")
-region = Rect2(0, 0, 32, 32)
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_alamn"]
 atlas = ExtResource("1_q26ey")
 region = Rect2(0, 0, 32, 32)
@@ -56,6 +52,10 @@ region = Rect2(128, 0, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_pmtp7"]
 atlas = ExtResource("1_q26ey")
 region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bl6dl"]
+atlas = ExtResource("1_q26ey")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jmy82"]
 atlas = ExtResource("1_q26ey")
@@ -132,14 +132,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bl6dl")
-}],
-"loop": true,
-"name": &"fIdle",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_alamn")
 }, {
 "duration": 1.0,
@@ -159,6 +151,14 @@ animations = [{
 }],
 "loop": true,
 "name": &"fWalk",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bl6dl")
+}],
+"loop": true,
+"name": &"idle",
 "speed": 5.0
 }, {
 "frames": [{
@@ -334,7 +334,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_2fn2u")
 }],
 "loop": true,
-"name": &"bHair",
+"name": &"bWalk",
 "speed": 5.0
 }, {
 "frames": [{
@@ -360,7 +360,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_t3xxw")
 }],
 "loop": true,
-"name": &"fHair",
+"name": &"fWalk",
 "speed": 5.0
 }, {
 "frames": [{
@@ -391,7 +391,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_ogmrr")
 }],
 "loop": true,
-"name": &"lHair",
+"name": &"lWalk",
 "speed": 5.0
 }, {
 "frames": [{
@@ -414,7 +414,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_jgo0n")
 }],
 "loop": true,
-"name": &"rHair",
+"name": &"rWalk",
 "speed": 5.0
 }]
 
@@ -626,7 +626,7 @@ script = ExtResource("1_2jtxk")
 
 [node name="BodyAnim" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_7wwvu")
-animation = &"fIdle"
+animation = &"idle"
 
 [node name="HairAnim" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_6dbrr")

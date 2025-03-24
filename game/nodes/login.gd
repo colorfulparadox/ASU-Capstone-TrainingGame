@@ -23,5 +23,6 @@ func _on_pressed() -> void:
 	
 	if success == true:
 		get_tree().change_scene_to_file("res://nodes/restaurant_scene.tscn")
+		GameConstants.save_authid()
 	else:
 		$"../Label4".text = "Invalid credentials"

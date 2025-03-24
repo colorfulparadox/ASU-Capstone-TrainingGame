@@ -28,6 +28,8 @@ func load_authid():
 		
 		ServerVariables.auth_id = authidtext
 		ServerVariables.username = usernametext
+		print(ServerVariables.auth_id)
+		print(ServerVariables.username)
 		
 	
 func save_authid():

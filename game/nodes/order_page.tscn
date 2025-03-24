@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0sx40446iowp"]
+[gd_scene load_steps=12 format=3 uid="uid://d0sx40446iowp"]
 
 [ext_resource type="Script" uid="uid://b44y1sh138bm4" path="res://scripts/order_page.gd" id="1_3a8g4"]
 [ext_resource type="Theme" uid="uid://c5wta1oqlc53x" path="res://assets/button_size_override_theme.tres" id="1_63hpv"]
 [ext_resource type="Texture2D" uid="uid://c0q4bg7nynofy" path="res://assets/bourbon_steak_2.jpg" id="2_in15t"]
-[ext_resource type="Texture2D" uid="uid://buqb6w7gin2nj" path="res://assets/Steak.png" id="2_vedy5"]
 [ext_resource type="Script" uid="uid://kx1x2nirlefp" path="res://scripts/chat_history_text_area.gd" id="4_vw0ay"]
 [ext_resource type="PackedScene" uid="uid://bsjcexhybugbt" path="res://nodes/api_node.tscn" id="5_bfxwi"]
 
@@ -101,14 +100,6 @@ offset_left = 65.0
 offset_top = 773.0
 offset_right = 1083.0
 offset_bottom = 773.0
-
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 1233.0
-offset_top = 305.0
-offset_right = 2359.0
-offset_bottom = 988.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_vedy5")
 
 [node name="MessageEntry" type="LineEdit" parent="."]
 offset_left = 32.0

@@ -48,49 +48,63 @@ navigation_visibility_mode = 2
 [node name="tables" type="Node" parent="NavigationRegion2D"]
 
 [node name="table" parent="NavigationRegion2D/tables" instance=ExtResource("2_xwpqe")]
+visible = false
 position = Vector2(-336, 230)
 
 [node name="table2" parent="NavigationRegion2D/tables" instance=ExtResource("2_xwpqe")]
+visible = false
 position = Vector2(145, 236)
 
 [node name="table3" parent="NavigationRegion2D/tables" instance=ExtResource("2_xwpqe")]
+visible = false
 position = Vector2(625, 239)
 
 [node name="table4" parent="NavigationRegion2D/tables" instance=ExtResource("2_xwpqe")]
+visible = false
 position = Vector2(624, -52)
 
 [node name="table5" parent="NavigationRegion2D/tables" instance=ExtResource("2_xwpqe")]
+visible = false
 position = Vector2(625, -341)
 
 [node name="barstools" type="Node" parent="NavigationRegion2D"]
 
 [node name="barstool" parent="NavigationRegion2D/barstools" instance=ExtResource("4_plk2m")]
+visible = false
 position = Vector2(-232, -40)
 
 [node name="barstool2" parent="NavigationRegion2D/barstools" instance=ExtResource("4_plk2m")]
+visible = false
 position = Vector2(-425, -40)
 
 [node name="barstool3" parent="NavigationRegion2D/barstools" instance=ExtResource("4_plk2m")]
+visible = false
 position = Vector2(-614, -40)
 
 [node name="barstool4" parent="NavigationRegion2D/barstools" instance=ExtResource("4_plk2m")]
+visible = false
 position = Vector2(-813, -40)
 
 [node name="barstool5" parent="NavigationRegion2D/barstools" instance=ExtResource("4_plk2m")]
+visible = false
 position = Vector2(-40, -229)
 
 [node name="booths" type="Node" parent="NavigationRegion2D"]
 
 [node name="booth" parent="NavigationRegion2D/booths" instance=ExtResource("5_k3n6f")]
+visible = false
 position = Vector2(-338, 575)
 
 [node name="booth2" parent="NavigationRegion2D/booths" instance=ExtResource("5_k3n6f")]
+visible = false
 position = Vector2(40, 575)
 
 [node name="booth3" parent="NavigationRegion2D/booths" instance=ExtResource("5_k3n6f")]
+visible = false
 position = Vector2(425, 575)
 
 [node name="booth4" parent="NavigationRegion2D/booths" instance=ExtResource("5_k3n6f")]
+visible = false
 position = Vector2(815, 575)
 
 [node name="Accesories" type="TileMapLayer" parent="NavigationRegion2D"]
@@ -115,10 +129,10 @@ position = Vector2(-864, 692)
 [node name="API_Node" parent="." instance=ExtResource("5_s14uf")]
 
 [node name="GoToMenuButton" type="Button" parent="."]
-offset_left = 751.0
-offset_top = -589.0
-offset_right = 946.0
-offset_bottom = -522.0
+offset_left = 745.0
+offset_top = -648.0
+offset_right = 940.0
+offset_bottom = -581.0
 size_flags_vertical = 3
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("7_nfoj4")

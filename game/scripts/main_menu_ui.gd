@@ -5,7 +5,6 @@ extends Control
 func _ready() -> void:
 	DisplayServer.window_set_title("Project Persona")
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass

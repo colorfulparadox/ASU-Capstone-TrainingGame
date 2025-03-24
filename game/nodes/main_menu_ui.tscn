@@ -115,9 +115,9 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -210.0
-offset_right = 210.0
-offset_bottom = 63.0
+offset_left = -419.5
+offset_right = 419.5
+offset_bottom = 125.0
 grow_horizontal = 2
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
@@ -126,6 +126,23 @@ theme_override_constants/shadow_offset_y = 3
 theme_override_fonts/font = ExtResource("2_saa0l")
 theme_override_font_sizes/font_size = 100
 text = "Project Persona"
+
+[node name="LoginLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -951.0
+offset_top = 1349.0
+offset_right = -133.0
+offset_bottom = 1437.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 3
+theme_override_constants/shadow_offset_y = 3
+theme_override_fonts/font = ExtResource("2_saa0l")
+theme_override_font_sizes/font_size = 64
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]

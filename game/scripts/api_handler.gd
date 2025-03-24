@@ -97,6 +97,7 @@ func sign_in(username:String, password:String) -> bool:
 	if response != "":
 		auth_id = json_response["authID"]
 		ServerVariables.auth_id = auth_id
+		ServerVariables.username = username
 		return true
 		
 	return false

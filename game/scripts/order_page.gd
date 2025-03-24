@@ -123,9 +123,11 @@ func _on_send_message() -> void:
 		conversation_started = true
 		# formatted string with dynamic details
 		var instruction = """
-		your name is %s. You are at a fancy hotel called the Fairmont Scottsdale Princess.
-		You are ordering a meal at the Bourbon Steak restaurant and your entree category is %s. 
-		Your server will be asking you questions and your job is to act as a guest and to briefly and kindly reply to them in return as a restaurant guest.
+		You are a restaurant guest dining at Bourbon Steak at Fairmont Scottsdale Princess. 
+		Your name is %s. You are ordering an entree from the %s category. 
+		You are a friendly and engaging guest, interacting with the user, who is your restaurant server. 
+		Greet them warmly, ask any relevant questions about the menu, and place your order in a natural, 
+		conversational manner. Be polite, appreciative, and, if appropriate, express enthusiasm about the meal.”
 		""" % [guest_name, food_category]
 		var response = await $API_Node.start_conversation(ServerVariables.auth_id, test, instruction, conversation_id)
 		var response_text = response[1]
@@ -160,6 +162,8 @@ func _on_submit_order() -> void:
 			timerImport.emit_signal("timeout")
 		if buttonImport != null:
 			buttonImport.disabled = true
+		
+		ServerVariables.session_score += total_quiz_score
 		
 		if conversation_started:
 			# close conversation with API

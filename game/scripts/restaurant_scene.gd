@@ -42,4 +42,17 @@ func _notification(what):
 		#print("out status: ", out)
 		#if out == true:
 			#print('conversation closed succesfully')
-		get_tree().quit() # default behavior
+		
+		# send session score
+		print("Final session score: %d" % ServerVariables.session_score)
+		
+		if ServerVariables.session_score > 0:
+			# send new score
+			print("Sending session score...")
+			var score_send_result = await $API_Node.final_score(ServerVariables.session_score, 0, 0)
+			print("result: %b" % score_send_result)
+			if typeof(score_send_result) == TYPE_BOOL:
+				get_tree().quit()
+		else:
+			get_tree().quit() # default behavior
+		

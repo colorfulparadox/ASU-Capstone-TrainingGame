@@ -125,6 +125,10 @@ func final_score(sentiment_score:int, knowledge_score:int, sales_score:int) -> b
 		
 	return false
 	
+	
+func send_session_score():
+	pass
+	
 func ping():
 	var header = []
 

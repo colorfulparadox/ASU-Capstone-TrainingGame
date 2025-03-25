@@ -61,7 +61,7 @@ func _ready() -> void:
 	$GuestPromptMessage.text = "Guest " + guest_name + " is ordering:"
 	
 	# update quiz prompt label initially
-	$QuizPromptLabel.text = "What beverage does a " + food_category + " entree pair well with..."
+	$QuizPromptLabel.text = "What wine or beverage does a " + food_category + " entree pair well with..."
 	
 	# assign quiz questions
 	spawn_questions()
@@ -117,6 +117,8 @@ func _on_send_message() -> void:
 	if test == "" or test == " ":
 		return
 	
+	# add a point per message sent
+	update_score(1)
 	
 	$ChatHistoryTextArea.text += "Server: %s\n" % test
 
@@ -256,7 +258,7 @@ func _on_next_button_pressed() -> void:
 		current_quiz_question += 1
 		update_quiz_progress()
 
-		$QuizPromptLabel.text = "What beverage does a dessert pair well with..."
+		$QuizPromptLabel.text = "What wine or beverage does a dessert pair well with..."
 		food_category = "dessert"
 
 		# spawn new quiz box

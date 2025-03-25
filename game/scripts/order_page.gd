@@ -114,6 +114,10 @@ func _on_send_message() -> void:
 	
 	$MessageEntry.clear()
 	
+	if test == "" or test == " ":
+		return
+	
+	
 	$ChatHistoryTextArea.text += "Server: %s\n" % test
 
 	scroll_to_bottom()
@@ -274,7 +278,7 @@ func spawn_exit_card():
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
 		# close all conversations
-		var out = $API_Node.end_conversation(ServerVariables.auth_id)
+		var out = await $API_Node.end_conversation(ServerVariables.auth_id)
 		print("out status: ", out)
 		if out == true:
 			print('conversation closed succesfully')

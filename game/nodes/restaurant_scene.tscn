@@ -17,9 +17,17 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Arr
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2fqbe"]
 bg_color = Color(0.386805, 0.242696, 4.81308e-08, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_a25nf"]
 bg_color = Color(0.26438, 0.160203, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxy8f"]
 bg_color = Color(0.49688, 0.317879, 0, 1)

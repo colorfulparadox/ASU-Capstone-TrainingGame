@@ -137,18 +137,25 @@ func _on_send_message() -> void:
 		""" % [guest_name, food_category]
 		
 		if add_dessert:
-			instruction += "you are also ordering a dessert"
-		
+			instruction += " You are also ordering a dessert"
+		else:
+			instruction += " You do not plan on ordering a dessert"
+
+		show_spinner()
+	
 		var response = await $API_Node.start_conversation(ServerVariables.auth_id, test, instruction, conversation_id)
 		var response_text = response[1]
 		$ChatHistoryTextArea.text += "%s: %s\n" % [guest_name, response_text]
 		
 	else:
+		show_spinner()
 		var response = await $API_Node.continue_conversation(ServerVariables.auth_id, test, conversation_id)
 		var response_text = response
 		$ChatHistoryTextArea.text += "%s: %s\n" % [guest_name, response_text]
 	
 	await get_tree().process_frame
+	
+	hide_spinner()
 	
 	# always scroll to the bottom of chat history
 	scroll_to_bottom()
@@ -177,11 +184,12 @@ func _on_submit_order() -> void:
 		
 		if conversation_started:
 			# close conversation with API
+			show_spinner()
 			var out = await $API_Node.end_conversation(ServerVariables.auth_id)
 			print("out status: ", out)
 			if out == true:
 				print('conversation closed succesfully')
-		
+			hide_spinner()
 		queue_free()
 	elif not finished:
 		print("you need to finish the quiz before submitting this order")
@@ -292,3 +300,12 @@ func _notification(what):
 		if out == true:
 			print('conversation closed succesfully')
 		get_tree().quit() # default behavior
+
+
+func show_spinner():
+	$Spinner.show()
+	$Spinner.set_process(true)
+	
+func hide_spinner():
+	$Spinner.hide()
+	$Spinner.set_process(false)

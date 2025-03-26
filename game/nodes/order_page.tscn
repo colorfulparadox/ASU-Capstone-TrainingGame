@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0sx40446iowp"]
+[gd_scene load_steps=15 format=3 uid="uid://d0sx40446iowp"]
 
 [ext_resource type="Script" uid="uid://b44y1sh138bm4" path="res://scripts/order_page.gd" id="1_3a8g4"]
 [ext_resource type="Theme" uid="uid://c5wta1oqlc53x" path="res://assets/button_size_override_theme.tres" id="1_63hpv"]
@@ -6,6 +6,8 @@
 [ext_resource type="FontFile" uid="uid://cmd74ttnngj2g" path="res://assets/CHICKEN Pie.ttf" id="3_nre5e"]
 [ext_resource type="Script" uid="uid://kx1x2nirlefp" path="res://scripts/chat_history_text_area.gd" id="4_vw0ay"]
 [ext_resource type="PackedScene" uid="uid://bsjcexhybugbt" path="res://nodes/api_node.tscn" id="5_bfxwi"]
+[ext_resource type="Texture2D" uid="uid://bxj8wj2o2rc8a" path="res://assets/cupertino_activity_indicator.png" id="7_nq7oy"]
+[ext_resource type="Script" uid="uid://dvymkklggegc4" path="res://scripts/spinner.gd" id="7_y4ucp"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yrtmq"]
 font = ExtResource("3_nre5e")
@@ -15,7 +17,7 @@ shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_la0kf"]
 font = ExtResource("3_nre5e")
-font_size = 32
+font_size = 34
 shadow_size = 2
 shadow_color = Color(0, 0, 0, 1)
 
@@ -47,7 +49,7 @@ TextEdit/styles/read_only = SubResource("StyleBoxFlat_lo4wy")
 
 [sub_resource type="LabelSettings" id="LabelSettings_vt111"]
 font = ExtResource("3_nre5e")
-font_size = 35
+font_size = 36
 shadow_size = 2
 shadow_color = Color(0, 0, 0, 1)
 
@@ -178,6 +180,16 @@ theme = ExtResource("1_63hpv")
 text = "Next"
 
 [node name="API_Node" parent="." instance=ExtResource("5_bfxwi")]
+
+[node name="Spinner" type="TextureRect" parent="."]
+visible = false
+offset_left = 45.0
+offset_top = 1357.0
+offset_right = 91.0
+offset_bottom = 1403.0
+texture = ExtResource("7_nq7oy")
+expand_mode = 1
+script = ExtResource("7_y4ucp")
 
 [connection signal="pressed" from="SubmitButton" to="." method="_on_submit_order"]
 [connection signal="text_submitted" from="MessageEntry" to="." method="_on_press_enter"]

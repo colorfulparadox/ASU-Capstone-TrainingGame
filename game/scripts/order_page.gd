@@ -4,7 +4,6 @@ extends Node2D
 @onready var guest_name: String = "Default"
 @onready var food_category: String = "Default"
 @export var total_quiz_questions: int
-@export var image_index: int # we want a dynamic meal image based on the category type
 
 @export var test_property: int
 

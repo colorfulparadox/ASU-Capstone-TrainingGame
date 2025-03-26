@@ -1,18 +1,75 @@
-[gd_scene load_steps=8 format=3 uid="uid://ceqfkvjec36xk"]
+[gd_scene load_steps=17 format=3 uid="uid://ceqfkvjec36xk"]
 
 [ext_resource type="Script" uid="uid://c6ndau2tqq3xv" path="res://scripts/options_scene.gd" id="1_6l1yf"]
 [ext_resource type="PackedScene" uid="uid://bsjcexhybugbt" path="res://nodes/api_node.tscn" id="2_j5fgl"]
 [ext_resource type="Script" uid="uid://030v2yfdufh7" path="res://nodes/login.gd" id="2_o2euv"]
 [ext_resource type="FontFile" uid="uid://cmd74ttnngj2g" path="res://assets/CHICKEN Pie.ttf" id="3_s0p8e"]
 [ext_resource type="Texture2D" uid="uid://jrw1hqtpiws4" path="res://assets/fairmont-dine-bourbonsteak.jpg" id="4_cy6md"]
+[ext_resource type="StyleBox" uid="uid://clsui562p0wtt" path="res://assets/style_box_correct.tres" id="4_muhku"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_1mc6i"]
 font_size = 80
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_naf63"]
+bg_color = Color(0.388235, 0.243137, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5vyc1"]
+bg_color = Color(0.262745, 0.160784, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ub77g"]
+bg_color = Color(0.498039, 0.317647, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [sub_resource type="LabelSettings" id="LabelSettings_cy6md"]
 font = ExtResource("3_s0p8e")
 font_size = 100
 font_color = Color(1, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8c0vi"]
+bg_color = Color(0.388235, 0.243137, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cl4bq"]
+bg_color = Color(0.262745, 0.160784, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cd1gw"]
+bg_color = Color(0.388235, 0.243137, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1a5wa"]
+bg_color = Color(0.262745, 0.160784, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_014ce"]
+bg_color = Color(0.498039, 0.317647, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="OptionsScene" type="Node2D"]
 script = ExtResource("1_6l1yf")
@@ -43,6 +100,9 @@ offset_right = 1086.0
 offset_bottom = 937.0
 theme_override_fonts/font = ExtResource("3_s0p8e")
 theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_naf63")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_5vyc1")
+theme_override_styles/normal = SubResource("StyleBoxFlat_ub77g")
 text = "Main Menu"
 
 [node name="Label2" type="Label" parent="."]
@@ -117,6 +177,9 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("3_s0p8e")
 theme_override_font_sizes/font_size = 60
+theme_override_styles/hover = SubResource("StyleBoxFlat_8c0vi")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cl4bq")
+theme_override_styles/normal = ExtResource("4_muhku")
 text = "Login"
 script = ExtResource("2_o2euv")
 
@@ -129,6 +192,9 @@ offset_right = 1089.0
 offset_bottom = 849.0
 theme_override_fonts/font = ExtResource("3_s0p8e")
 theme_override_font_sizes/font_size = 50
+theme_override_styles/hover = SubResource("StyleBoxFlat_cd1gw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1a5wa")
+theme_override_styles/normal = SubResource("StyleBoxFlat_014ce")
 text = "Guest Login"
 
 [connection signal="pressed" from="Button" to="." method="_on_back_button_pressed"]

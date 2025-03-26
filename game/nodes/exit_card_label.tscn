@@ -1,8 +1,11 @@
-[gd_scene format=3 uid="uid://bg44bjrdkhunn"]
+[gd_scene load_steps=2 format=3 uid="uid://bg44bjrdkhunn"]
+
+[ext_resource type="FontFile" uid="uid://cmd74ttnngj2g" path="res://assets/CHICKEN Pie.ttf" id="1_tn0ly"]
 
 [node name="ExitCardLabel" type="Label"]
 offset_right = 911.0
 offset_bottom = 107.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_tn0ly")
 theme_override_font_sizes/font_size = 35
 text = "Default Text"

@@ -28,6 +28,7 @@ offset_top = -69.0
 offset_right = 117.0
 offset_bottom = 88.0
 scale = Vector2(1, 0.88)
+mouse_default_cursor_shape = 2
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

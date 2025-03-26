@@ -41,6 +41,7 @@ func _ready() -> void:
 		print("No Timer")
 	
 	$NextButton.disabled = true
+	$SubmitButton.disabled = true
 	
 	# category selection
 	food_category = GameConstants.categories.pick_random()
@@ -49,7 +50,6 @@ func _ready() -> void:
 	print("- adding dessert? " + str(add_dessert))
 	print("- food category? " + food_category)
 	print("- customer's name?: " + guest_name)
-	
 	
 	# 1 or 2 typically, 40% chance to get a dessert, etc
 	if add_dessert:
@@ -135,6 +135,10 @@ func _on_send_message() -> void:
 		Greet them warmly, ask any relevant questions about the menu, and place your order in a natural, 
 		conversational manner. Be polite, appreciative, and, if appropriate, express enthusiasm about the meal.”
 		""" % [guest_name, food_category]
+		
+		if add_dessert:
+			instruction += "you are also ordering a dessert"
+		
 		var response = await $API_Node.start_conversation(ServerVariables.auth_id, test, instruction, conversation_id)
 		var response_text = response[1]
 		$ChatHistoryTextArea.text += "%s: %s\n" % [guest_name, response_text]
@@ -248,6 +252,9 @@ func _on_next_button_pressed() -> void:
 		print("finished. let's go to the exit card")
 		# we should go to a third "quiz complete" page
 		spawn_exit_card()
+		
+		$SubmitButton.disabled = false
+		
 		return
 	
 	if add_dessert:

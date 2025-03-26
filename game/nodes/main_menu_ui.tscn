@@ -28,19 +28,6 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_elm4j"]
-bg_color = Color(0.388235, 0.243137, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rn64h"]
-bg_color = Color(0.262745, 0.160784, 0, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c70cd"]
-bg_color = Color(0.498039, 0.317647, 0, 1)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_13q7i"]
 bg_color = Color(0.388235, 0.243137, 0, 1)
 corner_radius_top_left = 10
@@ -56,6 +43,19 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1bugh"]
+bg_color = Color(0.498039, 0.317647, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_elm4j"]
+bg_color = Color(0.388235, 0.243137, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rn64h"]
+bg_color = Color(0.262745, 0.160784, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c70cd"]
 bg_color = Color(0.498039, 0.317647, 0, 1)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
@@ -87,12 +87,13 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -105.0
-offset_top = -62.5
-offset_right = 105.0
-offset_bottom = 62.5
+offset_left = -379.0
+offset_top = -132.0
+offset_right = 378.0
+offset_bottom = 129.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 24
 
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
@@ -106,6 +107,18 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_85vf2")
 theme_override_styles/normal = SubResource("StyleBoxFlat_lepon")
 text = "Start"
 
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("2_saa0l")
+theme_override_font_sizes/font_size = 60
+theme_override_styles/hover = SubResource("StyleBoxFlat_13q7i")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nh1ik")
+theme_override_styles/normal = SubResource("StyleBoxFlat_1bugh")
+text = "Quit"
+
 [node name="OptionsButton" type="Button" parent="VBoxContainer"]
 visible = false
 layout_mode = 2
@@ -116,17 +129,6 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_elm4j")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rn64h")
 theme_override_styles/normal = SubResource("StyleBoxFlat_c70cd")
 text = "Options"
-
-[node name="QuitButton" type="Button" parent="VBoxContainer"]
-layout_mode = 2
-mouse_default_cursor_shape = 2
-theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("2_saa0l")
-theme_override_font_sizes/font_size = 60
-theme_override_styles/hover = SubResource("StyleBoxFlat_13q7i")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_nh1ik")
-theme_override_styles/normal = SubResource("StyleBoxFlat_1bugh")
-text = "Quit"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
@@ -165,6 +167,6 @@ theme_override_fonts/font = ExtResource("2_saa0l")
 theme_override_font_sizes/font_size = 64
 
 [connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
 [connection signal="gui_input" from="LoginLabel" to="." method="_on_login_label_gui_input"]

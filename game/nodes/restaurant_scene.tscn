@@ -128,6 +128,7 @@ offset_top = -648.0
 offset_right = 940.0
 offset_bottom = -581.0
 size_flags_vertical = 3
+mouse_default_cursor_shape = 2
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("7_nfoj4")
 theme_override_font_sizes/font_size = 30

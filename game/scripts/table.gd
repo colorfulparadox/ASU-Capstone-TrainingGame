@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	pass
 
 func temp_leaving():
-	$Timer.start(10)
+	$Timer.start(20)
 
 func customer_exit():
 	var instance = CUSTOMER.instantiate()

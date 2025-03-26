@@ -57,7 +57,7 @@ script = ExtResource("1_3a8g4")
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1920.0
 offset_bottom = 1440.0
-color = Color(0.843872, 0.859538, 0.908741, 1)
+color = Color(0.211765, 0.184314, 0.223529, 1)
 
 [node name="BackgroundPhoto" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.745098)

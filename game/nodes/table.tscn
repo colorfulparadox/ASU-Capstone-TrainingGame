@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://ofjrpsuiri5w"]
+[gd_scene load_steps=3 format=3 uid="uid://ofjrpsuiri5w"]
 
 [ext_resource type="Script" uid="uid://cxnd3uauoj6ym" path="res://scripts/table.gd" id="1_1vhrk"]
-[ext_resource type="Texture2D" uid="uid://dsjjxvnk4j5j0" path="res://assets/unoccupied_table.png" id="2_vqvcb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jsjba"]
 size = Vector2(250, 150)
@@ -19,7 +18,6 @@ shape = SubResource("RectangleShape2D_jsjba")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.135484, 0.135484)
-texture = ExtResource("2_vqvcb")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true

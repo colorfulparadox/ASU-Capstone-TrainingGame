@@ -81,6 +81,7 @@ grow_vertical = 2
 [node name="StartButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+mouse_default_cursor_shape = 2
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_saa0l")
 theme_override_font_sizes/font_size = 60
@@ -102,6 +103,7 @@ text = "Options"
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+mouse_default_cursor_shape = 2
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("2_saa0l")
 theme_override_font_sizes/font_size = 60

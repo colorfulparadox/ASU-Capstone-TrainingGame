@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://d0sx40446iowp"]
+[gd_scene load_steps=17 format=3 uid="uid://d0sx40446iowp"]
 
 [ext_resource type="Script" uid="uid://b44y1sh138bm4" path="res://scripts/order_page.gd" id="1_3a8g4"]
 [ext_resource type="Theme" uid="uid://c5wta1oqlc53x" path="res://assets/button_size_override_theme.tres" id="1_63hpv"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://bsjcexhybugbt" path="res://nodes/api_node.tscn" id="5_bfxwi"]
 [ext_resource type="Texture2D" uid="uid://bxj8wj2o2rc8a" path="res://assets/cupertino_activity_indicator.png" id="7_nq7oy"]
 [ext_resource type="Script" uid="uid://dvymkklggegc4" path="res://scripts/spinner.gd" id="7_y4ucp"]
+[ext_resource type="Script" uid="uid://b0y2t743s47v0" path="res://scripts/status_message.gd" id="9_ccvrm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yrtmq"]
 font = ExtResource("3_nre5e")
@@ -52,6 +53,10 @@ font = ExtResource("3_nre5e")
 font_size = 36
 shadow_size = 2
 shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yqeoe"]
+font = ExtResource("3_nre5e")
+font_size = 34
 
 [node name="OrderPage" type="Node2D"]
 script = ExtResource("1_3a8g4")
@@ -183,13 +188,21 @@ text = "Next"
 
 [node name="Spinner" type="TextureRect" parent="."]
 visible = false
-offset_left = 45.0
-offset_top = 1357.0
-offset_right = 91.0
-offset_bottom = 1403.0
+offset_left = 1541.0
+offset_top = 1371.0
+offset_right = 1587.0
+offset_bottom = 1417.0
 texture = ExtResource("7_nq7oy")
 expand_mode = 1
 script = ExtResource("7_y4ucp")
+
+[node name="StatusMessage" type="Label" parent="."]
+offset_left = 41.0
+offset_top = 1364.0
+offset_right = 702.0
+offset_bottom = 1420.0
+label_settings = SubResource("LabelSettings_yqeoe")
+script = ExtResource("9_ccvrm")
 
 [connection signal="pressed" from="SubmitButton" to="." method="_on_submit_order"]
 [connection signal="text_submitted" from="MessageEntry" to="." method="_on_press_enter"]

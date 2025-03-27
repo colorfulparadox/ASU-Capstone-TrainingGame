@@ -42,6 +42,8 @@ func _ready() -> void:
 	$NextButton.disabled = true
 	$SubmitButton.disabled = true
 	
+	$StatusMessage.character_name = guest_name
+	
 	# category selection
 	food_category = GameConstants.categories.pick_random()
 	
@@ -141,16 +143,22 @@ func _on_send_message() -> void:
 			instruction += " You do not plan on ordering a dessert"
 
 		show_spinner()
+		$StatusMessage.start_typing_animation()
 	
 		var response = await $API_Node.start_conversation(ServerVariables.auth_id, test, instruction, conversation_id)
 		var response_text = response[1]
 		$ChatHistoryTextArea.text += "%s: %s\n" % [guest_name, response_text]
 		
+		$StatusMessage.stop_typing_animation()
+		
+		
 	else:
 		show_spinner()
+		$StatusMessage.start_typing_animation()
 		var response = await $API_Node.continue_conversation(ServerVariables.auth_id, test, conversation_id)
 		var response_text = response
 		$ChatHistoryTextArea.text += "%s: %s\n" % [guest_name, response_text]
+		$StatusMessage.stop_typing_animation()
 	
 	await get_tree().process_frame
 	
@@ -299,7 +307,6 @@ func _notification(what):
 		if out == true:
 			print('conversation closed succesfully')
 		get_tree().quit() # default behavior
-
 
 func show_spinner():
 	$Spinner.show()

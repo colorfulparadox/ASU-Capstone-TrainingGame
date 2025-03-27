@@ -129,18 +129,7 @@ func _on_send_message() -> void:
 		# start api conversation
 		conversation_started = true
 		# formatted string with dynamic details
-		var instruction = """
-		You are a restaurant guest dining at Bourbon Steak at Fairmont Scottsdale Princess. 
-		Your name is %s. You are ordering an entree from the %s category. 
-		You are a friendly and engaging guest, interacting with the user, who is your restaurant server. 
-		Greet them warmly, ask any relevant questions about the menu, and place your order in a natural, 
-		conversational manner. Be polite, appreciative, and, if appropriate, express enthusiasm about the meal.”
-		""" % [guest_name, food_category]
-		
-		if add_dessert:
-			instruction += " You are also ordering a dessert"
-		else:
-			instruction += " You do not plan on ordering a dessert"
+		var instruction = generate_instruction()
 
 		show_spinner()
 		$StatusMessage.start_typing_animation()
@@ -315,3 +304,37 @@ func show_spinner():
 func hide_spinner():
 	$Spinner.hide()
 	$Spinner.set_process(false)
+
+func generate_instruction() -> String:
+	var instruction = """
+	You are a restaurant guest dining at Bourbon Steak at Fairmont Scottsdale Princess. 
+	Your name is %s. You are ordering an %s entree. 
+	You are a friendly and engaging guest, interacting with the user, who is your restaurant server. 
+	Greet them warmly, ask any relevant questions about the menu, and place your order in a natural, 
+	conversational manner. Be polite, appreciative, and, if appropriate, express enthusiasm about the meal.
+	You are not necessarily looking for meal recommendations.
+	You are sometimes interested in possible wine or beverage pairings with your chosen entree category.”
+	""" % [guest_name, food_category]
+	# food & beverage pairing knowledge
+	instruction += "The ideal wine or beverage pairings for your entree category are: "
+	for ideal_pairing in GameConstants.food_beverage_pairings[food_category]:
+		instruction += ","
+	instruction += "."
+	instruction += "The server is being trained to suggest to you the correct wine or beverage\
+	pairing with your meal. If they get it wrong based on the provided pairings act like you'll trust them\
+	but that you think another option might be better."
+	
+		# dessert section
+	if add_dessert:
+		instruction += " You are also ordering a dessert."
+		
+		instruction += "The ideal wine or beverage pairings for your dessert are:"
+		for ideal_pairing in GameConstants.food_beverage_pairings["dessert"]:
+			instruction += ","
+		instruction += "."
+	else:
+		instruction += " You do not plan on ordering a dessert."
+
+	
+	return instruction
+	

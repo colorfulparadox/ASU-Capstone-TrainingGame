@@ -33,12 +33,12 @@ content_margin_left = 34.0
 content_margin_top = 10.0
 content_margin_right = 34.0
 content_margin_bottom = 10.0
-bg_color = Color(1, 1, 1, 0.54902)
+bg_color = Color(0.56, 0.56, 0.56, 0.54902)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color(0, 0.561, 0.66, 1)
+border_color = Color(0.498039, 0.317647, 0, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
@@ -67,7 +67,7 @@ offset_bottom = 1440.0
 color = Color(0.211765, 0.184314, 0.223529, 1)
 
 [node name="BackgroundPhoto" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0.745098)
+modulate = Color(1, 1, 1, 0.54902)
 offset_left = -1.0
 offset_top = -164.0
 offset_right = 2291.0
@@ -123,9 +123,9 @@ offset_right = 1083.0
 offset_bottom = 773.0
 
 [node name="MessageEntry" type="LineEdit" parent="."]
-offset_left = 32.0
+offset_left = 29.0
 offset_top = 1263.0
-offset_right = 1582.0
+offset_right = 1579.0
 offset_bottom = 1337.0
 theme = ExtResource("1_63hpv")
 theme_override_colors/font_placeholder_color = Color(0.978513, 0.982862, 0.989086, 1)
@@ -152,6 +152,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_placeholder_color = Color(1, 1, 1, 1)
 theme_override_colors/font_readonly_color = Color(1, 1, 1, 1)
 theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/line_spacing = 3
 theme_override_fonts/font = ExtResource("3_nre5e")
 placeholder_text = "Guest conversation will appear here."
 editable = false

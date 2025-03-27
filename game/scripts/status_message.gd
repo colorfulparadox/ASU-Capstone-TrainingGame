@@ -2,7 +2,7 @@ extends Label
 
 var character_name = "Person"
 
-var base_text = " is typing"
+var base_text = " is thinking"
 var dots = ""
 var max_dots = 4
 var typing_speed = 1  # Adjust timing for dot animation

@@ -36,7 +36,8 @@ func _on_button_pressed() -> void:
 		$Button.disabled = true
 		
 		
-		
+func disable_button():
+	$Button.disabled = true
 
 func set_stylebox_color(style_box_type: String, color: Color):
 	var stylebox_theme: StyleBoxFlat = get_child(0).get_theme_stylebox(style_box_type).duplicate()

@@ -18,6 +18,10 @@ var conversation_id: String
 var rng = RandomNumberGenerator.new()
 var add_dessert: bool = rng.randf() < 0.4
 
+# decide on the entree name of their chosen category
+var entree_choice = ""
+var dessert_choice = ""
+
 var timerImport: Timer
 var buttonImport: Button
 
@@ -47,6 +51,9 @@ func _ready() -> void:
 	# category selection
 	food_category = GameConstants.categories.pick_random()
 	
+	entree_choice = GameConstants.restaurant_menu_items["entrees"][food_category].pick_random()
+	dessert_choice = GameConstants.restaurant_menu_items["desserts"].pick_random()
+	
 	print("order page information:")
 	print("- adding dessert? " + str(add_dessert))
 	print("- food category? " + food_category)
@@ -69,10 +76,6 @@ func _ready() -> void:
 	
 	# update pairing question progress initially
 	update_quiz_progress()
-
-	# decide on the entree name of their chosen category
-	var entree_choice = GameConstants.restaurant_menu_items["entrees"][food_category].pick_random()
-	var dessert_choice = GameConstants.restaurant_menu_items["desserts"].pick_random()
 	
 	# populate list of their selected menu items
 	var fooditemlabel = load("res://nodes/food_item_label.tscn").instantiate()
@@ -309,12 +312,13 @@ func generate_instruction() -> String:
 	var instruction = """
 	You are a restaurant guest dining at Bourbon Steak at Fairmont Scottsdale Princess. 
 	Your name is %s. You are ordering an %s entree. 
+	Specifically, the %s meal.
 	You are a friendly and engaging guest, interacting with the user, who is your restaurant server. 
 	Greet them warmly, ask any relevant questions about the menu, and place your order in a natural, 
 	conversational manner. Be polite, appreciative, and, if appropriate, express enthusiasm about the meal.
 	You are not necessarily looking for meal recommendations.
 	You are sometimes interested in possible wine or beverage pairings with your chosen entree category.”
-	""" % [guest_name, food_category]
+	""" % [guest_name, entree_choice, food_category]
 	# food & beverage pairing knowledge
 	instruction += "The ideal wine or beverage pairings for your entree category are: "
 	for ideal_pairing in GameConstants.food_beverage_pairings[food_category]:
@@ -326,12 +330,12 @@ func generate_instruction() -> String:
 	
 		# dessert section
 	if add_dessert:
-		instruction += " You are also ordering a dessert."
+		instruction += " You are also ordering a dessert, specifically, the %s" % dessert_choice
 		
 		instruction += "The ideal wine or beverage pairings for your dessert are:"
 		for ideal_pairing in GameConstants.food_beverage_pairings["dessert"]:
 			instruction += ","
-		instruction += "."
+		instruction += "Focus primarily on the entree pairing and your interest about the entree and dessert"
 	else:
 		instruction += " You do not plan on ordering a dessert."
 

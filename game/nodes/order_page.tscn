@@ -175,6 +175,7 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_lprer")
 bbcode_enabled = true
 text = "Guest conversation history will appear here"
 scroll_following = true
+drag_and_drop_selection_enabled = false
 script = ExtResource("4_vw0ay")
 
 [node name="SendMessageButton" type="Button" parent="."]

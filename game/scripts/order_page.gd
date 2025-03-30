@@ -133,6 +133,9 @@ func _on_send_message() -> void:
 	# add a point per message sent
 	update_score(1)
 	
+	if conversation_started == false:
+		$ChatHistoryTextArea.text = ""
+	
 	$ChatHistoryTextArea.text += "[b]Server[/b]: %s\n" % test
 
 	#scroll_to_bottom()

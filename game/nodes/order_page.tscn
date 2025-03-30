@@ -54,6 +54,10 @@ TextEdit/styles/read_only = SubResource("StyleBoxFlat_lo4wy")
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqeoe"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lprer"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 5.0
+content_margin_bottom = 1.0
 bg_color = Color(0.4356, 0.44, 0.437507, 0.890196)
 border_width_left = 4
 border_width_top = 4
@@ -169,6 +173,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_styles/focus = SubResource("StyleBoxFlat_yqeoe")
 theme_override_styles/normal = SubResource("StyleBoxFlat_lprer")
 bbcode_enabled = true
+text = "Guest conversation history will appear here"
 scroll_following = true
 script = ExtResource("4_vw0ay")
 

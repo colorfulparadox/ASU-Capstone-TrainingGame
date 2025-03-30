@@ -138,7 +138,6 @@ func _on_send_message() -> void:
 	
 	$ChatHistoryTextArea.text += "[b]Server[/b]: %s\n" % test
 
-	#scroll_to_bottom()
 
 	if conversation_started == false:
 		# start api conversation
@@ -152,13 +151,16 @@ func _on_send_message() -> void:
 		var response = await $API_Node.start_conversation(ServerVariables.auth_id, test, instruction, conversation_id)
 		var response_text = response[1]
 		var formattedresponse = "[b]%s[/b]: %s\n" % [guest_name, response_text]
+		
+		# correct some text artifacts
+		formattedresponse = formattedresponse.replace("â", "'") 
+		
 		if use_typewriter:
 			typewriter($ChatHistoryTextArea, formattedresponse, true)
 		else:
-			$ChatHistoryTextArea.text += "[b]%s[/b]: %s\n" % [guest_name, response_text]
+			$ChatHistoryTextArea.text += formattedresponse
 		
 		$StatusMessage.stop_typing_animation()
-		#scroll_to_bottom()
 		
 		
 		
@@ -171,27 +173,14 @@ func _on_send_message() -> void:
 		if use_typewriter:
 			typewriter($ChatHistoryTextArea, formattedresponse, true)
 		else:
-			$ChatHistoryTextArea.text += "[b]%s[/b]: %s\n" % [guest_name, response_text]
+			$ChatHistoryTextArea.text += formattedresponse
 		
 		$StatusMessage.stop_typing_animation()
-		#scroll_to_bottom()
 		
 	
 	await get_tree().process_frame
 	
 	hide_spinner()
-	
-	# always scroll to the bottom of chat history
-	#scroll_to_bottom()
-	
-func scroll_to_bottom() -> void:
-	#get_tree().create_timer(.01).timeout.connect(
-		#func () -> void:
-			#$ChatHistoryTextArea.scroll_vertical = $ChatHistoryTextArea.get_v_scroll_bar().max_value - 6
-			#print($ChatHistoryTextArea.scroll_vertical)
-	#)
-	$ChatHistoryTextArea.scroll_vertical = $ChatHistoryTextArea.get_v_scroll_bar().max_value - 6
-	print($ChatHistoryTextArea.scroll_vertical)
 	
 func _on_submit_order() -> void: 
 	if finished:

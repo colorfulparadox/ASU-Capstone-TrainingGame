@@ -14,6 +14,8 @@ var maximum_score: int = GameConstants.MAX_SCORE_PER_QUESTION
 var conversation_started:bool = false
 var conversation_id: String
 
+var use_typewriter = true
+
 # dessert chance
 var rng = RandomNumberGenerator.new()
 var add_dessert: bool = rng.randf() < 0.4
@@ -144,9 +146,15 @@ func _on_send_message() -> void:
 	
 		var response = await $API_Node.start_conversation(ServerVariables.auth_id, test, instruction, conversation_id)
 		var response_text = response[1]
-		$ChatHistoryTextArea.text += "%s: %s\n" % [guest_name, response_text]
+		var formattedresponse = "%s: %s\n" % [guest_name, response_text]
+		if use_typewriter:
+			typewriter($ChatHistoryTextArea, formattedresponse, true)
+		else:
+			$ChatHistoryTextArea.text += "%s: %s\n" % [guest_name, response_text]
 		
 		$StatusMessage.stop_typing_animation()
+		scroll_to_bottom()
+		
 		
 		
 	else:
@@ -154,8 +162,15 @@ func _on_send_message() -> void:
 		$StatusMessage.start_typing_animation()
 		var response = await $API_Node.continue_conversation(ServerVariables.auth_id, test, conversation_id)
 		var response_text = response
-		$ChatHistoryTextArea.text += "%s: %s\n" % [guest_name, response_text]
+		var formattedresponse = "%s: %s\n" % [guest_name, response_text]
+		if use_typewriter:
+			typewriter($ChatHistoryTextArea, formattedresponse, true)
+		else:
+			$ChatHistoryTextArea.text += "%s: %s\n" % [guest_name, response_text]
+		
 		$StatusMessage.stop_typing_animation()
+		scroll_to_bottom()
+		
 	
 	await get_tree().process_frame
 	
@@ -329,7 +344,7 @@ func generate_instruction() -> String:
 	for ideal_pairing in GameConstants.food_beverage_pairings[food_category]:
 		instruction += ","
 	instruction += "."
-	instruction += "The server is being trained to suggest to you the correct wine or beverage\
+	instruction += "The server is being trained to suggest to you the correct wine, beer or beverage\
 	pairing with your meal. If they get it wrong based on the provided pairings act like you'll trust them\
 	but that you think another option might be better."
 	
@@ -347,3 +362,17 @@ func generate_instruction() -> String:
 	
 	return instruction
 	
+
+func typewriter(textInput: TextEdit, message: String, percharacter=false):
+	var words = message.split(" ")
+	
+	for word in words:
+		if percharacter:
+			for char in word:
+				textInput.text += char
+				await get_tree().create_timer(0.008).timeout  # Adjust speed as needed
+			textInput.text += " "
+			await get_tree().create_timer(0.05).timeout  # Pause before next word
+		else:
+			textInput.text += word + " "
+			await get_tree().create_timer(0.05).timeout  # Adjust speed for words

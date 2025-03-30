@@ -31,6 +31,8 @@ var buttonImport: Button
 func _ready() -> void:
 	set_corner_radius()
 	
+	$ChatHistoryTextArea.scroll_following = true
+	
 	guest_name = GameConstants.names[GameConstants.gender.pick_random()].pick_random()
 	conversation_id = guest_name + Time.get_datetime_string_from_system()
 	print("conversation id %s" % conversation_id)
@@ -131,9 +133,9 @@ func _on_send_message() -> void:
 	# add a point per message sent
 	update_score(1)
 	
-	$ChatHistoryTextArea.text += "Server: %s\n" % test
+	$ChatHistoryTextArea.text += "[b]Server[/b]: %s\n" % test
 
-	scroll_to_bottom()
+	#scroll_to_bottom()
 
 	if conversation_started == false:
 		# start api conversation
@@ -146,14 +148,14 @@ func _on_send_message() -> void:
 	
 		var response = await $API_Node.start_conversation(ServerVariables.auth_id, test, instruction, conversation_id)
 		var response_text = response[1]
-		var formattedresponse = "%s: %s\n" % [guest_name, response_text]
+		var formattedresponse = "[b]%s[/b]: %s\n" % [guest_name, response_text]
 		if use_typewriter:
 			typewriter($ChatHistoryTextArea, formattedresponse, true)
 		else:
-			$ChatHistoryTextArea.text += "%s: %s\n" % [guest_name, response_text]
+			$ChatHistoryTextArea.text += "[b]%s[/b]: %s\n" % [guest_name, response_text]
 		
 		$StatusMessage.stop_typing_animation()
-		scroll_to_bottom()
+		#scroll_to_bottom()
 		
 		
 		
@@ -162,14 +164,14 @@ func _on_send_message() -> void:
 		$StatusMessage.start_typing_animation()
 		var response = await $API_Node.continue_conversation(ServerVariables.auth_id, test, conversation_id)
 		var response_text = response
-		var formattedresponse = "%s: %s\n" % [guest_name, response_text]
+		var formattedresponse = "[b]%s[/b]: %s\n" % [guest_name, response_text]
 		if use_typewriter:
 			typewriter($ChatHistoryTextArea, formattedresponse, true)
 		else:
-			$ChatHistoryTextArea.text += "%s: %s\n" % [guest_name, response_text]
+			$ChatHistoryTextArea.text += "[b]%s[/b]: %s\n" % [guest_name, response_text]
 		
 		$StatusMessage.stop_typing_animation()
-		scroll_to_bottom()
+		#scroll_to_bottom()
 		
 	
 	await get_tree().process_frame
@@ -177,14 +179,16 @@ func _on_send_message() -> void:
 	hide_spinner()
 	
 	# always scroll to the bottom of chat history
-	scroll_to_bottom()
+	#scroll_to_bottom()
 	
 func scroll_to_bottom() -> void:
-	get_tree().create_timer(.01).timeout.connect(
-		func () -> void:
-			$ChatHistoryTextArea.scroll_vertical = $ChatHistoryTextArea.get_v_scroll_bar().max_value - 6
-			print($ChatHistoryTextArea.scroll_vertical)
-	)
+	#get_tree().create_timer(.01).timeout.connect(
+		#func () -> void:
+			#$ChatHistoryTextArea.scroll_vertical = $ChatHistoryTextArea.get_v_scroll_bar().max_value - 6
+			#print($ChatHistoryTextArea.scroll_vertical)
+	#)
+	$ChatHistoryTextArea.scroll_vertical = $ChatHistoryTextArea.get_v_scroll_bar().max_value - 6
+	print($ChatHistoryTextArea.scroll_vertical)
 	
 func _on_submit_order() -> void: 
 	if finished:
@@ -266,7 +270,7 @@ func set_corner_radius() -> void:
 	$SubmitButton.get_theme_stylebox("normal").set_corner_radius_all(radius)
 	$SubmitButton.get_theme_stylebox("hover").set_corner_radius_all(radius)
 	$SubmitButton.get_theme_stylebox("pressed").set_corner_radius_all(radius)
-	$ChatHistoryTextArea.get_theme_stylebox("normal").set_corner_radius_all(radius)
+	#$ChatHistoryTextArea.get_theme_stylebox("normal").set_corner_radius_all(radius)
 	$MessageEntry.get_theme_stylebox("normal").set_corner_radius_all(radius)
 	$NextButton.get_theme_stylebox("normal").set_corner_radius_all(radius)
 	$NextButton.get_theme_stylebox("hover").set_corner_radius_all(radius)
@@ -348,13 +352,14 @@ func generate_instruction() -> String:
 	pairing with your meal. If they get it wrong based on the provided pairings act like you'll trust them\
 	but that you think another option might be better."
 	
-		# dessert section
+	# dessert section
 	if add_dessert:
 		instruction += " You are also ordering a dessert, specifically, the %s" % dessert_choice
 		
 		instruction += "The ideal wine or beverage pairings for your dessert are:"
 		for ideal_pairing in GameConstants.food_beverage_pairings["dessert"]:
 			instruction += ","
+		instruction += "."
 		instruction += "Focus primarily on the entree pairing and your interest about the entree and dessert"
 	else:
 		instruction += " You do not plan on ordering a dessert."
@@ -363,7 +368,7 @@ func generate_instruction() -> String:
 	return instruction
 	
 
-func typewriter(textInput: TextEdit, message: String, percharacter=false):
+func typewriter(textInput: RichTextLabel, message: String, percharacter=false):
 	var words = message.split(" ")
 	
 	for word in words:

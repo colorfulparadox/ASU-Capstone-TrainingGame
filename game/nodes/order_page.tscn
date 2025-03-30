@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d0sx40446iowp"]
+[gd_scene load_steps=20 format=3 uid="uid://d0sx40446iowp"]
 
 [ext_resource type="Script" uid="uid://b44y1sh138bm4" path="res://scripts/order_page.gd" id="1_3a8g4"]
 [ext_resource type="Theme" uid="uid://c5wta1oqlc53x" path="res://assets/button_size_override_theme.tres" id="1_63hpv"]
@@ -28,6 +28,8 @@ font_size = 38
 shadow_size = 2
 shadow_color = Color(0, 0, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccvrm"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lo4wy"]
 content_margin_left = 34.0
 content_margin_top = 10.0
@@ -46,7 +48,22 @@ corner_radius_bottom_left = 15
 
 [sub_resource type="Theme" id="Theme_iy3vv"]
 default_font_size = 35
+RichTextLabel/styles/normal = SubResource("StyleBoxFlat_ccvrm")
 TextEdit/styles/read_only = SubResource("StyleBoxFlat_lo4wy")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqeoe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lprer"]
+bg_color = Color(0.4356, 0.44, 0.437507, 0.890196)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.498039, 0.317647, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
 
 [sub_resource type="LabelSettings" id="LabelSettings_vt111"]
 font = ExtResource("3_nre5e")
@@ -142,21 +159,17 @@ offset_bottom = 869.0
 text = "Speak with the guest:"
 label_settings = SubResource("LabelSettings_o0e1r")
 
-[node name="ChatHistoryTextArea" type="TextEdit" parent="."]
+[node name="ChatHistoryTextArea" type="RichTextLabel" parent="."]
 offset_left = 29.0
 offset_top = 874.0
 offset_right = 1867.0
 offset_bottom = 1241.0
 theme = SubResource("Theme_iy3vv")
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_colors/font_placeholder_color = Color(1, 1, 1, 1)
-theme_override_colors/font_readonly_color = Color(1, 1, 1, 1)
-theme_override_colors/font_color = Color(1, 1, 1, 1)
-theme_override_constants/line_spacing = 3
-theme_override_fonts/font = ExtResource("3_nre5e")
-placeholder_text = "Guest conversation will appear here."
-editable = false
-wrap_mode = 1
+theme_override_styles/focus = SubResource("StyleBoxFlat_yqeoe")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lprer")
+bbcode_enabled = true
+scroll_following = true
 script = ExtResource("4_vw0ay")
 
 [node name="SendMessageButton" type="Button" parent="."]

@@ -59,6 +59,11 @@ func _ready() -> void:
 	print("- food category? " + food_category)
 	print("- customer's name?: " + guest_name)
 	
+	# disable the persona interaction if playing guest mode
+	if ServerVariables.auth_id == "":
+		$SendMessageButton.disabled = true
+		$MessageEntry.editable = false
+	
 	# 1 or 2 typically, 40% chance to get a dessert, etc
 	if add_dessert:
 		total_quiz_questions = 2

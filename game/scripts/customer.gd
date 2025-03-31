@@ -2,6 +2,13 @@ extends CharacterBody2D
 
 var movement_speed = 150
 var rng = RandomNumberGenerator.new()
+enum Directions {  
+	UP,      
+	RIGHT,  
+	DOWN,
+	LEFT  
+}  
+var direction = 0
 @export var target: Node2D = null
 
 @onready var navigation_agent_2d: NavigationAgent2D = $NavigationAgent2D
@@ -46,6 +53,19 @@ func _physics_process(delta):
 		
 	var current_agent_position = global_position
 	var next_path_position = navigation_agent_2d.get_next_path_position()
+	print(current_agent_position.direction_to(next_path_position).angle())
+	if PI/4.0 < current_agent_position.direction_to(next_path_position).angle() && current_agent_position.direction_to(next_path_position).angle() < (3.0 * PI)/4.0 :
+		direction = 1	# UP
+		
+	if (7.0 * PI)/4.0 <= current_agent_position.direction_to(next_path_position).angle() && current_agent_position.direction_to(next_path_position).angle() <= PI/4.0 :
+		direction = 2	# RIGHT
+		
+	if (5.0 * PI)/4.0 < current_agent_position.direction_to(next_path_position).angle() && current_agent_position.direction_to(next_path_position).angle() < (7.0 * PI)/4.0 :
+		direction = 3	# DOWN
+		
+	if (3.0 * PI)/4.0 <= current_agent_position.direction_to(next_path_position).angle() && current_agent_position.direction_to(next_path_position).angle() <= (5.0 * PI)/4.0 :
+		direction = 4	# LEFT
+		
 	var new_velocity = current_agent_position.direction_to(next_path_position) * movement_speed
 	
 	if navigation_agent_2d.avoidance_enabled:

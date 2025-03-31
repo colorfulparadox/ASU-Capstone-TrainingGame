@@ -12,6 +12,7 @@ motion_mode = 1
 script = ExtResource("1_tgew6")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
 simplify_path = true
 avoidance_enabled = true
 avoidance_layers = 4

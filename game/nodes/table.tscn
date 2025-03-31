@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dsjjxvnk4j5j0" path="res://assets/unoccupied_table.png" id="2_vqvcb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jsjba"]
-size = Vector2(250, 150)
+size = Vector2(225, 125)
 
 [node name="table" type="Area2D" groups=["unoccupied_table"]]
 collision_mask = 4
@@ -18,6 +18,7 @@ affect_navigation_mesh = true
 shape = SubResource("RectangleShape2D_jsjba")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.135484, 0.135484)
 texture = ExtResource("2_vqvcb")
 

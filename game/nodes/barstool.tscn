@@ -5,7 +5,7 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yoila"]
 custom_solver_bias = 1.0
-radius = 80.0
+radius = 60.0
 
 [node name="barstool" type="Area2D" groups=["unoccupied_table"]]
 collision_mask = 4
@@ -19,6 +19,7 @@ affect_navigation_mesh = true
 shape = SubResource("CircleShape2D_yoila")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 scale = Vector2(0.135484, 0.135484)
 texture = ExtResource("2_efi86")
 

@@ -1,17 +1,54 @@
-[gd_scene load_steps=5 format=3 uid="uid://wk57dp4jugca"]
+[gd_scene load_steps=13 format=3 uid="uid://wk57dp4jugca"]
 
 [ext_resource type="Theme" uid="uid://7xwjc5swii5r" path="res://assets/quiz_button_theme.tres" id="1_cy3nd"]
 [ext_resource type="Script" uid="uid://bbj8xseqjib5m" path="res://scripts/quiz_item.gd" id="1_mm8va"]
+[ext_resource type="FontFile" uid="uid://cmd74ttnngj2g" path="res://assets/CHICKEN Pie.ttf" id="3_t26mx"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_q2bd1"]
+bg_color = Color(0.498039, 0.317647, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bngjg"]
+bg_color = Color(0.388235, 0.243137, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fqit0"]
-bg_color = Color(0.33, 0.33, 0.33, 1)
+bg_color = Color(0.498039, 0.317647, 0, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
 corner_radius_bottom_left = 15
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0j64p"]
+bg_color = Color(0.262745, 0.160784, 0, 1)
+
 [sub_resource type="Theme" id="Theme_auv0v"]
+Button/styles/disabled = SubResource("StyleBoxFlat_q2bd1")
+Button/styles/hover = SubResource("StyleBoxFlat_bngjg")
 Button/styles/normal = SubResource("StyleBoxFlat_fqit0")
+Button/styles/pressed = SubResource("StyleBoxFlat_0j64p")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ve3yn"]
+bg_color = Color(0.498039, 0.317647, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t26mx"]
+bg_color = Color(0.388235, 0.243137, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pbkvg"]
+bg_color = Color(0.262745, 0.160784, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7sdmg"]
+bg_color = Color(0.498039, 0.317647, 0, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="QuizItem" type="Control"]
 layout_mode = 3
@@ -26,9 +63,17 @@ script = ExtResource("1_mm8va")
 
 [node name="Button" type="Button" parent="."]
 layout_mode = 0
-offset_right = 1158.0
-offset_bottom = 115.0
+offset_top = 8.0
+offset_right = 972.0
+offset_bottom = 127.0
+mouse_default_cursor_shape = 2
 theme = ExtResource("1_cy3nd")
+theme_override_colors/font_disabled_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("3_t26mx")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_ve3yn")
+theme_override_styles/hover = SubResource("StyleBoxFlat_t26mx")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_pbkvg")
+theme_override_styles/normal = SubResource("StyleBoxFlat_7sdmg")
 text = "Default Text"
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

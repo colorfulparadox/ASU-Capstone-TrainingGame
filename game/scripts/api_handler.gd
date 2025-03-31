@@ -97,6 +97,7 @@ func sign_in(username:String, password:String) -> bool:
 	if response != "":
 		auth_id = json_response["authID"]
 		ServerVariables.auth_id = auth_id
+		ServerVariables.username = username
 		return true
 		
 	return false
@@ -125,6 +126,10 @@ func final_score(sentiment_score:int, knowledge_score:int, sales_score:int) -> b
 		
 	return false
 	
+	
+func send_session_score():
+	pass
+	
 func ping():
 	var header = []
 
@@ -149,11 +154,11 @@ func get_request(extension:String, header:PackedStringArray) -> String:
 	err = http.request(HTTPClient.METHOD_GET, extension, header) # Request a page from the site (this one was chunked..)
 	assert(err == OK) # Make sure all is OK.
 
+	print("Requesting...")
 	while http.get_status() == HTTPClient.STATUS_REQUESTING:
 		# Keep polling for as long as the request is being processed.
 		http.poll()
-		print("Requesting...")
-		print(http.get_status())
+		#print(http.get_status())
 		await get_tree().process_frame
 
 	assert(http.get_status() == HTTPClient.STATUS_BODY or http.get_status() == HTTPClient.STATUS_CONNECTED) # Make sure request finished well.
@@ -218,11 +223,11 @@ func post_request(extension:String, header:PackedStringArray, body:String) -> St
 	err = http.request(HTTPClient.METHOD_POST, extension, header, body) # Request a page from the site (this one was chunked..)
 	assert(err == OK) # Make sure all is OK.
 
+	print("Requesting...")
+	print(http.get_status())
 	while http.get_status() == HTTPClient.STATUS_REQUESTING:
 		# Keep polling for as long as the request is being processed.
 		http.poll()
-		print("Requesting...")
-		print(http.get_status())
 		await get_tree().process_frame
 
 	assert(http.get_status() == HTTPClient.STATUS_BODY or http.get_status() == HTTPClient.STATUS_CONNECTED) # Make sure request finished well.

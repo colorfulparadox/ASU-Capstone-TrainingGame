@@ -64,6 +64,10 @@ func _on_answer_selected(question_id: int):
 	if question_id == correct_answer:
 		print("you chose the correct answer!")
 		correct_answer_selected.emit()
+		
+		# disable other buttons to prevent score from being decremented
+		for c in get_children():
+			c.disable_button()
 
 	else:
 		print("incorrect answer chosen, subtracting point penalty")

@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://bls76np8kq072"]
+[gd_scene load_steps=3 format=3 uid="uid://bls76np8kq072"]
 
 [ext_resource type="Script" uid="uid://cxnd3uauoj6ym" path="res://scripts/table.gd" id="1_cm762"]
-[ext_resource type="Texture2D" uid="uid://dsjjxvnk4j5j0" path="res://assets/unoccupied_table.png" id="2_efi86"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_yoila"]
 custom_solver_bias = 1.0
@@ -21,7 +20,6 @@ shape = SubResource("CircleShape2D_yoila")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
 scale = Vector2(0.135484, 0.135484)
-texture = ExtResource("2_efi86")
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
@@ -32,6 +30,7 @@ offset_top = -47.0
 offset_right = 183.0
 offset_bottom = 110.0
 scale = Vector2(0.44062, 0.593598)
+mouse_default_cursor_shape = 2
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

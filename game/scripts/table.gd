@@ -17,7 +17,7 @@ func _process(delta: float) -> void:
 	pass
 
 func temp_leaving():
-	$Timer.start(10)
+	$Timer.start(20)
 
 func customer_exit():
 	var instance = CUSTOMER.instantiate()
@@ -43,8 +43,9 @@ func table_occupied():
 
 func table_unoccupied():
 	add_to_group("unoccupied_table")
-	var new_texture = preload("res://assets/unoccupied_table.png")
-	$Sprite2D.set_texture(new_texture)
+	#var new_texture = preload("res://assets/unoccupied_table.png")
+	#$Sprite2D.set_texture(new_texture)
+	$Sprite2D.texture = null
 
 func _on_timer_timeout() -> void:
 	customer_exit()

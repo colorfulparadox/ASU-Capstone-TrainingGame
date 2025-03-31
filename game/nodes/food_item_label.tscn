@@ -1,8 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://bo0enjmwcfb7t"]
+[gd_scene load_steps=3 format=3 uid="uid://bo0enjmwcfb7t"]
+
+[ext_resource type="FontFile" uid="uid://cmd74ttnngj2g" path="res://assets/CHICKEN Pie.ttf" id="1_a3ld5"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uj5tr"]
+font = ExtResource("1_a3ld5")
 font_size = 40
-font_color = Color(0, 0, 0, 1)
+shadow_color = Color(0, 0, 0, 1)
 
 [node name="FoodItemLabel2" type="Label"]
 text = "- Dessert"

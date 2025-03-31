@@ -13,15 +13,16 @@ func _process(delta: float) -> void:
 	
 
 
-func _on_pressed() -> void:
+func _on_pressed(text = "") -> void:
 	var username_input = get_tree().get_nodes_in_group("username")[0]
 	var password_input = get_tree().get_nodes_in_group("password")[0]
 	var api_node = get_tree().get_nodes_in_group("api_node")[0]
 	
 	# api_node.ping()
-	var success = await api_node.sign_in(username_input.get_line(0), password_input.get_line(0))
+	var success = await api_node.sign_in(username_input.text, password_input.text)
 	
 	if success == true:
-		$"../Label4".text = ServerVariables.auth_id
+		GameConstants.save_authid()
+		get_tree().change_scene_to_file("res://nodes/restaurant_scene.tscn")
 	else:
 		$"../Label4".text = "Invalid credentials"

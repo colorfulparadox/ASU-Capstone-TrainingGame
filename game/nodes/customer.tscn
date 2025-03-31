@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://clgohc8c4el4f"]
+[gd_scene load_steps=5 format=3 uid="uid://clgohc8c4el4f"]
 
 [ext_resource type="Script" uid="uid://difugt7tle7w3" path="res://scripts/customer.gd" id="1_tgew6"]
 [ext_resource type="Texture2D" uid="uid://baj0dkklgsoj6" path="res://assets/customer.png" id="2_v1i3h"]
+[ext_resource type="PackedScene" uid="uid://dsfly42jntua1" path="res://nodes/character.tscn" id="3_oigs3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3xbsw"]
 size = Vector2(125, 175)
@@ -16,14 +17,18 @@ path_postprocessing = 1
 simplify_path = true
 avoidance_enabled = true
 avoidance_layers = 4
-debug_enabled = true
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(21, 66)
 scale = Vector2(0.129435, 0.129435)
 texture = ExtResource("2_v1i3h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["customer"]]
 shape = SubResource("RectangleShape2D_3xbsw")
+
+[node name="Character" parent="." instance=ExtResource("3_oigs3")]
+position = Vector2(-1, -2)
+scale = Vector2(4, 4)
 
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

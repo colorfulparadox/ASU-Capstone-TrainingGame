@@ -1,31 +1,46 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0sx40446iowp"]
+[gd_scene load_steps=20 format=3 uid="uid://d0sx40446iowp"]
 
 [ext_resource type="Script" uid="uid://b44y1sh138bm4" path="res://scripts/order_page.gd" id="1_3a8g4"]
 [ext_resource type="Theme" uid="uid://c5wta1oqlc53x" path="res://assets/button_size_override_theme.tres" id="1_63hpv"]
 [ext_resource type="Texture2D" uid="uid://c0q4bg7nynofy" path="res://assets/bourbon_steak_2.jpg" id="2_in15t"]
-[ext_resource type="Texture2D" uid="uid://buqb6w7gin2nj" path="res://assets/Steak.png" id="2_vedy5"]
+[ext_resource type="FontFile" uid="uid://cmd74ttnngj2g" path="res://assets/CHICKEN Pie.ttf" id="3_nre5e"]
 [ext_resource type="Script" uid="uid://kx1x2nirlefp" path="res://scripts/chat_history_text_area.gd" id="4_vw0ay"]
 [ext_resource type="PackedScene" uid="uid://bsjcexhybugbt" path="res://nodes/api_node.tscn" id="5_bfxwi"]
+[ext_resource type="Texture2D" uid="uid://bxj8wj2o2rc8a" path="res://assets/cupertino_activity_indicator.png" id="7_nq7oy"]
+[ext_resource type="Script" uid="uid://dvymkklggegc4" path="res://scripts/spinner.gd" id="7_y4ucp"]
+[ext_resource type="Script" uid="uid://b0y2t743s47v0" path="res://scripts/status_message.gd" id="9_ccvrm"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_yrtmq"]
+font = ExtResource("3_nre5e")
 font_size = 40
-font_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_la0kf"]
-font_size = 32
-font_color = Color(0, 0, 0, 1)
+font = ExtResource("3_nre5e")
+font_size = 34
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
 
 [sub_resource type="LabelSettings" id="LabelSettings_o0e1r"]
+font = ExtResource("3_nre5e")
 font_size = 38
-font_color = Color(0, 0, 0, 1)
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ccvrm"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lo4wy"]
-bg_color = Color(1, 1, 1, 1)
+content_margin_left = 34.0
+content_margin_top = 10.0
+content_margin_right = 34.0
+content_margin_bottom = 10.0
+bg_color = Color(0.56, 0.56, 0.56, 0.54902)
 border_width_left = 5
 border_width_top = 5
 border_width_right = 5
 border_width_bottom = 5
-border_color = Color(0, 0.561, 0.66, 1)
+border_color = Color(0.498039, 0.317647, 0, 1)
 corner_radius_top_left = 15
 corner_radius_top_right = 15
 corner_radius_bottom_right = 15
@@ -33,11 +48,36 @@ corner_radius_bottom_left = 15
 
 [sub_resource type="Theme" id="Theme_iy3vv"]
 default_font_size = 35
+RichTextLabel/styles/normal = SubResource("StyleBoxFlat_ccvrm")
 TextEdit/styles/read_only = SubResource("StyleBoxFlat_lo4wy")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yqeoe"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lprer"]
+content_margin_left = 20.0
+content_margin_top = 10.0
+content_margin_right = 5.0
+content_margin_bottom = 1.0
+bg_color = Color(0.4356, 0.44, 0.437507, 0.890196)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.498039, 0.317647, 0, 1)
+corner_radius_top_left = 15
+corner_radius_top_right = 15
+corner_radius_bottom_right = 15
+corner_radius_bottom_left = 15
+
 [sub_resource type="LabelSettings" id="LabelSettings_vt111"]
-font_size = 35
-font_color = Color(0, 0, 0, 1)
+font = ExtResource("3_nre5e")
+font_size = 36
+shadow_size = 2
+shadow_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_yqeoe"]
+font = ExtResource("3_nre5e")
+font_size = 34
 
 [node name="OrderPage" type="Node2D"]
 script = ExtResource("1_3a8g4")
@@ -45,10 +85,10 @@ script = ExtResource("1_3a8g4")
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1920.0
 offset_bottom = 1440.0
-color = Color(0.843872, 0.859538, 0.908741, 1)
+color = Color(0.211765, 0.184314, 0.223529, 1)
 
-[node name="TextureRect2" type="TextureRect" parent="."]
-modulate = Color(1, 1, 1, 0.121569)
+[node name="BackgroundPhoto" type="TextureRect" parent="."]
+modulate = Color(1, 1, 1, 0.54902)
 offset_left = -1.0
 offset_top = -164.0
 offset_right = 2291.0
@@ -77,6 +117,7 @@ offset_left = 1612.0
 offset_top = 1351.0
 offset_right = 1871.0
 offset_bottom = 1429.0
+mouse_default_cursor_shape = 2
 theme = ExtResource("1_63hpv")
 text = "Submit Order"
 
@@ -102,46 +143,39 @@ offset_top = 773.0
 offset_right = 1083.0
 offset_bottom = 773.0
 
-[node name="TextureRect" type="TextureRect" parent="."]
-offset_left = 1233.0
-offset_top = 305.0
-offset_right = 2359.0
-offset_bottom = 988.0
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("2_vedy5")
-
 [node name="MessageEntry" type="LineEdit" parent="."]
-offset_left = 32.0
+offset_left = 29.0
 offset_top = 1263.0
-offset_right = 1582.0
+offset_right = 1579.0
 offset_bottom = 1337.0
 theme = ExtResource("1_63hpv")
-theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
-theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.978513, 0.982862, 0.989086, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 placeholder_text = "Type your message here..."
+deselect_on_focus_loss_enabled = false
 
 [node name="ChatLabel" type="Label" parent="."]
 offset_left = 35.0
-offset_top = 900.0
-offset_right = 417.0
-offset_bottom = 953.0
+offset_top = 816.0
+offset_right = 428.0
+offset_bottom = 869.0
 text = "Speak with the guest:"
 label_settings = SubResource("LabelSettings_o0e1r")
 
-[node name="ChatHistoryTextArea" type="TextEdit" parent="."]
+[node name="ChatHistoryTextArea" type="RichTextLabel" parent="."]
 offset_left = 29.0
-offset_top = 974.0
+offset_top = 874.0
 offset_right = 1867.0
 offset_bottom = 1241.0
 theme = SubResource("Theme_iy3vv")
-theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
-theme_override_colors/font_readonly_color = Color(0, 0, 0, 1)
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-placeholder_text = "Guest conversation will appear here."
-editable = false
-wrap_mode = 1
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_styles/focus = SubResource("StyleBoxFlat_yqeoe")
+theme_override_styles/normal = SubResource("StyleBoxFlat_lprer")
+bbcode_enabled = true
+text = "Guest conversation history will appear here"
+scroll_following = true
+drag_and_drop_selection_enabled = false
 script = ExtResource("4_vw0ay")
 
 [node name="SendMessageButton" type="Button" parent="."]
@@ -149,6 +183,7 @@ offset_left = 1609.0
 offset_top = 1258.0
 offset_right = 1874.0
 offset_bottom = 1334.0
+mouse_default_cursor_shape = 2
 theme = ExtResource("1_63hpv")
 text = "SEND"
 
@@ -165,10 +200,29 @@ offset_left = 1065.0
 offset_top = 769.0
 offset_right = 1224.0
 offset_bottom = 834.0
+mouse_default_cursor_shape = 2
 theme = ExtResource("1_63hpv")
 text = "Next"
 
 [node name="API_Node" parent="." instance=ExtResource("5_bfxwi")]
+
+[node name="Spinner" type="TextureRect" parent="."]
+visible = false
+offset_left = 1541.0
+offset_top = 1371.0
+offset_right = 1587.0
+offset_bottom = 1417.0
+texture = ExtResource("7_nq7oy")
+expand_mode = 1
+script = ExtResource("7_y4ucp")
+
+[node name="StatusMessage" type="Label" parent="."]
+offset_left = 41.0
+offset_top = 1364.0
+offset_right = 702.0
+offset_bottom = 1420.0
+label_settings = SubResource("LabelSettings_yqeoe")
+script = ExtResource("9_ccvrm")
 
 [connection signal="pressed" from="SubmitButton" to="." method="_on_submit_order"]
 [connection signal="text_submitted" from="MessageEntry" to="." method="_on_press_enter"]

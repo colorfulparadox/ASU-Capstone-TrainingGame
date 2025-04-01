@@ -27,6 +27,9 @@ var dessert_choice = ""
 var timerImport: Timer
 var buttonImport: Button
 
+var correct_wine_entree: String
+var correct_dessert_wine: String
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	set_corner_radius()
@@ -248,6 +251,11 @@ func spawn_questions() -> void:
 	print("\nspawning questions")
 	print(food_category)
 	
+	if food_category == "dessert":
+		correct_dessert_wine = correct_answer_text
+	else:
+		correct_wine_entree = correct_answer_text
+	
 	for i in range(1, GameConstants.POSSIBLE_CHOICES_COUNT + 1):
 		if i == correct_answer:
 			tinstance.add_question(correct_answer_text, i)
@@ -339,7 +347,7 @@ func generate_instruction() -> String:
 	instruction += "The ideal wine or beverage pairings for your entree category are: "
 	for ideal_pairing in GameConstants.food_beverage_pairings[food_category]:
 		instruction += ","
-	instruction += "."
+	instruction += ". The given correct answer for this situation is %s. If this one is mentioned you are to agree with it warmly." % correct_wine_entree
 	instruction += "The server is being trained to suggest to you the correct wine, beer or beverage\
 	pairing with your meal. If they get it wrong based on the provided pairings act like you'll trust them\
 	but that you think another option might be better."
@@ -351,7 +359,7 @@ func generate_instruction() -> String:
 		instruction += "The ideal wine or beverage pairings for your dessert are:"
 		for ideal_pairing in GameConstants.food_beverage_pairings["dessert"]:
 			instruction += ","
-		instruction += "."
+		instruction += ". The given correct answer for this dessert pairing situation is %s. If this one is mentioned you are to agree with it warmly." % correct_wine_entree
 		instruction += "Focus primarily on the entree pairing and your interest about the entree and dessert"
 	else:
 		instruction += " You do not plan on ordering a dessert."

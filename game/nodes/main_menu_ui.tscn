@@ -130,7 +130,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_rn64h")
 theme_override_styles/normal = SubResource("StyleBoxFlat_c70cd")
 text = "Options"
 
-[node name="Label" type="Label" parent="."]
+[node name="Title" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5

@@ -4,6 +4,10 @@ const CUSTOMER = preload("res://nodes/customer.tscn")
 
 @onready var button = $tableButton
 
+# 0, 1, 2
+# table, bar, booth
+@export var seat_type: int
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group("unoccupied_table")
@@ -35,10 +39,13 @@ func _on_body_entered(body: Node2D) -> void:
 func table_occupied():
 	remove_from_group("unoccupied_table")
 	var new_texture = preload("res://assets/occupied_table.png")
-	$Sprite2D.set_texture(new_texture)
+	#$Sprite2D.set_texture(new_texture)
 	button.visible = true
 	button.modulate.a = 0
 	button.disabled = false
+	
+	spawn_seated_customer()
+	
 	temp_leaving()
 
 func table_unoccupied():
@@ -46,6 +53,7 @@ func table_unoccupied():
 	#var new_texture = preload("res://assets/unoccupied_table.png")
 	#$Sprite2D.set_texture(new_texture)
 	$Sprite2D.texture = null
+	destroy_seated_customer()
 
 func _on_timer_timeout() -> void:
 	customer_exit()
@@ -61,4 +69,22 @@ func _on_table_button_pressed() -> void:
 	instance.buttonImport = $tableButton
 	get_parent().get_parent().add_child(instance)
 	
+func spawn_seated_customer():
+	var customersit = CUSTOMER.instantiate()
+	add_child(customersit)
+	customersit.set_physics_process(false)
+	customersit.set_process(false)
 	
+	var side = randi() % 2
+	var offset: int
+	offset = 90 if side == 0 else -85
+	
+	if seat_type == 0:
+		customersit.position += Vector2(offset, -10)
+	elif seat_type == 1:
+		customersit.position += Vector2(0, -25)
+	elif seat_type == 2:
+		customersit.position += Vector2(offset, -10)
+
+func destroy_seated_customer():
+	$customer.queue_free()

@@ -74,32 +74,41 @@ position = Vector2(625, -341)
 
 [node name="barstool" parent="NavigationRegion2D/barstools" instance=ExtResource("4_plk2m")]
 position = Vector2(-232, -40)
+seat_type = 1
 
 [node name="barstool2" parent="NavigationRegion2D/barstools" instance=ExtResource("4_plk2m")]
 position = Vector2(-425, -40)
+seat_type = 1
 
 [node name="barstool3" parent="NavigationRegion2D/barstools" instance=ExtResource("4_plk2m")]
 position = Vector2(-614, -40)
+seat_type = 1
 
 [node name="barstool4" parent="NavigationRegion2D/barstools" instance=ExtResource("4_plk2m")]
 position = Vector2(-813, -40)
+seat_type = 1
 
 [node name="barstool5" parent="NavigationRegion2D/barstools" instance=ExtResource("4_plk2m")]
 position = Vector2(-40, -229)
+seat_type = 1
 
 [node name="booths" type="Node" parent="NavigationRegion2D"]
 
 [node name="booth" parent="NavigationRegion2D/booths" instance=ExtResource("5_k3n6f")]
 position = Vector2(-338, 575)
+seat_type = 2
 
 [node name="booth2" parent="NavigationRegion2D/booths" instance=ExtResource("5_k3n6f")]
 position = Vector2(40, 575)
+seat_type = 2
 
 [node name="booth3" parent="NavigationRegion2D/booths" instance=ExtResource("5_k3n6f")]
 position = Vector2(425, 575)
+seat_type = 2
 
 [node name="booth4" parent="NavigationRegion2D/booths" instance=ExtResource("5_k3n6f")]
 position = Vector2(815, 575)
+seat_type = 2
 
 [node name="Accesories" type="TileMapLayer" parent="NavigationRegion2D"]
 scale = Vector2(3, 3)

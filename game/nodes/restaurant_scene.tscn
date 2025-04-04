@@ -123,7 +123,7 @@ carve_navigation_mesh = true
 [node name="customers" type="Node" parent="." groups=["customers"]]
 
 [node name="customer" parent="customers" instance=ExtResource("2_h86kc")]
-position = Vector2(209, -319)
+position = Vector2(-830, 598)
 collision_mask = 9
 
 [node name="door" parent="." instance=ExtResource("4_km55j")]

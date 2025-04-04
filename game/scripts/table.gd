@@ -14,8 +14,6 @@ func _ready() -> void:
 	button.visible = false
 	button.disabled = true
 
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
@@ -58,7 +56,6 @@ func table_unoccupied():
 func _on_timer_timeout() -> void:
 	customer_exit()
 
-
 func _on_table_button_pressed() -> void:
 	$Timer.paused = true
 	
@@ -72,6 +69,7 @@ func _on_table_button_pressed() -> void:
 func spawn_seated_customer():
 	var customersit = CUSTOMER.instantiate()
 	add_child(customersit)
+	customersit.find_child("Character").pause()
 	customersit.set_physics_process(false)
 	customersit.set_process(false)
 	
@@ -81,10 +79,16 @@ func spawn_seated_customer():
 	
 	if seat_type == 0:
 		customersit.position += Vector2(offset, -10)
+		if side == 0: customersit.look_left()
+		else: customersit.look_right()
 	elif seat_type == 1:
 		customersit.position += Vector2(0, -25)
+		customersit.look_up()
+
 	elif seat_type == 2:
 		customersit.position += Vector2(offset, -10)
+		if side == 0: customersit.look_left()
+		else: customersit.look_right()
 
 func destroy_seated_customer():
 	$customer.queue_free()

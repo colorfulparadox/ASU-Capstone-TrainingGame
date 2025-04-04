@@ -50,21 +50,26 @@ func _physics_process(delta):
 		acquire_target()
 	if navigation_agent_2d.is_navigation_finished():
 		return
-		
 	var current_agent_position = global_position
 	var next_path_position = navigation_agent_2d.get_next_path_position()
-	print(current_agent_position.direction_to(next_path_position).angle())
-	if PI/4.0 < current_agent_position.direction_to(next_path_position).angle() && current_agent_position.direction_to(next_path_position).angle() < (3.0 * PI)/4.0 :
-		direction = 1	# UP
-		
-	if (7.0 * PI)/4.0 <= current_agent_position.direction_to(next_path_position).angle() && current_agent_position.direction_to(next_path_position).angle() <= PI/4.0 :
-		direction = 2	# RIGHT
-		
-	if (5.0 * PI)/4.0 < current_agent_position.direction_to(next_path_position).angle() && current_agent_position.direction_to(next_path_position).angle() < (7.0 * PI)/4.0 :
-		direction = 3	# DOWN
-		
-	if (3.0 * PI)/4.0 <= current_agent_position.direction_to(next_path_position).angle() && current_agent_position.direction_to(next_path_position).angle() <= (5.0 * PI)/4.0 :
-		direction = 4	# LEFT
+	#print(current_agent_position.direction_to(next_path_position).angle())
+	var angle = current_agent_position.direction_to(next_path_position).angle()
+
+	if PI/4.0 < angle and angle < (3.0 * PI)/4.0:
+		direction = 1  # UP
+		go_down()
+
+	elif (7.0 * PI)/4.0 <= angle or angle <= PI/4.0:
+		direction = 2  # RIGHT
+		go_right()
+
+	elif (5.0 * PI)/4.0 < angle and angle < (7.0 * PI)/4.0:
+		direction = 3  # DOWN
+		go_up()
+
+	elif (3.0 * PI)/4.0 <= angle and angle <= (5.0 * PI)/4.0:
+		direction = 4  # LEFT
+		go_left()
 		
 	var new_velocity = current_agent_position.direction_to(next_path_position) * movement_speed
 	
@@ -85,3 +90,31 @@ func occupy_table(body):
 func _on_navigation_agent_2d_velocity_computed(safe_velocity):
 	velocity = safe_velocity
 	pass # Replace with function body.
+
+func look_left():
+	$Character.left()
+	$Character.pause()
+
+func look_right():
+	$Character.right()
+	$Character.pause()
+
+func look_up():
+	$Character.up()
+	$Character.pause()
+
+func look_down():
+	$Character.down()
+	$Character.pause()
+
+func go_left():
+	$Character.left()
+
+func go_right():
+	$Character.right()
+
+func go_up():
+	$Character.up()
+
+func go_down():
+	$Character.down()

@@ -8,6 +8,8 @@ const CUSTOMER = preload("res://nodes/customer.tscn")
 # table, bar, booth
 @export var seat_type: int
 
+var customer_offset: Vector2 = Vector2(0,0)
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	add_to_group("unoccupied_table")
@@ -23,7 +25,9 @@ func temp_leaving():
 
 func customer_exit():
 	var instance = CUSTOMER.instantiate()
+	# start them at sitting position, instead of middle of table
 	instance.global_position = global_position
+	instance.position += customer_offset 
 	var customerCollection = get_tree().get_nodes_in_group("customers")[0]
 	customerCollection.add_child(instance)
 	instance.leaving()
@@ -78,15 +82,18 @@ func spawn_seated_customer():
 	offset = 90 if side == 0 else -85
 	
 	if seat_type == 0:
-		customersit.position += Vector2(offset, -10)
+		customer_offset = Vector2(offset, -10)
+		customersit.position += customer_offset
 		if side == 0: customersit.look_left()
 		else: customersit.look_right()
 	elif seat_type == 1:
-		customersit.position += Vector2(0, -25)
+		customer_offset = Vector2(0, -25)
+		customersit.position += customer_offset
 		customersit.look_up()
 
 	elif seat_type == 2:
-		customersit.position += Vector2(offset, -10)
+		customer_offset = Vector2(offset, -10)
+		customersit.position += customer_offset
 		if side == 0: customersit.look_left()
 		else: customersit.look_right()
 

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var movement_speed = 150
+var movement_speed = 200
 var rng = RandomNumberGenerator.new()
 enum Directions {  
 	UP,      
@@ -73,7 +73,7 @@ func _physics_process(delta):
 		
 	var new_velocity = current_agent_position.direction_to(next_path_position) * movement_speed
 	
-	if navigation_agent_2d.avoidance_enabled:
+	if !navigation_agent_2d.avoidance_enabled:
 		navigation_agent_2d.set_velocity(new_velocity)
 	else:
 		_on_navigation_agent_2d_velocity_computed(new_velocity)

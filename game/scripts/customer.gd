@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var movement_speed = 200
+var movement_speed = 165
 var rng = RandomNumberGenerator.new()
 enum Directions {  
 	UP,      

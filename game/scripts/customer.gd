@@ -55,19 +55,19 @@ func _physics_process(delta):
 	#print(current_agent_position.direction_to(next_path_position).angle())
 	var angle = current_agent_position.direction_to(next_path_position).angle()
 
-	if PI/4.0 < angle and angle < (3.0 * PI)/4.0:
+	if -(3*PI)/4 < angle and angle < -PI/4:
 		direction = 1  # UP
-		go_down()
+		go_up()
 
-	elif (7.0 * PI)/4.0 <= angle or angle <= PI/4.0:
+	elif -PI/4 <= angle and angle <= PI/4:
 		direction = 2  # RIGHT
 		go_right()
 
-	elif (5.0 * PI)/4.0 < angle and angle < (7.0 * PI)/4.0:
+	elif PI/4 < angle and angle < (3*PI)/4:
 		direction = 3  # DOWN
-		go_up()
+		go_down()
 
-	elif (3.0 * PI)/4.0 <= angle and angle <= (5.0 * PI)/4.0:
+	elif (3*PI)/4 <= angle or angle <= -(3*PI)/4:
 		direction = 4  # LEFT
 		go_left()
 		

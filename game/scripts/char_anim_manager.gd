@@ -7,11 +7,12 @@ var bodyAnim = $BodyAnim
 var hairAnim = $HairAnim
 @onready
 var clothingAnim = $ClothingAnim
+@onready
+var speed_multiplier = 1.1
 
 func _ready():
 	up()
 	
-	var speed_multiplier = 1.1
 	hairAnim.speed_scale = speed_multiplier
 	bodyAnim.speed_scale = speed_multiplier
 	clothingAnim.speed_scale = speed_multiplier

@@ -37,6 +37,7 @@ func spawn_order_page(test_value: int) -> Node2D:
 
 func _notification(what):
 	if what == NOTIFICATION_WM_CLOSE_REQUEST:
+		get_tree().set_auto_accept_quit(false)
 		## close all conversations
 		#var out = await $API_Node.end_conversation(ServerVariables.auth_id)
 		#print("out status: ", out)
@@ -50,9 +51,10 @@ func _notification(what):
 			# send new score
 			print("Sending session score...")
 			var score_send_result = await $API_Node.final_score(ServerVariables.session_score, 0, 0)
-			print("result: %b" % score_send_result)
 			if typeof(score_send_result) == TYPE_BOOL:
 				get_tree().quit()
+				pass
 		else:
 			get_tree().quit() # default behavior
+			pass
 		

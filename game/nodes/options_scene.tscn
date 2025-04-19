@@ -120,7 +120,7 @@ grow_horizontal = 2
 scale = Vector2(0.52, 0.52)
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_s0p8e")
-text = "Username"
+text = "Username:"
 label_settings = SubResource("LabelSettings_1mc6i")
 
 [node name="TextEdit" type="LineEdit" parent="." groups=["username"]]
@@ -146,7 +146,7 @@ grow_horizontal = 2
 scale = Vector2(0.559999, 0.559999)
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_s0p8e")
-text = "Password"
+text = "Password:"
 label_settings = SubResource("LabelSettings_1mc6i")
 
 [node name="TextEdit2" type="LineEdit" parent="." groups=["password"]]
